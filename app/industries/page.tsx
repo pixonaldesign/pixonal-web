@@ -1,6 +1,4 @@
 import { Metadata } from 'next';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
 import GetInTouch from '@/components/GetInTouch';
 import { industries } from '@/lib/industries';
 import Link from 'next/link';
@@ -16,10 +14,7 @@ export const metadata: Metadata = {
 
 export default function IndustriesPage() {
   return (
-    <div className="bg-primary-900 min-h-screen">
-      {/* Navigation */}
-      <Navigation />
-
+    <>
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-primary-800 to-primary-900">
         <div className="max-w-6xl mx-auto px-4 text-center">
@@ -184,9 +179,6 @@ export default function IndustriesPage() {
 
       {/* Get in Touch Section */}
       <GetInTouch />
-
-      {/* Footer */}
-      <Footer />
-    </div>
+    </>
   );
 }

@@ -1,16 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-});
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: {
@@ -87,9 +78,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-inter antialiased">
-        {children}
+    <html lang="en">
+      <body className="font-untitled-sans antialiased bg-zinc-900 p-5">
+        <div className="w-full min-h-screen flex flex-col justify-start items-center relative">
+          <div className="w-full flex flex-col justify-start items-center gap-10 rounded-[20px]">
+            {/* Navigation - Fixed/Overlay */}
+            <div className="flex justify-center fixed top-5 left-5 right-5 z-50">
+              <Navigation />
+            </div>
+
+            {/* Page Content */}
+            <main className="w-full">
+              {children}
+            </main>
+
+            {/* Footer */}
+            <Footer />
+            </div>
+        </div>
       </body>
     </html>
   );

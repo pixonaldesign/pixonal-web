@@ -1,6 +1,4 @@
 import { Metadata } from 'next';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
 import GetInTouch from '@/components/GetInTouch';
 import Link from 'next/link';
 
@@ -145,10 +143,7 @@ export default function LlumenPage() {
   ];
 
   return (
-    <div className="bg-primary-900 min-h-screen">
-      {/* Navigation */}
-      <Navigation />
-
+    <>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-800 to-primary-900">
@@ -333,9 +328,6 @@ export default function LlumenPage() {
 
       {/* Get in Touch Section */}
       <GetInTouch />
-
-      {/* Footer */}
-      <Footer />
-    </div>
+    </>
   );
 }

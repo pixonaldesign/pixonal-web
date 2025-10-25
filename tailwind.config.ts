@@ -30,8 +30,8 @@ const config: Config = {
         }
       },
       fontFamily: {
-        'inter': ['var(--font-inter)', 'sans-serif'],
-        'jetbrains-mono': ['var(--font-jetbrains-mono)', 'monospace'],
+        'untitled-sans': ['Untitled Sans', 'sans-serif'],
+        'ibm-plex-mono': ['IBM Plex Mono', 'monospace'],
       },
       fontSize: {
         'h1': ['36px', { lineHeight: '1.2', letterSpacing: '-0.792px' }],

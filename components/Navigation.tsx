@@ -1,14 +1,11 @@
-'use client';
-
 import Link from 'next/link';
-import { useState } from 'react';
+import MobileMenu from './MobileMenu';
+import NavLink from './NavLink';
 
 export default function Navigation() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
-    <nav className="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 w-[1400px] max-w-[calc(100vw-40px)]">
-      <div className="backdrop-blur-[15px] bg-[rgba(44,44,44,0.2)] border border-[rgba(255,255,255,0.1)] rounded-[20px] flex items-center justify-between px-5 py-0 h-[66px]">
+    <div className="w-full mx-auto rounded-[20px] flex justify-center items-start gap-2.5">
+      <div className="w-full pl-3 md:pl-5 pr-2 md:pr-3.5 bg-zinc-800/20 rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/10 backdrop-blur-lg flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
           <img 
@@ -18,144 +15,82 @@ export default function Navigation() {
           />
         </div>
 
-        {/* Navigation Links */}
-        <div className="flex items-center h-full">
-          <div className="flex h-full items-center">
+            {/* Navigation Links */}
+            <div className="hidden md:flex self-stretch justify-start items-center">
+              <div className="self-stretch flex justify-start items-center">
             {/* Llumen */}
-            <Link 
+            <NavLink 
               href="/llumen" 
-              className="border-l border-[rgba(255,255,255,0.1)] h-full flex items-center justify-center w-[150px] group hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+              className="w-36 self-stretch border-l border-white/10 flex justify-center items-center gap-2.5"
             >
-              <div className="flex flex-col items-center gap-0.5">
-                <span className="font-inter text-[16px] text-white tracking-[-0.352px] capitalize">
+              <div className="size- inline-flex flex-col justify-center items-center gap-0.5">
+                <div className="text-center justify-start text-white text-base font-normal font-untitled-sans capitalize leading-5">
                   Llumen®
-                </span>
-                <div className="flex items-center justify-center">
-                  <div className="rotate-180">
-                    <img 
-                      src="/images/arrow-down.svg" 
-                      alt="Dropdown" 
-                      className="h-0 w-[64px]"
-                    />
-                  </div>
                 </div>
+                <div className="w-16 h-0 origin-top-left rotate-180 outline outline-1 outline-offset-[-0.50px] outline-white/0"></div>
               </div>
-            </Link>
+            </NavLink>
 
             {/* Industries */}
-            <Link 
+            <NavLink 
               href="/industries" 
-              className="border-l border-[rgba(255,255,255,0.1)] h-full flex items-center justify-center w-[150px] group hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+              className="w-36 self-stretch border-l border-white/10 flex justify-center items-center gap-2.5"
             >
-              <div className="flex flex-col items-center gap-0.5">
-                <span className="font-inter text-[16px] text-white tracking-[-0.352px] capitalize">
+              <div className="size- inline-flex flex-col justify-center items-center gap-0.5">
+                <div className="text-center justify-start text-white text-base font-normal font-untitled-sans capitalize leading-5">
                   Industries
-                </span>
-                <div className="flex items-center justify-center">
-                  <div className="rotate-180">
-                    <img 
-                      src="/images/arrow-down-wide.svg" 
-                      alt="Dropdown" 
-                      className="h-0 w-[72px]"
-                    />
-                  </div>
                 </div>
+                <div className="w-16 h-0 origin-top-left rotate-180 outline outline-1 outline-offset-[-0.50px] outline-white/0"></div>
               </div>
-            </Link>
+            </NavLink>
 
             {/* Advisory */}
-            <Link 
+            <NavLink 
               href="/advisory" 
-              className="border-l border-[rgba(255,255,255,0.1)] h-full flex items-center justify-center w-[150px] group hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+              className="w-36 self-stretch border-l border-white/10 flex justify-center items-center gap-2.5"
             >
-              <div className="flex flex-col items-center gap-0.5">
-                <span className="font-inter text-[16px] text-white tracking-[-0.352px] capitalize">
+              <div className="size- inline-flex flex-col justify-center items-center gap-0.5">
+                <div className="text-center justify-start text-white text-base font-normal font-untitled-sans capitalize leading-5">
                   Advisory
-                </span>
-                <div className="flex items-center justify-center">
-                  <div className="rotate-180">
-                    <img 
-                      src="/images/arrow-down.svg" 
-                      alt="Dropdown" 
-                      className="h-0 w-[64px]"
-                    />
-                  </div>
                 </div>
+                <div className="w-16 h-0 origin-top-left rotate-180 outline outline-1 outline-offset-[-0.50px] outline-white/0"></div>
               </div>
-            </Link>
+            </NavLink>
 
             {/* Newsroom */}
-            <Link 
+            <NavLink 
               href="/newsroom" 
-              className="border-l border-r border-[rgba(255,255,255,0.1)] h-full flex items-center justify-center w-[150px] group hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+              className="w-36 self-stretch border-l border-r border-white/10 flex justify-center items-center gap-2.5"
             >
-              <div className="flex flex-col items-center gap-0.5">
-                <span className="font-inter text-[16px] text-white tracking-[-0.352px] capitalize">
+              <div className="size- inline-flex flex-col justify-center items-center gap-0.5">
+                <div className="text-center justify-start text-white text-base font-normal font-untitled-sans capitalize leading-5">
                   Newsroom
-                </span>
-                <div className="flex items-center justify-center">
-                  <div className="rotate-180">
-                    <img 
-                      src="/images/arrow-down.svg" 
-                      alt="Dropdown" 
-                      className="h-0 w-[64px]"
-                    />
-                  </div>
                 </div>
+                <div className="w-16 h-0 origin-top-left rotate-180 outline outline-1 outline-offset-[-0.50px] outline-white/0"></div>
               </div>
-            </Link>
+            </NavLink>
           </div>
 
-          {/* Get In Touch Button */}
-          <div className="border-r border-[rgba(255,255,255,0.1)] h-full flex items-center justify-center w-[150px]">
-            <div className="flex flex-col items-center justify-center w-full">
-              <Link 
-                href="/contact"
-                className="bg-white bg-opacity-95 px-3 py-3 rounded-[10px] flex items-center justify-center hover:bg-opacity-100 transition-all"
-              >
-                <span className="font-inter text-[16px] text-black tracking-[-0.352px] capitalize leading-[1.2]">
-                  Get In Touch
-                </span>
-              </Link>
+          {/* Get In Touch Button and Mobile Menu */}
+          <div className="h-16 flex justify-center items-center gap-3">
+            <div className="hidden md:block w-36 self-stretch border-r border-white/10 inline-flex flex-col justify-center items-center gap-2.5">
+              <div className="self-stretch flex flex-col justify-center items-center gap-2.5">
+                <NavLink 
+                  href="/contact"
+                  className="size- p-3 opacity-95 bg-white rounded-[10px] inline-flex justify-center items-center gap-2.5"
+                >
+                  <div className="text-center justify-center text-black text-base font-normal font-untitled-sans capitalize leading-5">
+                    Get In Touch
+                  </div>
+                </NavLink>
+              </div>
+            </div>
+            <div className="size- p-2.5 opacity-95 rounded-[10px] flex justify-center items-center gap-2.5">
+              <MobileMenu />
             </div>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2.5 rounded-[10px] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
-          >
-            <img 
-              src="/images/menu-icon.svg" 
-              alt="Menu" 
-              className="w-6 h-6"
-            />
-          </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 backdrop-blur-[15px] bg-[rgba(44,44,44,0.9)] border border-[rgba(255,255,255,0.1)] rounded-[20px] p-4">
-          <div className="flex flex-col space-y-2">
-            <Link href="/llumen" className="text-white py-2 px-4 rounded-lg hover:bg-[rgba(255,255,255,0.1)]">
-              Llumen®
-            </Link>
-            <Link href="/industries" className="text-white py-2 px-4 rounded-lg hover:bg-[rgba(255,255,255,0.1)]">
-              Industries
-            </Link>
-            <Link href="/advisory" className="text-white py-2 px-4 rounded-lg hover:bg-[rgba(255,255,255,0.1)]">
-              Advisory
-            </Link>
-            <Link href="/newsroom" className="text-white py-2 px-4 rounded-lg hover:bg-[rgba(255,255,255,0.1)]">
-              Newsroom
-            </Link>
-            <Link href="/contact" className="text-white py-2 px-4 rounded-lg hover:bg-[rgba(255,255,255,0.1)]">
-              Get In Touch
-            </Link>
-          </div>
-        </div>
-      )}
-    </nav>
+    </div>
   );
 }

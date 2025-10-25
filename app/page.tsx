@@ -1,38 +1,31 @@
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
 import GetInTouch from '@/components/GetInTouch';
+import PixonalIcon from '@/components/PixonalIcon';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function HomePage() {
   return (
-    <div className="bg-primary-900 min-h-screen">
-      {/* Navigation */}
-      <Navigation />
-
+    <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="w-full h-[788px] min-h-[788px] px-10 md:px-20 lg:px-40 py-20 md:py-40 lg:py-96 rounded-[20px] flex flex-col justify-center items-start gap-2.5 relative">
         {/* Background Image */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[20px]">
           <img 
-            src="/images/hero-background.png" 
             alt="Hero Background" 
-            className="w-full h-full object-cover"
+            className="absolute h-[105.25%] left-[-3.59%] max-w-none top-0 w-[107.17%]"
+            src="/images/hero-background.png"
           />
-          <div className="absolute inset-0 bg-black/20"></div>
         </div>
         
         {/* Hero Content */}
-        <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
-          <h1 className="text-6xl md:text-8xl font-inter font-normal text-white mb-6 leading-[1.1] tracking-[-1.848px]">
-            Intelligence at the<br />
-            Moment of Decision
-          </h1>
-          <p className="font-jetbrains-mono font-light italic text-2xl text-white tracking-[1.44px] uppercase mb-8">
-            Governance + Interaction + Communication
-          </p>
+        <div className="relative z-10 w-full justify-start text-white text-4xl md:text-6xl lg:text-8xl font-normal font-untitled-sans leading-tight md:leading-[92.40px] tracking-[-1.848px]">
+          Intelligence at the<br />
+          Moment of Decision
         </div>
-      </section>
+        <div className="relative z-10 w-full justify-start text-white text-lg md:text-xl lg:text-2xl font-semibold font-ibm-plex-mono uppercase leading-7 tracking-[1.44px] whitespace-pre">
+          Governance + Interaction + Communication
+        </div>
+      </div>
 
       {/* Impact Highlights Carousel */}
       <section className="py-20 bg-white">
@@ -49,9 +42,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl">
               <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+                <PixonalIcon name="lightning" size={32} className="text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Smart City Initiative
@@ -62,17 +53,13 @@ export default function HomePage() {
               </p>
               <div className="flex items-center text-blue-600 font-medium">
                 <span>Read Case Study</span>
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <PixonalIcon name="caret-right" size={16} className="ml-2" />
               </div>
             </div>
 
             <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl">
               <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                <PixonalIcon name="check-circle" size={32} className="text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Real Estate Optimization
@@ -83,17 +70,13 @@ export default function HomePage() {
               </p>
               <div className="flex items-center text-green-600 font-medium">
                 <span>Read Case Study</span>
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <PixonalIcon name="caret-right" size={16} className="ml-2" />
               </div>
             </div>
 
             <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl">
               <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
+                <PixonalIcon name="users" size={32} className="text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Citizen Services
@@ -104,9 +87,7 @@ export default function HomePage() {
               </p>
               <div className="flex items-center text-purple-600 font-medium">
                 <span>Read Case Study</span>
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <PixonalIcon name="caret-right" size={16} className="ml-2" />
               </div>
             </div>
           </div>
@@ -159,25 +140,19 @@ export default function HomePage() {
               <div className="space-y-4 mb-8">
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 bg-accent-blue rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+                    <PixonalIcon name="check" size={16} className="text-white" />
                   </div>
                   <span className="text-white">Intelligent Data Processing</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 bg-accent-blue rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+                    <PixonalIcon name="check" size={16} className="text-white" />
                   </div>
                   <span className="text-white">Advanced Analytics & Insights</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 bg-accent-blue rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+                    <PixonalIcon name="check" size={16} className="text-white" />
                   </div>
                   <span className="text-white">Seamless Integration</span>
                 </div>
@@ -187,9 +162,7 @@ export default function HomePage() {
                 className="bg-gradient-to-r from-accent-blue to-accent-red text-white px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-opacity inline-flex items-center"
               >
                 Learn More About Llumen
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <PixonalIcon name="caret-right" size={20} className="ml-2" />
               </Link>
             </div>
             <div className="relative">
@@ -239,11 +212,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Get in Touch Section */}
-      <GetInTouch />
-
-      {/* Footer */}
-      <Footer />
-    </div>
-  );
-}
+          {/* Get in Touch Section */}
+          <GetInTouch />
+        </>
+      );
+    }
