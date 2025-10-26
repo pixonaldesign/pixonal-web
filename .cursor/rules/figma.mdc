@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+
+- Use Figma's MCP to understand more about the design we're trying to achieve.
+- The final design is in "Ready for Dev" page in Figma
+- When importing the design from Figma, note that the Figma designers use absolute sizes (in pixels) for width/height of components. You will need to compensate for that fact when importing, as we want things relative to screen size in our case.
+- We have no mobile UI/viewport design. So use your judgement to compensate for that fact.

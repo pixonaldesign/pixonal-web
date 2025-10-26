@@ -12,6 +12,7 @@ import {
   PhoneIcon as PhosphorPhoneIcon,
   MapPinIcon as PhosphorMapPinIcon,
   ArrowLeftIcon as PhosphorArrowLeftIcon,
+  ArrowRightIcon as PhosphorArrowRightIcon,
   PlayIcon as PhosphorPlayIcon,
   PauseIcon as PhosphorPauseIcon
 } from '@phosphor-icons/react';
@@ -28,6 +29,7 @@ type IconName =
   | 'phone'
   | 'map-pin'
   | 'arrow-left'
+  | 'arrow-right'
   | 'play'
   | 'pause';
 
@@ -49,6 +51,7 @@ const iconMap = {
   'phone': PhosphorPhoneIcon,
   'map-pin': PhosphorMapPinIcon,
   'arrow-left': PhosphorArrowLeftIcon,
+  'arrow-right': PhosphorArrowRightIcon,
   'play': PhosphorPlayIcon,
   'pause': PhosphorPauseIcon,
 };

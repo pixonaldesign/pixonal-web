@@ -1,6 +1,9 @@
 import GetInTouch from '@/components/GetInTouch';
 import PixonalIcon from '@/components/PixonalIcon';
 import CaseStudiesCarousel from '@/components/CaseStudiesCarousel';
+import SecuredIntelligenceStatement from '@/components/SecuredIntelligenceStatement';
+import LlumenCard from '@/components/LlumenCard';
+import WhitepaperHero from '@/components/WhitepaperHero';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getAllCaseStudies } from '@/lib/markdown';
@@ -32,6 +35,27 @@ export default async function HomePage() {
 
       {/* Impact Highlights Carousel */}
       <CaseStudiesCarousel caseStudies={caseStudies} />
+
+      {/* Secured Intelligence Statement Section */}
+      <section className="py-75 bg-primary-900">
+        <div className="max-w-6xl mx-auto px-4 flex justify-center">
+          <SecuredIntelligenceStatement />
+        </div>
+      </section>
+
+      {/* Llumen Card Section */}
+      <section className="py-20 bg-primary-900">
+        <div className="px-4 flex justify-center">
+          <LlumenCard />
+        </div>
+      </section>
+
+      {/* Whitepaper Hero Section */}
+      <section className="py-20 bg-primary-900">
+        <div className="mx-auto px-4 flex justify-center">
+          <WhitepaperHero />
+        </div>
+      </section>
 
       {/* Partners Section */}
       <section className="py-20 bg-gray-50">
