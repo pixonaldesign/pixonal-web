@@ -4,6 +4,7 @@ import CaseStudiesCarousel from '@/components/CaseStudiesCarousel';
 import SecuredIntelligenceStatement from '@/components/SecuredIntelligenceStatement';
 import LlumenCard from '@/components/LlumenCard';
 import WhitepaperHero from '@/components/WhitepaperHero';
+import Partners from '@/components/Partners';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getAllCaseStudies } from '@/lib/markdown';
@@ -58,34 +59,7 @@ export default async function HomePage() {
       </section>
 
       {/* Partners Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Trusted by Leading Organizations
-            </h2>
-            <p className="text-xl text-gray-600">
-              Join industry leaders who have transformed their operations with our solutions
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-            {/* Partner logos would go here */}
-            <div className="bg-white p-8 rounded-lg shadow-sm flex items-center justify-center">
-              <div className="text-gray-400 text-lg font-medium">Partner 1</div>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-sm flex items-center justify-center">
-              <div className="text-gray-400 text-lg font-medium">Partner 2</div>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-sm flex items-center justify-center">
-              <div className="text-gray-400 text-lg font-medium">Partner 3</div>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-sm flex items-center justify-center">
-              <div className="text-gray-400 text-lg font-medium">Partner 4</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Partners />
 
       {/* Llumen Preview Section */}
       <section className="py-20 bg-primary-900">
