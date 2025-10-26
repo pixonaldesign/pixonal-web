@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -11,23 +12,45 @@ interface NavLinkProps {
 
 export default function NavLink({ href, children, className = "" }: NavLinkProps) {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isActive = pathname === href || pathname === `${href}/` || pathname.startsWith(`${href}/`);
   
   // Special styling for Get In Touch button
   const isContactButton = href === '/contact';
+  
+  // Clone children to add underline to text
+  const childrenWithUnderline = React.Children.map(children, (child) => {
+    if (isActive && !isContactButton && React.isValidElement(child)) {
+      // Find the text div and add border-b class
+      const textDiv = React.Children.toArray(child.props.children).find(
+        (c: any) => c && c.type === 'div' && c.props?.className?.includes('text-center')
+      );
+      
+      if (textDiv) {
+        return React.cloneElement(child, {
+          children: React.Children.map(child.props.children, (c: any) => {
+            if (c && c.type === 'div' && c.props?.className?.includes('text-center')) {
+              return React.cloneElement(c, {
+                className: `${c.props.className} border-b-2 border-white`
+              });
+            }
+            return c;
+          })
+        });
+      }
+    }
+    return child;
+  });
   
   return (
     <Link 
       href={href} 
       className={`${className} ${
-        isActive 
-          ? (isContactButton 
-              ? 'ring-2 ring-white ring-opacity-50' 
-              : 'border-b-2 border-white')
+        isActive && isContactButton
+          ? 'ring-2 ring-white ring-opacity-50' 
           : ''
       }`}
     >
-      {children}
+      {childrenWithUnderline || children}
     </Link>
   );
 }

@@ -57,13 +57,6 @@
   box-sizing: border-box;
 }
 
-*:not(body),
-*:not(body)::before,
-*:not(body)::after {
-  margin: 0;
-  padding: 0;
-}
-
 html,
 body {
   max-width: 100vw;
