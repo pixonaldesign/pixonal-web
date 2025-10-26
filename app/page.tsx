@@ -1,9 +1,12 @@
 import GetInTouch from '@/components/GetInTouch';
 import PixonalIcon from '@/components/PixonalIcon';
+import CaseStudiesCarousel from '@/components/CaseStudiesCarousel';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getAllCaseStudies } from '@/lib/markdown';
 
-export default function HomePage() {
+export default async function HomePage() {
+  const caseStudies = await getAllCaseStudies();
   return (
     <>
       {/* Hero Section */}
@@ -28,71 +31,7 @@ export default function HomePage() {
       </div>
 
       {/* Impact Highlights Carousel */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Impact Highlights
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See how organizations are transforming their operations with our solutions
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl">
-              <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mb-6">
-                <PixonalIcon name="lightning" size={32} className="text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Smart City Initiative
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Reduced traffic congestion by 35% and improved emergency response times by 40% 
-                through intelligent data analytics and real-time optimization.
-              </p>
-              <div className="flex items-center text-blue-600 font-medium">
-                <span>Read Case Study</span>
-                <PixonalIcon name="caret-right" size={16} className="ml-2" />
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl">
-              <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-6">
-                <PixonalIcon name="check-circle" size={32} className="text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Real Estate Optimization
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Increased property values by 20% and reduced energy consumption by 30% 
-                through data-driven asset management and predictive maintenance.
-              </p>
-              <div className="flex items-center text-green-600 font-medium">
-                <span>Read Case Study</span>
-                <PixonalIcon name="caret-right" size={16} className="ml-2" />
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl">
-              <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-6">
-                <PixonalIcon name="users" size={32} className="text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Citizen Services
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Improved service delivery speed by 50% and citizen satisfaction by 90% 
-                through intelligent process optimization and digital transformation.
-              </p>
-              <div className="flex items-center text-purple-600 font-medium">
-                <span>Read Case Study</span>
-                <PixonalIcon name="caret-right" size={16} className="ml-2" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CaseStudiesCarousel caseStudies={caseStudies} />
 
       {/* Partners Section */}
       <section className="py-20 bg-gray-50">

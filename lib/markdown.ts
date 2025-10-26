@@ -5,6 +5,7 @@ import { remark } from 'remark';
 import remarkHtml from 'remark-html';
 
 const newsDirectory = path.join(process.cwd(), 'content/news');
+const caseStudiesDirectory = path.join(process.cwd(), 'content/casestudies');
 
 export interface NewsArticle {
   slug: string;
@@ -116,4 +117,76 @@ export function groupArticlesByYear(articles: NewsArticle[]): { [year: string]: 
     groups[year].push(article);
     return groups;
   }, {} as { [year: string]: NewsArticle[] });
+}
+
+export interface CaseStudy {
+  slug: string;
+  title: string;
+  date: string;
+  image: string;
+  excerpt: string;
+  content: string;
+}
+
+export async function getAllCaseStudies(): Promise<CaseStudy[]> {
+  try {
+    const fileNames = fs.readdirSync(caseStudiesDirectory);
+    const allCaseStudiesData = fileNames
+      .filter(name => name.endsWith('.md'))
+      .map(async (fileName) => {
+        const slug = fileName.replace(/\.md$/, '');
+        const fullPath = path.join(caseStudiesDirectory, fileName);
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        const { data, content } = matter(fileContents);
+
+        // Process markdown content to HTML
+        const processedContent = await remark()
+          .use(remarkHtml)
+          .process(content);
+        const contentHtml = processedContent.toString();
+
+        return {
+          slug,
+          title: data.title || '',
+          date: data.date || '',
+          image: data.image || '',
+          excerpt: data.excerpt || '',
+          content: contentHtml,
+        };
+      });
+
+    const caseStudies = await Promise.all(allCaseStudiesData);
+    
+    // Sort by date (newest first)
+    return caseStudies.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  } catch (error) {
+    console.error('Error reading case studies:', error);
+    return [];
+  }
+}
+
+export async function getCaseStudy(slug: string): Promise<CaseStudy | null> {
+  try {
+    const fullPath = path.join(caseStudiesDirectory, `${slug}.md`);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const { data, content } = matter(fileContents);
+
+    // Process markdown content to HTML
+    const processedContent = await remark()
+      .use(remarkHtml)
+      .process(content);
+    const contentHtml = processedContent.toString();
+
+    return {
+      slug,
+      title: data.title || '',
+      date: data.date || '',
+      image: data.image || '',
+      excerpt: data.excerpt || '',
+      content: contentHtml,
+    };
+  } catch (error) {
+    console.error(`Error reading case study ${slug}:`, error);
+    return null;
+  }
 }

@@ -21,13 +21,14 @@ export default function NavLink({ href, children, className = "" }: NavLinkProps
   const childrenWithUnderline = React.Children.map(children, (child) => {
     if (isActive && !isContactButton && React.isValidElement(child)) {
       // Find the text div and add border-b class
-      const textDiv = React.Children.toArray(child.props.children).find(
+      const childProps = child.props as { children?: React.ReactNode };
+      const textDiv = React.Children.toArray(childProps.children).find(
         (c: any) => c && c.type === 'div' && c.props?.className?.includes('text-center')
       );
       
       if (textDiv) {
-        return React.cloneElement(child, {
-          children: React.Children.map(child.props.children, (c: any) => {
+        return React.cloneElement(child as React.ReactElement<any>, {
+          children: React.Children.map(childProps.children, (c: any) => {
             if (c && c.type === 'div' && c.props?.className?.includes('text-center')) {
               return React.cloneElement(c, {
                 className: `${c.props.className} border-b-2 border-white`

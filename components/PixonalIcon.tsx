@@ -10,7 +10,10 @@ import {
   CaretRightIcon as PhosphorCaretRightIcon,
   EnvelopeIcon as PhosphorEnvelopeIcon,
   PhoneIcon as PhosphorPhoneIcon,
-  MapPinIcon as PhosphorMapPinIcon
+  MapPinIcon as PhosphorMapPinIcon,
+  ArrowLeftIcon as PhosphorArrowLeftIcon,
+  PlayIcon as PhosphorPlayIcon,
+  PauseIcon as PhosphorPauseIcon
 } from '@phosphor-icons/react';
 
 type IconName = 
@@ -23,7 +26,10 @@ type IconName =
   | 'caret-right'
   | 'envelope'
   | 'phone'
-  | 'map-pin';
+  | 'map-pin'
+  | 'arrow-left'
+  | 'play'
+  | 'pause';
 
 interface PixonalIconProps {
   name: IconName;
@@ -42,6 +48,9 @@ const iconMap = {
   'envelope': PhosphorEnvelopeIcon,
   'phone': PhosphorPhoneIcon,
   'map-pin': PhosphorMapPinIcon,
+  'arrow-left': PhosphorArrowLeftIcon,
+  'play': PhosphorPlayIcon,
+  'pause': PhosphorPauseIcon,
 };
 
 export default function PixonalIcon({ name, size = 16, className = "" }: PixonalIconProps) {

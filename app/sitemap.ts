@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getAllNewsArticles } from '@/lib/markdown';
+import { getAllNewsArticles, getAllCaseStudies } from '@/lib/markdown';
 import { getAllIndustrySlugs } from '@/lib/industries';
 
 export const dynamic = 'force-static';
@@ -45,6 +45,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
+    {
+      url: `${baseUrl}/case-studies`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
   ];
 
   // Industry pages
@@ -64,5 +70,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }));
 
-  return [...staticPages, ...industryPages, ...newsPages];
+  // Case studies
+  const caseStudies = await getAllCaseStudies();
+  const caseStudyPages = caseStudies.map((study) => ({
+    url: `${baseUrl}/case-studies/${study.slug}`,
+    lastModified: new Date(study.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...industryPages, ...newsPages, ...caseStudyPages];
 }
