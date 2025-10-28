@@ -15,7 +15,7 @@ export default function Hero() {
         Intelligence at the<br />
         Moment of Decision
       </div>
-      <div className="relative z-10 w-full justify-start text-white text-lg md:text-xl lg:text-2xl font-semibold font-ibm-plex-mono uppercase leading-7 tracking-[1.44px] whitespace-pre">
+      <div className="relative z-10 w-full justify-start text-white text-lg md:text-xl lg:text-2xl font-semibold font-ibm-plex font-mono uppercase leading-7 tracking-[1.44px] whitespace-pre">
         Governance + Interaction + Communication
       </div>
     </div>

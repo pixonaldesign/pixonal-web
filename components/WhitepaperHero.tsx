@@ -5,21 +5,21 @@ import PixonalIcon from './PixonalIcon';
 export default function WhitepaperHero() {
   return (
     <div className="w-full flex justify-center items-center gap-12">
-      <div className="w-[95vw] aspect-[1400/788] p-10 bg-linear-to-b from-black/0 to-black/80 rounded-[20px] flex justify-center items-center gap-2.5 relative overflow-hidden">
+      <div className="w-full max-h-[800px] p-10 bg-linear-to-b from-black/0 to-black/80 rounded-[20px] flex justify-center items-center gap-2.5 relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 pointer-events-none">
           <Image
             src="/images/whitepaper-bg.png"
             alt="Whitepaper Background"
-            fill
             className="object-cover"
+            fill
             priority
           />
         </div>
         
         {/* Inner Content Container with Dimmed Background */}
-        <div className="relative z-10 w-full h-full">
-          <div className="w-full h-full px-150 py-90 bg-black/40 backdrop-blur-sm rounded-[12px] outline-1 outline-white flex flex-col justify-center items-center gap-6 md:gap-8">
+        <div className="relative z-10 w-full max-h-[720]">
+          <div className="w-full max-h-[720px] px-150 py-90 bg-black/40 backdrop-blur-sm rounded-[12px] outline-1 outline-white flex flex-col justify-center items-center gap-6 md:gap-8">
           {/* Title */}
           <div className="w-full max-w-[85%] text-center text-neutral-100 text-2xl md:text-3xl lg:text-4xl font-normal font-untitled-sans capitalize leading-tight md:leading-10">
             Data for Humans: Why dashboards no longer cut it: A Paradigm Shift in Data Communication

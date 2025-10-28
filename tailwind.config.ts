@@ -31,7 +31,7 @@ const config: Config = {
       },
       fontFamily: {
         'untitled-sans': ['Untitled Sans', 'sans-serif'],
-        'ibm-plex-mono': ['IBM Plex Mono', 'monospace'],
+        'ibm-plex-mono': ['IBM Plex Mono', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
       },
       fontSize: {
         'h1': ['36px', { lineHeight: '1.2', letterSpacing: '-0.792px' }],

@@ -37,6 +37,7 @@ interface PixonalIconProps {
   name: IconName;
   size?: number;
   className?: string;
+  weight?: 'regular' | 'fill' | 'bold' | 'duotone' | 'thin' | 'light';
 }
 
 const iconMap = {
@@ -56,7 +57,7 @@ const iconMap = {
   'pause': PhosphorPauseIcon,
 };
 
-export default function PixonalIcon({ name, size = 16, className = "" }: PixonalIconProps) {
+export default function PixonalIcon({ name, size = 16, className = "", weight = 'regular' }: PixonalIconProps) {
   const IconComponent = iconMap[name];
   
   if (!IconComponent) {
@@ -64,5 +65,5 @@ export default function PixonalIcon({ name, size = 16, className = "" }: Pixonal
     return null;
   }
   
-  return <IconComponent size={size} className={className} />;
+  return <IconComponent size={size} className={className} weight={weight} />;
 }

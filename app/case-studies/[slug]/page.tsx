@@ -78,7 +78,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             Back to All Case Studies
           </Link>
           <div className="mb-4">
-            <span className="text-xs font-ibm-plex-mono text-gray-400 uppercase tracking-wider">
+            <span className="text-xs font-ibm-plex font-mono text-gray-400 uppercase tracking-wider">
               Case Study
             </span>
           </div>

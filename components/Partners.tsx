@@ -47,20 +47,22 @@ const partnerLogos: PartnerLogo[] = [
 
 export default function Partners() {
   return (
-    <section className="w-full h-full py-20 bg-primary-900">
-      <div className="mx-auto px-4">
+    <section className="bg-primary-900 py-[184px] px-5">
+      <div className="w-full mx-auto flex flex-col gap-6 items-center max-w-[1400px] pb-12">
         {/* Title */}
-        <h2 className="text-white text-[36px] font-normal font-untitled-sans leading-[1.2] tracking-[-0.792px] mb-16 capitalize">
+        <div className="flex flex-col gap-12 items-start w-full">
+          <h2 className="capitalize font-untitled-sans leading-[1.2] text-[36px] text-white tracking-[-0.792px] whitespace-pre">
           Partnered with Visionary <br />
           Decision-Makers
-        </h2>
+          </h2>
+        </div>
 
         {/* Featured Partner Cards */}
-        <div className="flex gap-6 mb-20 justify-center">
+        <div className="flex gap-6 justify-center max-w-[1400px]">
           {featuredPartners.map((partner, index) => (
             <div
               key={index}
-              className="relative rounded-[12px] overflow-hidden group w-[calc((95vw-48px)/3)] h-[calc((95vw-48px)/3)]"
+              className="border border-stone-300 relative rounded-[12px] overflow-hidden group w-[calc((95vw-48px)/3)] aspect-square"
             >
               {/* Background Image */}
               <div className="absolute inset-0">
@@ -106,7 +108,7 @@ export default function Partners() {
         </div>
 
         {/* Partner Logos Grid */}
-        <div className="border border-primary-200 rounded-[20px]">
+        <div className="border border-stone-300 rounded-[20px] max-w-[1400px]">
           <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center">
             {partnerLogos.map((partner, index) => (
               <div

@@ -1,10 +1,43 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
 import GradientButton from './GradientButton';
 import PixonalIcon from './PixonalIcon';
 import Link from 'next/link';
 
 export default function LlumenCard() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {
+              // Autoplay was prevented, user interaction required
+            });
+          } else {
+            video.pause();
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Start playing when 50% of the video is visible
+      }
+    );
+
+    observer.observe(video);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="w-[95vw] mx-auto md:px-8 p-12 bg-[#121212] rounded-[20px] flex flex-col lg:flex-row justify-start items-start gap-10 lg:gap-40">
+    <div className="w-[1400px] mx-auto md:px-8 p-12 bg-[#121212] rounded-[20px] flex flex-col lg:flex-row justify-start items-start gap-10 lg:gap-40">
       {/* Left Column - Title */}
       <div className="w-full lg:w-[25%] flex flex-col justify-start items-start gap-5">
         <h2 className="w-full text-white text-4xl font-normal font-untitled-sans capitalize leading-[1.2]">
@@ -41,8 +74,8 @@ export default function LlumenCard() {
         {/* Video Placeholder */}
         <div className="w-full aspect-video bg-primary-700 rounded-[20px] border border-gray-700 overflow-hidden flex items-center justify-center">
           <video 
+            ref={videoRef}
             className="w-full h-full object-cover"
-            controls
             muted
             loop
             playsInline

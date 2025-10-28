@@ -49,7 +49,7 @@ export default async function CaseStudiesPage() {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center space-x-2 mb-3">
-                    <span className="text-xs font-ibm-plex-mono text-gray-500 uppercase tracking-wider">
+                    <span className="text-xs font-ibm-plex font-mono text-gray-500 uppercase tracking-wider">
                       Case Study
                     </span>
                     <span className="text-xs text-gray-400">•</span>

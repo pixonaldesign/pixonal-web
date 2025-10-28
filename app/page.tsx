@@ -20,13 +20,6 @@ export default async function HomePage() {
       {/* Impact Highlights Carousel */}
       <CaseStudiesCarousel caseStudies={caseStudies} />
 
-      {/* Secured Intelligence Statement Section */}
-      <section className="py-75 bg-primary-900">
-        <div className="max-w-6xl mx-auto px-4 flex justify-center">
-          <SecuredIntelligenceStatement />
-        </div>
-      </section>
-
       {/* Llumen Card Section */}
       <section className="py-20 bg-primary-900">
         <div className="px-4 flex justify-center">

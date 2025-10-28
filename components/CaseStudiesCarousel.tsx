@@ -85,8 +85,8 @@ export default function CaseStudiesCarousel({ caseStudies }: CaseStudiesCarousel
                       <div className="w-100 p-6 flex flex-col justify-between h-full">
                         <div className="backdrop-blur-lg flex flex-col gap-3 rounded-xl shadow-[0px_8px_16px_0px_rgba(27,27,27,0.16)]">
                           <div className="flex flex-col gap-3">
-                            <p className="opacity-40 font-ibm-plex-mono font-semibold uppercase leading-4 tracking-wide text-base text-white">
-                              Case studies
+                            <p className="opacity-40 font-ibm-plex font-mono font-semibold uppercase leading-4 tracking-wide text-base text-white">
+                              CASE STUDIES
                             </p>
                             <p className="font-untitled-sans font-normal leading-5 text-base text-white">
                               {study.title}
@@ -99,7 +99,7 @@ export default function CaseStudiesCarousel({ caseStudies }: CaseStudiesCarousel
                           </div>
                         </div>
                         <div className="flex items-center gap-3">
-                          <p className="opacity-60 font-ibm-plex-mono font-semibold uppercase leading-4 tracking-wide text-base text-white">
+                          <p className="opacity-60 font-ibm-plex font-mono font-semibold uppercase leading-4 tracking-wide text-base text-white">
                             Read more
                           </p>
                           <PixonalIcon name="caret-right" size={24} />
@@ -155,13 +155,9 @@ export default function CaseStudiesCarousel({ caseStudies }: CaseStudiesCarousel
             aria-label={isPaused ? 'Play' : 'Pause'}
           >
             {isPaused ? (
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="white" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11.8125 7L3.0625 1.09375V12.9062L11.8125 7Z" fill="white"/>
-              </svg>
+              <PixonalIcon name="play" size={14} weight="fill" className="text-white" />
             ) : (
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="white" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11.8125 2.625V11.375C11.8125 11.6071 11.7203 11.8296 11.5562 11.9937C11.3921 12.1578 11.1696 12.25 10.9375 12.25H8.75C8.51794 12.25 8.29538 12.1578 8.13128 11.9937C7.96719 11.8296 7.875 11.6071 7.875 11.375V2.625C7.875 2.39294 7.96719 2.17038 8.13128 2.00628C8.29538 1.84219 8.51794 1.75 8.75 1.75H10.9375C11.1696 1.75 11.3921 1.84219 11.5562 2.00628C11.7203 2.17038 11.8125 2.39294 11.8125 2.625ZM5.25 1.75H3.0625C2.83044 1.75 2.60788 1.84219 2.44378 2.00628C2.27969 2.17038 2.1875 2.39294 2.1875 2.625V11.375C2.1875 11.6071 2.27969 11.8296 2.44378 11.9937C2.60788 12.1578 2.83044 12.25 3.0625 12.25H5.25C5.48206 12.25 5.70462 12.1578 5.86872 11.9937C6.03281 11.8296 6.125 11.6071 6.125 11.375V2.625C6.125 2.39294 6.03281 2.17038 5.86872 2.00628C5.70462 1.84219 5.48206 1.75 5.25 1.75Z" fill="white"/>
-              </svg>
+              <PixonalIcon name="pause" size={14} weight="fill" className="text-white" />
             )}
           </button>
         </div>
