@@ -5,6 +5,7 @@ import SecuredIntelligenceStatement from '@/components/SecuredIntelligenceStatem
 import LlumenCard from '@/components/LlumenCard';
 import WhitepaperHero from '@/components/WhitepaperHero';
 import Partners from '@/components/Partners';
+import Hero from '@/components/Hero';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getAllCaseStudies } from '@/lib/markdown';
@@ -14,25 +15,7 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <div className="w-full h-[788px] min-h-[788px] px-10 md:px-20 lg:px-40 py-20 md:py-40 lg:py-96 rounded-[20px] flex flex-col justify-center items-start gap-2.5 relative">
-        {/* Background Image */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[20px]">
-          <img 
-            alt="Hero Background" 
-            className="absolute h-[105.25%] left-[-3.59%] max-w-none top-0 w-[107.17%]"
-            src="/images/hero-background.png"
-          />
-        </div>
-        
-        {/* Hero Content */}
-        <div className="relative z-10 w-full justify-start text-white text-4xl md:text-6xl lg:text-8xl font-normal font-untitled-sans leading-tight md:leading-[92.40px] tracking-[-1.848px]">
-          Intelligence at the<br />
-          Moment of Decision
-        </div>
-        <div className="relative z-10 w-full justify-start text-white text-lg md:text-xl lg:text-2xl font-semibold font-ibm-plex-mono uppercase leading-7 tracking-[1.44px] whitespace-pre">
-          Governance + Interaction + Communication
-        </div>
-      </div>
+      <Hero />
 
       {/* Impact Highlights Carousel */}
       <CaseStudiesCarousel caseStudies={caseStudies} />

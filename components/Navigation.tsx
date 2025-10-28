@@ -4,7 +4,7 @@ import NavLink from './NavLink';
 
 export default function Navigation() {
   return (
-    <div className="w-full mx-auto rounded-[20px] flex justify-center items-start gap-2.5">
+    <div className="w-full max-w-[1400px] mx-auto rounded-[20px] flex justify-center items-start gap-2.5">
       <div className="w-full pl-3 md:pl-5 pr-2 md:pr-3.5 bg-zinc-800/20 rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/10 backdrop-blur-lg flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center pl-1">
