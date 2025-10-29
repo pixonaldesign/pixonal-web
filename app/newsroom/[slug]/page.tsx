@@ -15,9 +15,11 @@ interface ArticlePageProps {
 
 export async function generateStaticParams() {
   const articles = await getAllNewsArticles();
-  return articles.map((article) => ({
-    slug: article.slug,
-  }));
+  return articles
+    .filter((article) => article.slug) // Filter out articles with undefined slugs
+    .map((article) => ({
+      slug: article.slug,
+    }));
 }
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {

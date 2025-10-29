@@ -155,9 +155,13 @@ a {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+    /* Fallback for older browsers */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
   
   .backdrop-blur-15 {
+    -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
   }
   

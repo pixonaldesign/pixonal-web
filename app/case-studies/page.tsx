@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getAllCaseStudies } from '@/lib/markdown';
 import PixonalIcon from '@/components/PixonalIcon';
 import GetInTouch from '@/components/GetInTouch';
@@ -19,7 +20,7 @@ export default async function CaseStudiesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary-800 to-primary-900">
+      <section className="relative py-20 bg-linear-to-br from-primary-800 to-primary-900">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-untitled-sans font-normal text-white mb-6 leading-tight">
             Case Studies
@@ -40,11 +41,12 @@ export default async function CaseStudiesPage() {
                 href={`/case-studies/${study.slug}`}
                 className="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
               >
-                <div className="relative h-48 bg-gradient-to-br from-primary-800 to-primary-900">
-                  <img
+                <div className="relative h-48 bg-linear-to-br from-primary-800 to-primary-900">
+                  <Image
                     src={study.image}
                     alt={study.title}
-                    className="w-full h-full object-cover opacity-90"
+                    fill
+                    className="object-cover opacity-90"
                   />
                 </div>
                 <div className="p-6">

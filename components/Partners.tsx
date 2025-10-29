@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface PartnerCard {
   description: string;
   logo: string;
@@ -48,9 +50,9 @@ const partnerLogos: PartnerLogo[] = [
 export default function Partners() {
   return (
     <section className="bg-primary-900 py-[184px] px-5">
-      <div className="w-full mx-auto flex flex-col gap-6 items-center max-w-[1400px] pb-12">
+      <div className="w-full mx-auto flex flex-col gap-6 items-center max-w-[1360px] pb-12">
         {/* Title */}
-        <div className="flex flex-col gap-12 items-start w-full">
+        <div className="flex flex-col gap-12 items-start w-full pb-6">
           <h2 className="capitalize font-untitled-sans leading-[1.2] text-[36px] text-white tracking-[-0.792px] whitespace-pre">
           Partnered with Visionary <br />
           Decision-Makers
@@ -58,18 +60,19 @@ export default function Partners() {
         </div>
 
         {/* Featured Partner Cards */}
-        <div className="flex gap-6 justify-center max-w-[1400px]">
+        <div className="flex gap-6 justify-center max-w-[1360px]">
           {featuredPartners.map((partner, index) => (
             <div
               key={index}
-              className="border border-stone-300 relative rounded-[12px] overflow-hidden group w-[calc((95vw-48px)/3)] aspect-square"
+              className="border border-stone-300/16 relative rounded-[12px] overflow-hidden group w-[calc((95vw-48px)/3)] aspect-square"
             >
               {/* Background Image */}
               <div className="absolute inset-0">
-                <img
+                <Image
                   src={partner.backgroundImage}
                   alt="Partner background"
-                  className="w-full h-full object-cover blur-sm"
+                  fill
+                  className="object-cover blur-sm"
                 />
               </div>
               
@@ -79,9 +82,11 @@ export default function Partners() {
                 <div className="flex-1 flex flex-col justify-center items-center gap-4">
                   {/* Logo */}
                   <div className="flex items-center justify-center shrink-0">
-                    <img
+                    <Image
                       src={partner.logo}
                       alt="Partner logo"
+                      width={120}
+                      height={120}
                       className="max-h-[120px] max-w-full object-contain"
                     />
                   </div>
@@ -89,9 +94,11 @@ export default function Partners() {
                   {/* Text Logo (if available) */}
                   {partner.textLogo && (
                     <div className="flex items-center justify-center shrink-0">
-                      <img
+                      <Image
                         src={partner.textLogo}
                         alt="Partner text logo"
+                        width={200}
+                        height={40}
                         className="max-h-[40px] max-w-full object-contain"
                       />
                     </div>
@@ -108,16 +115,18 @@ export default function Partners() {
         </div>
 
         {/* Partner Logos Grid */}
-        <div className="border border-stone-300 rounded-[20px] max-w-[1400px]">
+        <div className="border border-stone-300/16 rounded-[20px] max-w-[1360px]">
           <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center">
             {partnerLogos.map((partner, index) => (
               <div
                 key={index}
                 className="flex items-center justify-center p-8 bg-transparent hover:bg-primary-800 rounded-lg transition-colors h-[200px]"
               >
-                <img
+                <Image
                   src={partner.logo}
                   alt={partner.name}
+                  width={150}
+                  height={100}
                   className="max-h-full max-w-full object-contain filter brightness-0 invert"
                 />
               </div>

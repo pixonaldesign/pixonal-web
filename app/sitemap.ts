@@ -63,21 +63,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // News articles
   const articles = await getAllNewsArticles();
-  const newsPages = articles.map((article) => ({
-    url: `${baseUrl}/newsroom/${article.slug}`,
-    lastModified: new Date(article.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.5,
-  }));
+  const newsPages = articles
+    .filter((article) => article.slug) // Filter out articles with undefined slugs
+    .map((article) => ({
+      url: `${baseUrl}/newsroom/${article.slug}`,
+      lastModified: new Date(article.date),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    }));
 
   // Case studies
   const caseStudies = await getAllCaseStudies();
-  const caseStudyPages = caseStudies.map((study) => ({
-    url: `${baseUrl}/case-studies/${study.slug}`,
-    lastModified: new Date(study.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }));
+  const caseStudyPages = caseStudies
+    .filter((study) => study.slug) // Filter out case studies with undefined slugs
+    .map((study) => ({
+      url: `${baseUrl}/case-studies/${study.slug}`,
+      lastModified: new Date(study.date),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }));
 
   return [...staticPages, ...industryPages, ...newsPages, ...caseStudyPages];
 }

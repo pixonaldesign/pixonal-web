@@ -37,7 +37,7 @@ export default function LlumenCard() {
   }, []);
 
   return (
-    <div className="w-[1400px] mx-auto md:px-8 p-12 bg-[#121212] rounded-[20px] flex flex-col lg:flex-row justify-start items-start gap-10 lg:gap-40">
+    <div className="w-[1360px] mx-auto md:px-8 p-12 bg-[#121212] rounded-[20px] flex flex-col lg:flex-row justify-start items-start gap-10 lg:gap-40">
       {/* Left Column - Title */}
       <div className="w-full lg:w-[25%] flex flex-col justify-start items-start gap-5">
         <h2 className="w-full text-white text-4xl font-normal font-untitled-sans capitalize leading-[1.2]">
@@ -51,9 +51,9 @@ export default function LlumenCard() {
         {/* Description */}
         <div className="w-full flex flex-col justify-start items-start gap-10">
           <p className="w-full opacity-80 text-white text-base font-normal font-untitled-sans leading-5">
-            Llumen turns raw data into living stories by breaking information into "tokens" that connect directly to your insights. These tokens weave facts, figures, and visuals into cohesive, interactive narratives.
+            Llumen turns raw data into living stories by breaking information into &ldquo;tokens&rdquo; that connect directly to your insights. These tokens weave facts, figures, and visuals into cohesive, interactive narratives.
             <br /><br />
-            For quick analyses or recurring reports, Llumen's token-based architecture gives you the flexibility to shape the story you need, exactly when you need it.
+            For quick analyses or recurring reports, Llumen&apos;s token-based architecture gives you the flexibility to shape the story you need, exactly when you need it.
           </p>
 
           {/* CTA Buttons */}
@@ -63,7 +63,7 @@ export default function LlumenCard() {
             </GradientButton>
             <Link 
               href="/llumen"
-              className="p-3.5 rounded-xl outline outline-1 -outline-offset-1 outline-white inline-flex justify-center items-center gap-2 hover:bg-white/10 transition-colors text-white text-base font-normal font-untitled-sans capitalize leading-4 whitespace-nowrap"
+              className="p-3.5 rounded-xl outline -outline-offset-1 outline-white inline-flex justify-center items-center gap-2 hover:bg-white/10 transition-colors text-white text-base font-normal font-untitled-sans capitalize leading-4 whitespace-nowrap"
             >
               Explore Llumen
               <PixonalIcon name="arrow-right" size={24} />

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getAllCaseStudies, getCaseStudy } from '@/lib/markdown';
 import PixonalIcon from '@/components/PixonalIcon';
 import GetInTouch from '@/components/GetInTouch';
@@ -45,7 +46,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       <div className="min-h-screen bg-primary-900 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Case Study Not Found</h1>
-          <p className="text-gray-300 mb-8">The case study you're looking for doesn't exist.</p>
+          <p className="text-gray-300 mb-8">The case study you&apos;re looking for doesn&apos;t exist.</p>
           <Link
             href="/case-studies"
             className="bg-white text-primary-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-flex items-center"
@@ -61,12 +62,13 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary-800 to-primary-900">
+      <section className="relative py-20 bg-linear-to-br from-primary-800 to-primary-900">
         <div className="absolute inset-0 overflow-hidden">
-          <img
+          <Image
             src={caseStudy.image}
             alt={caseStudy.title}
-            className="w-full h-full object-cover opacity-20"
+            fill
+            className="object-cover opacity-20"
           />
         </div>
         <div className="relative max-w-4xl mx-auto px-4 text-center">

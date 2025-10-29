@@ -46,7 +46,7 @@ export default function GetInTouch({ className }: GetInTouchProps) {
       } else {
         setSubmitStatus('error');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -64,13 +64,13 @@ export default function GetInTouch({ className }: GetInTouchProps) {
                 Ready to Transform Your Organization?
               </h2>
               <p className="text-xl text-gray-300 leading-relaxed">
-                Let's discuss how Pixonal can help you unlock the full potential of your data and drive meaningful change.
+                Let&apos;s discuss how Pixonal can help you unlock the full potential of your data and drive meaningful change.
               </p>
             </div>
 
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-accent-blue to-accent-red rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-linear-to-r from-accent-blue to-accent-red rounded-lg flex items-center justify-center shrink-0">
                   <PixonalIcon name="lightning" size={24} className="text-white" />
                 </div>
                 <div>
@@ -82,7 +82,7 @@ export default function GetInTouch({ className }: GetInTouchProps) {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-accent-blue to-accent-red rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-linear-to-r from-accent-blue to-accent-red rounded-lg flex items-center justify-center shrink-0">
                   <PixonalIcon name="check-circle" size={24} className="text-white" />
                 </div>
                 <div>
@@ -94,7 +94,7 @@ export default function GetInTouch({ className }: GetInTouchProps) {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-accent-blue to-accent-red rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-linear-to-r from-accent-blue to-accent-red rounded-lg flex items-center justify-center shrink-0">
                   <PixonalIcon name="users" size={24} className="text-white" />
                 </div>
                 <div>
@@ -113,7 +113,7 @@ export default function GetInTouch({ className }: GetInTouchProps) {
             
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-                Thank you! We'll get back to you soon.
+                Thank you! We&apos;ll get back to you soon.
               </div>
             )}
 
@@ -190,7 +190,7 @@ export default function GetInTouch({ className }: GetInTouchProps) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-accent-blue to-accent-red text-white py-3 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-linear-to-r from-accent-blue to-accent-red text-white py-3 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>

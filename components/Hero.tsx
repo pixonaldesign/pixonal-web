@@ -1,12 +1,15 @@
+import Image from 'next/image';
+
 export default function Hero() {
   return (
     <div className="w-full aspect-video rounded-[20px] flex flex-col justify-center items-start gap-2.5 relative px-10 md:px-20 lg:px-40 py-20 md:py-40 lg:py-96">
       {/* Background Image */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[20px]">
-        <img 
+        <Image 
           alt="Hero Background" 
           className="absolute h-[105.25%] left-[-3.59%] max-w-none top-0 w-[107.17%]"
           src="/images/hero-background.png"
+          fill
         />
       </div>
       

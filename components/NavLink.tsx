@@ -27,7 +27,7 @@ export default function NavLink({ href, children, className = "" }: NavLinkProps
       );
       
       if (textDiv) {
-        return React.cloneElement(child as React.ReactElement<any>, {
+        return React.cloneElement(child as any, {
           children: React.Children.map(childProps.children, (c: any) => {
             if (c && c.type === 'div' && c.props?.className?.includes('text-center')) {
               return React.cloneElement(c, {

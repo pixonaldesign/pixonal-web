@@ -7,7 +7,6 @@ import Partners from '@/components/Partners';
 import GetInTouchHero from '@/components/GetInTouchHero';
 import Hero from '@/components/Hero';
 import Link from 'next/link';
-import Image from 'next/image';
 import { getAllCaseStudies } from '@/lib/markdown';
 
 export default async function HomePage() {
@@ -29,7 +28,7 @@ export default async function HomePage() {
 
       {/* Whitepaper Hero Section */}
       <section className="py-20 bg-primary-900">
-        <div className="mx-auto px-4 flex justify-center">
+        <div className="mx-auto flex justify-center">
           <WhitepaperHero />
         </div>
       </section>
@@ -79,7 +78,7 @@ export default async function HomePage() {
               </div>
               <Link 
                 href="/llumen" 
-                className="bg-gradient-to-r from-accent-blue to-accent-red text-white px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-opacity inline-flex items-center"
+                className="bg-linear-to-r from-accent-blue to-accent-red text-white px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-opacity inline-flex items-center"
               >
                 Learn More About Llumen
                 <PixonalIcon name="caret-right" size={20} className="ml-2" />
@@ -99,8 +98,8 @@ export default async function HomePage() {
                     <div className="h-4 bg-gray-200 rounded w-1/2"></div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg"></div>
-                    <div className="h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-lg"></div>
+                    <div className="h-20 bg-linear-to-br from-blue-100 to-blue-200 rounded-lg"></div>
+                    <div className="h-20 bg-linear-to-br from-green-100 to-green-200 rounded-lg"></div>
                   </div>
                 </div>
               </div>
@@ -110,13 +109,13 @@ export default async function HomePage() {
       </section>
 
       {/* White Paper CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-accent-blue to-accent-red">
+      <section className="py-20 bg-linear-to-r from-accent-blue to-accent-red">
         <div className="max-w-4xl mx-auto text-center px-4">
           <h2 className="text-4xl font-bold text-white mb-6">
             Download Our Latest White Paper
           </h2>
           <p className="text-xl text-white/90 mb-8 leading-relaxed">
-            "The Future of Data-Driven Organizations: A Comprehensive Guide to Digital Transformation"
+            &ldquo;The Future of Data-Driven Organizations: A Comprehensive Guide to Digital Transformation&rdquo;
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-primary-900 px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors">
