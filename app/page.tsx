@@ -1,10 +1,10 @@
 import GetInTouch from '@/components/GetInTouch';
 import PixonalIcon from '@/components/PixonalIcon';
 import CaseStudiesCarousel from '@/components/CaseStudiesCarousel';
-import SecuredIntelligenceStatement from '@/components/SecuredIntelligenceStatement';
 import LlumenCard from '@/components/LlumenCard';
 import WhitepaperHero from '@/components/WhitepaperHero';
 import Partners from '@/components/Partners';
+import GetInTouchHero from '@/components/GetInTouchHero';
 import Hero from '@/components/Hero';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -36,6 +36,13 @@ export default async function HomePage() {
 
       {/* Partners Section */}
       <Partners />
+
+      {/* Get In Touch Hero Section */}
+      <section className="py-20 bg-primary-900">
+        <div className="mx-auto flex justify-center">
+          <GetInTouchHero />
+        </div>
+      </section>
 
       {/* Llumen Preview Section */}
       <section className="py-20 bg-primary-900">
