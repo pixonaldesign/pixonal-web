@@ -64,7 +64,7 @@ export default function CaseStudiesCarousel({ caseStudies }: CaseStudiesCarousel
   }
 
   return (
-    <section className="bg-primary-900 py-[184px]">
+    <section className="bg-primary-900 py-[80px]">
       <div className="w-full mx-auto flex flex-col gap-12 items-center max-w-[1360px] pb-12">
         <div className="flex flex-col gap-12 items-start w-full">
           <h2 className="capitalize font-untitled-sans leading-[1.2] text-[36px] text-white tracking-[-0.792px] whitespace-pre">
@@ -78,12 +78,14 @@ export default function CaseStudiesCarousel({ caseStudies }: CaseStudiesCarousel
         <div 
           className="flex gap-5 transition-transform duration-500 ease-in-out"
           style={{ 
-            transform: `translateX(calc(50vw - 700px - ${currentIndex * 1380}px))`,
-            width: `${caseStudies.length * 1380}px`
-          }}
+            '--carousel-offset': `${currentIndex * 1380}px`,
+            '--carousel-width': `${caseStudies.length * 1360}px`,
+            transform: 'translateX(calc(50vw - 690px - var(--carousel-offset)))',
+            width: 'var(--carousel-width)'
+          } as React.CSSProperties}
         >
                 {caseStudies.map((study) => (
-                  <div key={study.slug} className="border border-zinc-400/16 rounded-[20px] shrink-0 h-full" style={{ width: '1360px', height: '593px' }}>
+                  <div key={study.slug} className="border border-zinc-400/16 rounded-[20px] shrink-0 w-[1360px] h-[593px]">
                     <Link 
                       href={`/case-studies/${study.slug}`}
                       className="flex w-full h-full cursor-pointer"

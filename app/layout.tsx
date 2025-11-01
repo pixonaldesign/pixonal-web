@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
     default: "Pixonal - Intelligent Data Solutions & Strategic Advisory",
-    template: "%s | Pixonal"
+    template: "%s | Pixonal",
   },
-  description: "Empowering organizations with intelligent data solutions and strategic advisory services. Transform your operations with our Llumen platform across mobility, real estate, citizen services, and more.",
+  description:
+    "Empowering organizations with intelligent data solutions and strategic advisory services. Transform your operations with our Llumen platform across mobility, real estate, citizen services, and more.",
   keywords: [
     "data analytics",
     "intelligent solutions",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     "citizen services",
     "technology infrastructure",
     "military defense",
-    "law enforcement"
+    "law enforcement",
   ],
   authors: [{ name: "Pixonal" }],
   creator: "Pixonal",
@@ -39,7 +40,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://pixonal.com",
     title: "Pixonal - Intelligent Data Solutions & Strategic Advisory",
-    description: "Empowering organizations with intelligent data solutions and strategic advisory services.",
+    description:
+      "Empowering organizations with intelligent data solutions and strategic advisory services.",
     siteName: "Pixonal",
     images: [
       {
@@ -53,7 +55,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Pixonal - Intelligent Data Solutions & Strategic Advisory",
-    description: "Empowering organizations with intelligent data solutions and strategic advisory services.",
+    description:
+      "Empowering organizations with intelligent data solutions and strategic advisory services.",
     images: ["/images/og-image.jpg"],
   },
   robots: {
@@ -79,7 +82,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-untitled-sans antialiased bg-zinc-900 p-5">
+      <body className="font-untitled-sans antialiased bg-zinc-900">
         <div className="w-full min-h-screen flex flex-col justify-start items-center relative">
           <div className="w-full flex flex-col justify-start items-center gap-10 rounded-[20px]">
             {/* Navigation - Fixed/Overlay */}
@@ -88,13 +91,11 @@ export default function RootLayout({
             </div>
 
             {/* Page Content */}
-            <main className="w-full">
-              {children}
-            </main>
+            <main className="w-full">{children}</main>
 
             {/* Footer */}
             <Footer />
-            </div>
+          </div>
         </div>
       </body>
     </html>

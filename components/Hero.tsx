@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <div className="w-full aspect-video rounded-[20px] flex flex-col justify-center items-start gap-2.5 relative px-10 md:px-20 lg:px-40 py-20 md:py-40 lg:py-96">
+    <div className="w-full aspect-video rounded-[20px] flex flex-col justify-center items-start gap-2.5 relative px-10 md:px-20 lg:px-40 py-20 md:py-40 lg:py-96 mx-5 mt-5">
       {/* Background Image */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[20px]">
         <Image 

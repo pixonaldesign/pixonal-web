@@ -2,10 +2,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import MobileMenu from './MobileMenu';
 import NavLink from './NavLink';
+import { getAllNewsArticles } from '@/lib/markdown';
 
-export default function Navigation() {
+export default async function Navigation() {
+  // Fetch news articles on the server
+  const newsArticles = await getAllNewsArticles();
   return (
-    <div className="w-full max-w-[1400px] mx-auto rounded-[20px] flex justify-center items-start gap-2.5">
+    <div className="w-full max-w-[1400px] rounded-[20px] flex justify-center items-start gap-2.5 mx-5">
       <div className="w-full pl-3 md:pl-5 pr-2 md:pr-3.5 bg-zinc-800/20 rounded-[20px] outline -outline-offset-1 outline-white/10 backdrop-blur-lg flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center pl-1">
@@ -88,8 +91,8 @@ export default function Navigation() {
                 </div>
               </NavLink>
             </div>
-            <div className="md:hidden size- p-2.5 opacity-95 rounded-[10px] flex justify-center items-center gap-2.5">
-              <MobileMenu />
+            <div className="size- p-2.5 opacity-95 rounded-[10px] flex justify-center items-center gap-2.5">
+              <MobileMenu newsArticles={newsArticles} />
             </div>
           </div>
         </div>

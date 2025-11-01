@@ -23,15 +23,21 @@ export default function NavLink({ href, children, className = "" }: NavLinkProps
       // Find the text div and add border-b class
       const childProps = child.props as { children?: React.ReactNode };
       const textDiv = React.Children.toArray(childProps.children).find(
-        (c: any) => c && c.type === 'div' && c.props?.className?.includes('text-center')
+        (c: React.ReactNode): c is React.ReactElement<{ className?: string }> => 
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          React.isValidElement(c) && c.type === 'div' && (c.props as any)?.className?.includes('text-center')
       );
       
       if (textDiv) {
-        return React.cloneElement(child as any, {
-          children: React.Children.map(childProps.children, (c: any) => {
-            if (c && c.type === 'div' && c.props?.className?.includes('text-center')) {
-              return React.cloneElement(c, {
-                className: `${c.props.className} border-b-2 border-white`
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return React.cloneElement(child as React.ReactElement<any>, {
+          children: React.Children.map(childProps.children, (c: React.ReactNode) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            if (React.isValidElement(c) && c.type === 'div' && (c.props as any)?.className?.includes('text-center')) {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              return React.cloneElement(c as React.ReactElement<any>, {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                className: `${(c.props as any).className} border-b-2 border-white`
               });
             }
             return c;

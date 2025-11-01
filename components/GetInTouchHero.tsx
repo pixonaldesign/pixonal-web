@@ -36,8 +36,8 @@ export default function GetInTouchHero() {
   }, []);
 
   return (
-    <div className="w-full px-5 flex flex-col justify-start items-start gap-2.5">
-      <div className="w-full h-[790.59px] px-5 py-60 rounded-[20px] flex flex-col justify-center items-center gap-12 relative overflow-hidden">
+    <div className="w-full flex flex-col justify-start items-start gap-2.5">
+      <div className="w-full h-[790px] px-5 rounded-[20px] flex flex-col justify-center items-center gap-12 relative overflow-hidden">
         {/* Background Video */}
         <video
           ref={videoRef}

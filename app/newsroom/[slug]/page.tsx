@@ -76,7 +76,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <Navigation />
 
       {/* Article Header */}
-      <section className="relative py-20 bg-gradient-to-br from-primary-800 to-primary-900">
+      <section className="relative py-20 bg-linear-to-br from-primary-800 to-primary-900">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex items-center space-x-4 mb-6">
             <Link 

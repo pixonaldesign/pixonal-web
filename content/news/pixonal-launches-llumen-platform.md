@@ -3,7 +3,7 @@ title: "Pixonal Launches Revolutionary Llumen Platform for Intelligent Data Proc
 date: "2025-01-10"
 category: "press releases"
 excerpt: "Pixonal announces the launch of Llumen, a groundbreaking platform that transforms how organizations interact with data through intelligent processing and advanced analytics."
-image: "/images/news/llumen-platform-launch.jpg"
+image: "/images/news/llumen-platform-launch.png"
 ---
 
 Pixonal, a leading provider of intelligent data solutions and strategic advisory services, today announced the launch of Llumen, a revolutionary platform designed to transform how organizations interact with data across all industries.

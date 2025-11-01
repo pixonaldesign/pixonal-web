@@ -103,7 +103,8 @@
   --foreground: #f6f6f6;
 }
 
-@theme inline {
+/* Custom CSS variables for theming */
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: 'Untitled Sans', sans-serif;
@@ -154,10 +155,11 @@ a {
 
 @layer utilities {
   .text-balance {
-    text-wrap: balance;
     /* Fallback for older browsers */
     word-wrap: break-word;
     overflow-wrap: break-word;
+    /* Modern browsers */
+    text-wrap: balance;
   }
   
   .backdrop-blur-15 {

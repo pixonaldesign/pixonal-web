@@ -14,7 +14,11 @@ import {
   ArrowLeftIcon as PhosphorArrowLeftIcon,
   ArrowRightIcon as PhosphorArrowRightIcon,
   PlayIcon as PhosphorPlayIcon,
-  PauseIcon as PhosphorPauseIcon
+  PauseIcon as PhosphorPauseIcon,
+  InstagramLogoIcon as PhosphorInstagramLogoIcon,
+  LinkedinLogoIcon as PhosphorLinkedinLogoIcon,
+  XLogoIcon as PhosphorXLogoIcon,
+  YoutubeLogoIcon as PhosphorYoutubeLogoIcon
 } from '@phosphor-icons/react';
 
 type IconName = 
@@ -31,7 +35,11 @@ type IconName =
   | 'arrow-left'
   | 'arrow-right'
   | 'play'
-  | 'pause';
+  | 'pause'
+  | 'instagram'
+  | 'linkedin'
+  | 'x'
+  | 'youtube';
 
 interface PixonalIconProps {
   name: IconName;
@@ -55,6 +63,10 @@ const iconMap = {
   'arrow-right': PhosphorArrowRightIcon,
   'play': PhosphorPlayIcon,
   'pause': PhosphorPauseIcon,
+  'instagram': PhosphorInstagramLogoIcon,
+  'linkedin': PhosphorLinkedinLogoIcon,
+  'x': PhosphorXLogoIcon,
+  'youtube': PhosphorYoutubeLogoIcon,
 };
 
 export default function PixonalIcon({ name, size = 16, className = "", weight = 'regular' }: PixonalIconProps) {

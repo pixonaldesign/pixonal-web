@@ -4,7 +4,7 @@ import PixonalIcon from './PixonalIcon';
 
 export default function WhitepaperHero() {
   return (
-    <div className="w-full h-[800px] flex flex-col justify-start items-start gap-2.5">
+    <div className="w-full h-[752px] max-h-[752px] flex flex-col justify-start items-start gap-2.5">
       <div className="w-full flex-1 p-6 rounded-[20px] flex flex-col justify-start items-center gap-2.5 relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 pointer-events-none">

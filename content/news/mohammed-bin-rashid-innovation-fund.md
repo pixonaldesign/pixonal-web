@@ -4,7 +4,7 @@ date: "2025-01-15"
 category: "in-the-news"
 source: "Finance World"
 excerpt: "The Mohammed Bin Rashid Innovation Fund has selected 20 innovative startups for its latest funding round, with several focusing on data analytics and AI solutions."
-image: "/images/news/mohammed-bin-rashid-innovation-fund.jpg"
+image: "/images/news/mohammed-bin-rashid-innovation-fund.png"
 ---
 
 The Mohammed Bin Rashid Innovation Fund has announced the selection of 20 groundbreaking startups for its latest funding round, marking a significant milestone in the UAE's innovation ecosystem. The selected companies span various sectors, with a notable focus on data analytics, artificial intelligence, and smart city solutions.

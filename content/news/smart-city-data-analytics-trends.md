@@ -3,7 +3,7 @@ title: "Smart City Data Analytics: Trends and Opportunities for 2025"
 date: "2025-01-05"
 category: "featured"
 excerpt: "Explore the latest trends in smart city data analytics and discover how cities worldwide are leveraging intelligent data solutions to improve urban living."
-image: "/images/news/smart-city-trends-2025.jpg"
+image: "/images/news/smart-city-trends-2025.png"
 ---
 
 As we enter 2025, smart city initiatives continue to evolve at an unprecedented pace, driven by advances in data analytics, artificial intelligence, and Internet of Things (IoT) technologies. Cities worldwide are increasingly turning to intelligent data solutions to address urban challenges and improve quality of life for their citizens.
