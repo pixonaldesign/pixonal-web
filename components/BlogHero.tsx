@@ -4,7 +4,7 @@ import PixonalIcon from './PixonalIcon';
 
 export default function BlogHero() {
   return (
-    <div className="relative w-full min-h-[800px] rounded-[20px] overflow-hidden flex flex-col items-center p-6">
+    <div className="relative w-full max-w-[1400px] min-h-[800px] rounded-[20px] overflow-hidden flex flex-col items-center p-6">
       {/* Stacked background images */}
       <div aria-hidden className="absolute inset-0 pointer-events-none">
         <Image

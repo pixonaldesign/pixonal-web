@@ -37,7 +37,7 @@ export default function IndustryCard({ item, onNavigate }: IndustryCardProps) {
         <div className="absolute inset-0 rounded-[12px] bg-gradient-to-b from-black/70 from-0% to-transparent to-[68.625%]" />
       </div>
 
-      <span className="relative z-10 w-full text-body-tight text-white">
+      <span className="relative z-10 w-full text-h2 text-white">
         {item.label}
       </span>
 
