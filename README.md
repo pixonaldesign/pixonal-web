@@ -24,9 +24,10 @@ A modern, static website for Pixonal built with Next.js 16, featuring intelligen
 ## Technology Stack
 
 - **Framework**: Next.js 16 with App Router
-- **Styling**: Tailwind CSS
-- **Fonts**: Inter (Google Fonts)
-- **Content**: Markdown files for news articles
+- **Styling**: Tailwind CSS v4 + CSS-first design tokens (`styles/tokens.css`)
+- **Fonts**: Untitled Sans + IBM Plex Mono (self-hosted in `public/fonts/`)
+- **Icons**: `@phosphor-icons/react` via the `PixonalIcon` wrapper
+- **Content**: Markdown files for news articles and case studies
 - **Forms**: Formspree integration
 - **Deployment**: Azure Static Web Apps / Docker
 
@@ -133,32 +134,76 @@ For production deployment, set the following environment variables:
 
 ```
 pixonal-web/
-├── app/                    # Next.js app directory
-│   ├── globals.css        # Global styles
-│   ├── layout.tsx         # Root layout
-│   ├── page.tsx           # Landing page
-│   ├── llumen/            # Llumen product page
-│   ├── industries/        # Industries pages
-│   ├── advisory/          # Advisory services page
-│   ├── newsroom/          # Newsroom pages
-│   ├── contact/           # Contact page
-│   ├── sitemap.ts         # Sitemap generation
-│   └── robots.ts          # Robots.txt generation
-├── components/            # React components
-│   ├── Navigation.tsx     # Navigation component
-│   ├── Footer.tsx         # Footer component
-│   ├── GetInTouch.tsx     # CTA section component
-│   └── NewsCard.tsx       # News article card
-├── content/               # Content files
-│   └── news/              # Markdown news articles
-├── lib/                   # Utility functions
-│   ├── markdown.ts        # Markdown parsing
-│   └── industries.ts      # Industry data
-├── public/                # Static assets
-├── staticwebapp.config.json # Azure Static Web Apps config
-├── Dockerfile             # Docker configuration
-├── nginx.conf             # Nginx configuration
-└── tailwind.config.ts     # Tailwind CSS config
+├── app/                          # Next.js App Router
+│   ├── globals.css               # Global styles + font @font-face
+│   ├── layout.tsx                # Root layout (mounts <Navigation/>, <Footer/>)
+│   ├── page.tsx                  # Landing page
+│   ├── llumen/                   # Llumen product page
+│   ├── industries/               # /industries + /industries/[slug]
+│   ├── advisory/                 # Advisory services page
+│   ├── newsroom/                 # /newsroom + /newsroom/[slug]
+│   ├── case-studies/             # /case-studies + /case-studies/[slug]
+│   ├── contact/                  # Contact page
+│   ├── not-found.tsx             # Custom 404
+│   ├── sitemap.ts                # Sitemap generation
+│   └── robots.ts                 # Robots.txt generation
+├── components/                   # React components
+│   ├── navigation/               # Composable nav (server shell + client overlays)
+│   │   ├── NavigationBar.tsx     # Client state owner: openPanel = menu|industries|null
+│   │   ├── NavBarShell.tsx       # Server-rendered bar (logo, primary links, CTA, toggle)
+│   │   ├── NavOverlay.tsx        # Hamburger panel (crawlable-in-DOM links + news cards)
+│   │   ├── IndustriesOverlay.tsx # Industries dropdown panel
+│   │   ├── IndustryCard.tsx      # Card with default + image-bg hover state
+│   │   └── nav-config.ts         # Primary links, contact CTA, industries menu items
+│   ├── Navigation.tsx            # Async server wrapper that feeds NavigationBar
+│   ├── NavLink.tsx               # <Link> with aria-current + active styling
+│   ├── Hero.tsx                  # Homepage hero
+│   ├── BlogHero.tsx              # "PXNL / BLOG" CTA section
+│   ├── CaseStudiesCarousel.tsx   # Full-bleed carousel (ResizeObserver-based centering)
+│   ├── CaseStudyCard.tsx         # Carousel card
+│   ├── LlumenCard.tsx            # Llumen feature card on home
+│   ├── Partners.tsx              # Partner logos grid + featured partner cards
+│   ├── GetInTouch.tsx            # CTA section
+│   ├── GetInTouchHero.tsx        # "Get in touch" hero variant
+│   ├── GradientButton.tsx        # Shared CTA button
+│   ├── NewsCard.tsx              # News article card
+│   ├── PixonalIcon.tsx           # Phosphor icon wrapper
+│   ├── Footer.tsx                # Server footer wrapper
+│   └── FooterClient.tsx          # Footer interactive bits
+├── content/                      # Markdown content
+│   ├── news/                     # Newsroom articles
+│   └── case-studies/             # Case study articles
+├── lib/                          # Data + utilities
+│   ├── markdown.ts               # Markdown parsing (news, case studies)
+│   └── industries.ts             # Industry data
+├── styles/
+│   └── tokens.css                # Design tokens (typography, spacing, layout, color)
+├── tokens/                       # TypeScript mirrors of the CSS tokens
+│   ├── index.ts
+│   ├── breakpoints.ts
+│   ├── spacing.ts
+│   └── typography.ts
+├── public/                       # Static assets
+│   ├── fonts/                    # Self-hosted Untitled Sans + IBM Plex Mono
+│   ├── images/
+│   │   ├── nav/industries/       # Industries dropdown hover backgrounds
+│   │   ├── blog/                 # BlogHero stacked backgrounds
+│   │   ├── llumen/               # Llumen card assets
+│   │   ├── partners/             # Partner logos
+│   │   ├── news/                 # News article hero images
+│   │   └── footer/               # Footer social icons
+│   └── videos/                   # Llumen feature reel
+├── .cursor/rules/                # Agent guidance (always-applied)
+│   ├── seo.mdc                   # Link-in-SSR, single-h1, landmarks, metadata
+│   ├── styling.mdc               # Token usage, calc() spacing, w-full + mx-* pitfalls
+│   ├── figma.mdc                 # Figma → code workflow
+│   ├── nextjs.mdc                # Next.js conventions
+│   └── typescript.mdc            # TS conventions
+├── staticwebapp.config.json      # Azure Static Web Apps config
+├── Dockerfile                    # Docker configuration
+├── nginx.conf                    # Nginx configuration
+├── tailwind.config.ts            # Tailwind v4 config (wires @theme to token vars)
+└── next.config.ts                # Next.js configuration
 ```
 
 ## SEO Features
