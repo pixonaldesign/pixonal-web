@@ -49,18 +49,18 @@ const partnerLogos: PartnerLogo[] = [
 
 export default function Partners() {
   return (
-    <section className="bg-primary-900 py-[184px] px-5">
-      <div className="w-full mx-auto flex flex-col gap-6 items-center max-w-[1360px] pb-12">
+    <section className="bg-primary-900 py-section px-5">
+      <div className="w-full mx-auto flex flex-col gap-6 items-center max-w-content pb-12">
         {/* Title */}
-        <div className="flex flex-col gap-12 items-start w-full pb-6">
-          <h2 className="capitalize font-untitled-sans leading-[1.2] text-[36px] text-white tracking-[-0.792px] whitespace-pre">
+        <div className="flex flex-col gap-block items-start w-full pb-6">
+          <h2 className="text-h1 text-white whitespace-pre">
           Partnered with Visionary <br />
           Decision-Makers
           </h2>
         </div>
 
         {/* Featured Partner Cards */}
-        <div className="flex gap-6 justify-center max-w-[1360px]">
+        <div className="flex gap-6 justify-center max-w-content">
           {featuredPartners.map((partner, index) => (
             <div
               key={index}
@@ -106,7 +106,7 @@ export default function Partners() {
                 </div>
                 
                 {/* Bottom - Description anchored */}
-                <p className="text-white text-base font-normal font-untitled-sans leading-relaxed text-center shrink-0">
+                <p className="text-body-relaxed text-white text-center shrink-0">
                   {partner.description}
                 </p>
               </div>
@@ -115,18 +115,18 @@ export default function Partners() {
         </div>
 
         {/* Partner Logos Grid */}
-        <div className="border border-stone-300/16 rounded-[20px] max-w-[1360px]">
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center">
+        <div className="w-full border border-stone-300/16 rounded-[20px] px-6 py-8 md:px-10 md:py-[60px]">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-x-8 gap-y-10 md:gap-x-[78px] md:gap-y-[71px] items-center justify-items-center">
             {partnerLogos.map((partner, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center p-8 bg-transparent hover:bg-primary-800 rounded-lg transition-colors h-[200px]"
+                className="flex items-center justify-center w-full h-[60px] md:h-[75px]"
               >
                 <Image
                   src={partner.logo}
                   alt={partner.name}
-                  width={150}
-                  height={100}
+                  width={180}
+                  height={75}
                   className="max-h-full max-w-full object-contain filter brightness-0 invert"
                 />
               </div>

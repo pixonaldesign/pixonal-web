@@ -82,13 +82,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-untitled-sans antialiased bg-zinc-900">
+      <body className="font-sans antialiased bg-zinc-900">
         <div className="w-full min-h-screen flex flex-col justify-start items-center relative">
-          <div className="w-full flex flex-col justify-start items-center gap-10 rounded-[20px]">
-            {/* Navigation - Fixed/Overlay */}
-            <div className="flex justify-center fixed top-5 left-5 right-5 z-50">
+          <div className="w-full flex flex-col justify-start items-center gap-section rounded-[20px]">
+            <header className="flex justify-center fixed top-5 left-5 right-5 z-50 w-[calc(100%-2.5rem)]">
               <Navigation />
-            </div>
+            </header>
 
             {/* Page Content */}
             <main className="w-full">{children}</main>

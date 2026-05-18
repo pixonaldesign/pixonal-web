@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import GradientButton from './GradientButton';
 import PixonalIcon from './PixonalIcon';
-import Link from 'next/link';
 
 export default function LlumenCard() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -24,56 +25,50 @@ export default function LlumenCard() {
           }
         });
       },
-      {
-        threshold: 0.5, // Start playing when 50% of the video is visible
-      }
+      { threshold: 0.5 }
     );
 
     observer.observe(video);
-
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="w-[1360px] mx-auto md:px-8 p-12 bg-[#121212] rounded-[20px] flex flex-col lg:flex-row justify-start items-start gap-10 lg:gap-40">
-      {/* Left Column - Title */}
-      <div className="w-full lg:w-[25%] flex flex-col justify-start items-start gap-5">
-        <h2 className="w-full text-white text-4xl font-normal font-untitled-sans capitalize leading-[1.2]">
-          Llumen — <br />
-          the intelligence interface
-        </h2>
+    <div className="relative w-full max-w-content mx-auto rounded-[20px] overflow-hidden bg-primary-900 p-5 flex flex-col items-center gap-6">
+      {/* Background layers: gradient + image + bottom fade */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/images/llumen/card-bg.png"
+          alt=""
+          fill
+          className="object-cover opacity-80"
+          sizes="(max-width: 1400px) 100vw, 1400px"
+          priority={false}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(to bottom, rgba(18,18,18,0) 0%, #121212 100%)',
+          }}
+        />
       </div>
 
-      {/* Right Column - Content */}
-      <div className="flex-1 flex flex-col justify-start items-start gap-10 px-4">
-        {/* Description */}
-        <div className="w-full flex flex-col justify-start items-start gap-10">
-          <p className="w-full opacity-80 text-white text-base font-normal font-untitled-sans leading-5">
-            Llumen turns raw data into living stories by breaking information into &ldquo;tokens&rdquo; that connect directly to your insights. These tokens weave facts, figures, and visuals into cohesive, interactive narratives.
-            <br /><br />
-            For quick analyses or recurring reports, Llumen&apos;s token-based architecture gives you the flexibility to shape the story you need, exactly when you need it.
-          </p>
+      {/* Heading */}
+      <div className="relative z-10 flex flex-col items-center text-center gap-5 w-full max-w-[770px] px-4 pt-2">
+        <h2 className="text-primary-50 text-h1">
+          Llumen —
+          <br />
+          The Operating System for Critical Decisions
+        </h2>
+        <p className="text-primary-50 opacity-80 text-body">
+          Governs how data, analytics, and AI are structured, operated, and consumed at the moment of decision
+        </p>
+      </div>
 
-          {/* CTA Buttons */}
-          <div className="inline-flex justify-center items-start gap-6 flex-wrap">
-            <GradientButton href="/llumen#demo">
-              Request Demo
-            </GradientButton>
-            <Link 
-              href="/llumen"
-              className="p-3.5 rounded-xl outline -outline-offset-1 outline-white inline-flex justify-center items-center gap-2 hover:bg-white/10 transition-colors text-white text-base font-normal font-untitled-sans capitalize leading-4 whitespace-nowrap"
-            >
-              Explore Llumen
-              <PixonalIcon name="arrow-right" size={24} />
-            </Link>
-          </div>
-        </div>
-
-        {/* Video Placeholder */}
-        <div className="w-full aspect-video bg-primary-700 rounded-[20px] border border-gray-700 overflow-hidden flex items-center justify-center">
-          <video 
+      {/* Video + overlapping button bar */}
+      <div className="relative z-10 w-full flex flex-col items-center">
+        <div className="aspect-[160/90] w-full rounded-[20px] overflow-hidden bg-primary-700 border border-primary-700">
+          <video
             ref={videoRef}
             className="w-full h-full object-cover"
             muted
@@ -81,11 +76,31 @@ export default function LlumenCard() {
             playsInline
             poster="/images/llumen-preview.png"
           >
-            <source src="/videos/LlumenBriefing.mp4" type="video/mp4" />
+            <source src="/videos/LlumenFeatures.mp4" type="video/mp4" />
           </video>
+        </div>
+
+        {/* Button bar overlaps bottom of video */}
+        <div className="relative w-full -mt-[60px] sm:-mt-[80px] rounded-b-[20px] overflow-hidden">
+          <Image
+            src="/images/llumen/buttons-bg.png"
+            alt=""
+            fill
+            className="object-cover pointer-events-none"
+            sizes="(max-width: 1400px) 100vw, 1400px"
+          />
+          <div className="relative flex flex-wrap gap-5 items-center justify-center px-2.5 py-5">
+            <GradientButton href="/llumen#demo">Request Demo</GradientButton>
+            <Link
+              href="/llumen"
+              className="h-[52px] px-4 rounded-xl border border-white inline-flex items-center justify-center gap-2 text-white text-button whitespace-nowrap bg-black/20 backdrop-blur-[10px] hover:bg-white/10 transition-colors"
+            >
+              Explore Llumen
+              <PixonalIcon name="arrow-right" size={24} />
+            </Link>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-

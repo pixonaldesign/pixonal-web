@@ -168,19 +168,19 @@ export default function AdvisoryPage() {
     <>
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-primary-800 to-primary-900">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+        <div className="max-w-content mx-auto px-gutter text-center">
+          <h1 className="text-display text-white mb-6">
             Strategic Advisory Services
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-4xl mx-auto">
+          <p className="text-lead text-primary-100 mb-8 max-w-4xl mx-auto">
             Transform your organization with expert guidance on data strategy, digital transformation, 
             and technology implementation. Our advisory services deliver measurable results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-gradient-to-r from-accent-blue to-accent-red text-white px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-opacity">
+            <button className="bg-gradient-to-r from-accent-blue to-accent-red text-white px-8 py-4 rounded-full text-button hover:opacity-90 transition-opacity">
               Schedule Consultation
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-primary-900 transition-colors">
+            <button className="border-2 border-white text-white px-8 py-4 rounded-full text-button hover:bg-white hover:text-primary-900 transition-colors">
               Download Brochure
             </button>
           </div>
@@ -189,12 +189,12 @@ export default function AdvisoryPage() {
 
       {/* Services Overview */}
       <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-content mx-auto px-gutter">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-h1 text-primary-900 mb-4">
               Our Advisory Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lead text-primary-600 max-w-3xl mx-auto">
               Comprehensive guidance across all aspects of data strategy and digital transformation
             </p>
           </div>
@@ -203,7 +203,7 @@ export default function AdvisoryPage() {
             {services.map((service, index) => (
               <div key={index} className="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-shadow">
                 <div className="text-4xl mb-6">{service.icon}</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-h2 text-primary-900 mb-4">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
@@ -225,12 +225,12 @@ export default function AdvisoryPage() {
 
       {/* Impact Areas */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-content mx-auto px-gutter">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-h1 text-primary-900 mb-4">
               Proven Impact
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lead text-primary-600 max-w-3xl mx-auto">
               Measurable results delivered through our strategic advisory services
             </p>
           </div>
@@ -238,10 +238,10 @@ export default function AdvisoryPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {impactAreas.map((area, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-accent-blue mb-2">
+                <div className="text-stat text-accent-blue mb-2">
                   {area.metric}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-h2 text-primary-900 mb-4">
                   {area.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -255,12 +255,12 @@ export default function AdvisoryPage() {
 
       {/* Deliverables */}
       <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-content mx-auto px-gutter">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-h1 text-primary-900 mb-4">
               Our Deliverables
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lead text-primary-600 max-w-3xl mx-auto">
               Tangible outcomes that drive your transformation forward
             </p>
           </div>
@@ -268,7 +268,7 @@ export default function AdvisoryPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {deliverables.map((deliverable, index) => (
               <div key={index} className="bg-gradient-to-br from-primary-50 to-primary-100 p-8 rounded-2xl">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-h2 text-primary-900 mb-4">
                   {deliverable.title}
                 </h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">
@@ -285,12 +285,12 @@ export default function AdvisoryPage() {
 
       {/* Testimonials */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-content mx-auto px-gutter">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-h1 text-primary-900 mb-4">
               Client Success Stories
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lead text-primary-600 max-w-3xl mx-auto">
               Hear from organizations that have transformed with our advisory services
             </p>
           </div>
@@ -321,12 +321,12 @@ export default function AdvisoryPage() {
 
       {/* Process Overview */}
       <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-content mx-auto px-gutter">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-h1 text-primary-900 mb-4">
               Our Process
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lead text-primary-600 max-w-3xl mx-auto">
               A structured approach to delivering maximum value
             </p>
           </div>
@@ -336,7 +336,7 @@ export default function AdvisoryPage() {
               <div className="w-16 h-16 bg-gradient-to-r from-accent-blue to-accent-red rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-white font-bold text-xl">1</span>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="text-h2 text-primary-900 mb-4">
                 Discovery & Assessment
               </h3>
               <p className="text-gray-600">
@@ -348,7 +348,7 @@ export default function AdvisoryPage() {
               <div className="w-16 h-16 bg-gradient-to-r from-accent-blue to-accent-red rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-white font-bold text-xl">2</span>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="text-h2 text-primary-900 mb-4">
                 Strategy Development
               </h3>
               <p className="text-gray-600">
@@ -360,7 +360,7 @@ export default function AdvisoryPage() {
               <div className="w-16 h-16 bg-gradient-to-r from-accent-blue to-accent-red rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-white font-bold text-xl">3</span>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="text-h2 text-primary-900 mb-4">
                 Implementation Support
               </h3>
               <p className="text-gray-600">
@@ -372,7 +372,7 @@ export default function AdvisoryPage() {
               <div className="w-16 h-16 bg-gradient-to-r from-accent-blue to-accent-red rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-white font-bold text-xl">4</span>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="text-h2 text-primary-900 mb-4">
                 Optimization & Growth
               </h3>
               <p className="text-gray-600">
@@ -386,17 +386,17 @@ export default function AdvisoryPage() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-accent-blue to-accent-red">
         <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-h1 text-white mb-6">
             Ready to Transform Your Organization?
           </h2>
-          <p className="text-xl text-white/90 mb-8 leading-relaxed">
+          <p className="text-lead text-white/90 mb-8">
             Let's discuss how our advisory services can drive meaningful change and deliver measurable results
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-primary-900 px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-primary-900 px-8 py-4 rounded-full text-button hover:bg-gray-100 transition-colors">
               Schedule Free Consultation
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-primary-900 transition-colors">
+            <button className="border-2 border-white text-white px-8 py-4 rounded-full text-button hover:bg-white hover:text-primary-900 transition-colors">
               Download Service Guide
             </button>
           </div>

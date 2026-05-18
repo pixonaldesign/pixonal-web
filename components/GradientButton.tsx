@@ -14,7 +14,7 @@ export default function GradientButton({
   className = ""
 }: GradientButtonProps) {
   const content = (
-    <div className="inline-flex justify-center items-center gap-2 text-white text-base font-normal font-untitled-sans capitalize leading-4 transition-opacity hover:opacity-90">
+    <div className="inline-flex justify-center items-center gap-2 text-white text-button transition-opacity hover:opacity-90">
       {children}
     </div>
   );

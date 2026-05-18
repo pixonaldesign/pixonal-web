@@ -45,7 +45,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     return (
       <div className="min-h-screen bg-primary-900 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Case Study Not Found</h1>
+          <h1 className="text-h1 text-white mb-4">Case Study Not Found</h1>
           <p className="text-gray-300 mb-8">The case study you&apos;re looking for doesn&apos;t exist.</p>
           <Link
             href="/case-studies"
@@ -80,14 +80,14 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             Back to All Case Studies
           </Link>
           <div className="mb-4">
-            <span className="text-xs font-ibm-plex font-mono text-gray-400 uppercase tracking-wider">
+            <span className="text-xs font-mono text-gray-400 uppercase tracking-wider">
               Case Study
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-untitled-sans font-normal text-white mb-6 leading-tight">
+          <h1 className="text-display text-white mb-6">
             {caseStudy.title}
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lead text-primary-100 max-w-3xl mx-auto">
             {caseStudy.excerpt}
           </p>
           <div className="mt-6 text-gray-400">

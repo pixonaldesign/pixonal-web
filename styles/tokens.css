@@ -1,0 +1,321 @@
+/**
+ * Pixonal design tokens
+ * Source of truth for Tailwind @theme + semantic utilities.
+ * TypeScript mirrors: tokens/*.ts
+ */
+
+@theme {
+  /* Breakpoints (Figma: xl 1440, 2xl 1920) */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 90rem;
+  --breakpoint-2xl: 120rem;
+
+  /* Font families */
+  --font-sans: 'Untitled Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+
+  /* Spacing primitives (4px base) */
+  --spacing-0: 0px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-46: 184px;
+
+  /* Semantic spacing (Tailwind: gap-tight, p-gutter, etc.) */
+  --spacing-gap-tight: var(--spacing-2);
+  --spacing-gap-stack: var(--spacing-3);
+  --spacing-gap-inline: var(--spacing-2);
+  --spacing-gap-block: var(--spacing-6);
+  --spacing-gap-section: var(--spacing-10);
+  --spacing-gap-feature: var(--spacing-12);
+  --spacing-card: var(--spacing-6);
+  --spacing-card-sm: var(--spacing-3);
+  --spacing-button-x: var(--spacing-4);
+  --spacing-button-y: var(--spacing-3);
+  --spacing-nav-y: var(--spacing-8);
+  --spacing-nav-x: var(--spacing-10);
+  --spacing-gutter: var(--layout-gutter);
+  --spacing-section-y: var(--layout-section-y);
+
+  /* Layout */
+  --width-content: var(--layout-content-max);
+
+  /* Letter spacing */
+  --tracking-sans: -0.02em;
+  --tracking-mono: 0.06em;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Layout tokens (responsive)                                                   */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  --layout-gutter: 20px;
+  --layout-content-max: 100%;
+  --layout-section-y: 80px;
+
+  /* Typography — default (< md) */
+  --text-display-size: 48px;
+  --text-display-line-height: 1.1;
+  --text-display-accent-size: 48px;
+  --text-display-accent-line-height: 1.1;
+  --text-h1-size: 28px;
+  --text-h1-line-height: 1.2;
+  --text-h2-size: 20px;
+  --text-h2-line-height: 1.3;
+  --text-lead-size: 18px;
+  --text-lead-line-height: 1.2;
+  --text-body-size: 16px;
+  --text-body-line-height: 1.2;
+  --text-body-tight-line-height: 1.1;
+  --text-body-relaxed-line-height: 1.4;
+  --text-button-line-height: 1.1;
+  --text-nav-line-height: 1.1;
+  --text-label-size: 14px;
+  --text-label-line-height: 1.1;
+  --text-stat-size: 16px;
+  --text-stat-line-height: 1.1;
+  --text-news-caption-size: 12px;
+  --text-news-caption-line-height: 1.2;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --layout-gutter: 24px;
+    --layout-section-y: 120px;
+
+    --text-display-size: 56px;
+    --text-display-accent-size: 56px;
+    --text-h1-size: 32px;
+    --text-h2-size: 22px;
+    --text-label-size: 16px;
+  }
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --text-display-size: 72px;
+    --text-display-accent-size: 72px;
+    --text-h1-size: 34px;
+    --text-h2-size: 23px;
+  }
+}
+
+@media (min-width: 90rem) {
+  :root {
+    --layout-gutter: 40px;
+    --layout-content-max: 1360px;
+    --layout-section-y: 184px;
+
+    --text-display-size: 84px;
+    --text-display-accent-size: 84px;
+    --text-h1-size: 36px;
+    --text-h2-size: 24px;
+    --text-lead-size: 20px;
+  }
+}
+
+@media (min-width: 120rem) {
+  :root {
+    --layout-content-max: 1400px;
+    /* h1 stays 36px at 2xl per design decision */
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Semantic typography utilities                                                */
+/* -------------------------------------------------------------------------- */
+
+@layer utilities {
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .text-display {
+    font-family: var(--font-sans);
+    font-size: var(--text-display-size);
+    line-height: var(--text-display-line-height);
+    letter-spacing: var(--tracking-sans);
+    font-weight: 400;
+  }
+
+  .text-display-accent {
+    font-family: var(--font-mono);
+    font-size: var(--text-display-accent-size);
+    line-height: var(--text-display-accent-line-height);
+    letter-spacing: 0;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .text-h1 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h1-size);
+    line-height: var(--text-h1-line-height);
+    letter-spacing: var(--tracking-sans);
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+
+  .text-h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2-size);
+    line-height: var(--text-h2-line-height);
+    letter-spacing: var(--tracking-sans);
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+
+  .text-lead {
+    font-family: var(--font-sans);
+    font-size: var(--text-lead-size);
+    line-height: var(--text-lead-line-height);
+    letter-spacing: var(--tracking-sans);
+    font-weight: 400;
+  }
+
+  .text-body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-size);
+    line-height: var(--text-body-line-height);
+    letter-spacing: var(--tracking-sans);
+    font-weight: 400;
+  }
+
+  .text-body-tight {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-size);
+    line-height: var(--text-body-tight-line-height);
+    letter-spacing: var(--tracking-sans);
+    font-weight: 400;
+  }
+
+  .text-body-relaxed {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-size);
+    line-height: var(--text-body-relaxed-line-height);
+    letter-spacing: var(--tracking-sans);
+    font-weight: 400;
+  }
+
+  .text-button {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-size);
+    line-height: var(--text-button-line-height);
+    letter-spacing: var(--tracking-sans);
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+
+  .text-nav {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-size);
+    line-height: var(--text-nav-line-height);
+    letter-spacing: var(--tracking-sans);
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+
+  .text-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-label-size);
+    line-height: var(--text-label-line-height);
+    letter-spacing: var(--tracking-mono);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .text-stat {
+    font-family: var(--font-mono);
+    font-size: var(--text-stat-size);
+    line-height: var(--text-stat-line-height);
+    letter-spacing: var(--tracking-mono);
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  .text-news-caption {
+    font-family: var(--font-mono);
+    font-size: var(--text-news-caption-size);
+    line-height: var(--text-news-caption-line-height);
+    letter-spacing: var(--tracking-mono);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  /* Semantic spacing */
+  .gap-tight {
+    gap: var(--spacing-gap-tight);
+  }
+
+  .gap-stack {
+    gap: var(--spacing-gap-stack);
+  }
+
+  .gap-inline {
+    gap: var(--spacing-gap-inline);
+  }
+
+  .gap-block {
+    gap: var(--spacing-gap-block);
+  }
+
+  .gap-section {
+    gap: var(--spacing-gap-section);
+  }
+
+  .gap-feature {
+    gap: var(--spacing-gap-feature);
+  }
+
+  .px-gutter {
+    padding-left: var(--layout-gutter);
+    padding-right: var(--layout-gutter);
+  }
+
+  .py-section {
+    padding-top: var(--layout-section-y);
+    padding-bottom: var(--layout-section-y);
+  }
+
+  .p-card {
+    padding: var(--spacing-card);
+  }
+
+  .p-card-sm {
+    padding: var(--spacing-card-sm);
+  }
+
+  .px-button {
+    padding-left: var(--spacing-button-x);
+    padding-right: var(--spacing-button-x);
+  }
+
+  .py-button {
+    padding-top: var(--spacing-button-y);
+    padding-bottom: var(--spacing-button-y);
+  }
+
+  .p-nav {
+    padding: var(--spacing-nav-y) var(--spacing-nav-x);
+  }
+
+  .max-w-content {
+    max-width: var(--layout-content-max);
+  }
+}

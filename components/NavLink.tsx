@@ -1,63 +1,42 @@
 'use client';
 
-import React from 'react';
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 interface NavLinkProps {
   href: string;
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
+  labelClassName?: string;
 }
 
-export default function NavLink({ href, children, className = "" }: NavLinkProps) {
+export default function NavLink({
+  href,
+  children,
+  className = '',
+  labelClassName = 'text-center text-white text-nav',
+}: NavLinkProps) {
   const pathname = usePathname();
-  const isActive = pathname === href || pathname === `${href}/` || pathname.startsWith(`${href}/`);
-  
-  // Special styling for Get In Touch button
+  const isActive =
+    pathname === href ||
+    pathname === `${href}/` ||
+    (href !== '/' && pathname.startsWith(`${href}/`));
   const isContactButton = href === '/contact';
-  
-  // Clone children to add underline to text
-  const childrenWithUnderline = React.Children.map(children, (child) => {
-    if (isActive && !isContactButton && React.isValidElement(child)) {
-      // Find the text div and add border-b class
-      const childProps = child.props as { children?: React.ReactNode };
-      const textDiv = React.Children.toArray(childProps.children).find(
-        (c: React.ReactNode): c is React.ReactElement<{ className?: string }> => 
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          React.isValidElement(c) && c.type === 'div' && (c.props as any)?.className?.includes('text-center')
-      );
-      
-      if (textDiv) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return React.cloneElement(child as React.ReactElement<any>, {
-          children: React.Children.map(childProps.children, (c: React.ReactNode) => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            if (React.isValidElement(c) && c.type === 'div' && (c.props as any)?.className?.includes('text-center')) {
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              return React.cloneElement(c as React.ReactElement<any>, {
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                className: `${(c.props as any).className} border-b-2 border-white`
-              });
-            }
-            return c;
-          })
-        });
-      }
-    }
-    return child;
-  });
-  
+
   return (
-    <Link 
-      href={href} 
-      className={`${className} ${
-        isActive && isContactButton
-          ? 'ring-2 ring-white ring-opacity-50' 
-          : ''
-      }`}
+    <Link
+      href={href}
+      className={className}
+      aria-current={isActive ? 'page' : undefined}
     >
-      {childrenWithUnderline || children}
+      <span
+        className={`${labelClassName} ${
+          isActive && !isContactButton ? 'border-b-2 border-white' : ''
+        } ${isActive && isContactButton ? 'ring-2 ring-white/50 rounded-[6px]' : ''}`}
+      >
+        {children}
+      </span>
     </Link>
   );
 }

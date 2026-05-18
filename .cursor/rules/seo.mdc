@@ -1,0 +1,35 @@
+---
+description: SEO requirements — always preserve crawlability, semantics, and Core Web Vitals
+alwaysApply: true
+---
+
+# SEO (mandatory)
+
+Every change must preserve or improve search visibility. Treat SEO as a release blocker, not a polish step.
+
+## Navigation and links
+
+- Primary routes must use real `<Link href="...">` / `<a href="...">` — never JS-only navigation for main IA.
+- Wrap site nav in `<nav aria-label="...">` with `<ul role="list">` / `<li>` where appropriate.
+- Do not mount primary nav links only after client `useState` — keep hrefs in server HTML (CSS `hidden` is OK for mobile panels).
+- One global `<Navigation />` in `app/layout.tsx` — never duplicate nav/footer on pages.
+- Use `aria-current="page"` on active links; `aria-expanded` / `aria-controls` on menu toggles.
+- Remove links to non-existent routes (404s hurt SEO).
+
+## Metadata and content
+
+- Every `app/**/page.tsx` needs unique `metadata` or `generateMetadata` (title, description, canonical when applicable).
+- One `<h1>` per page; logical heading order (`h1` → `h2` → `h3`).
+- Meaningful `alt` on content images; decorative images use `alt=""`.
+- Prefer Next.js `<Image>` with width/height to limit CLS.
+
+## Rendering
+
+- Prefer Server Components for indexable content; use client components only for interactivity.
+- Avoid blocking LCP with heavy client bundles on above-the-fold content.
+- Do not hide critical text in images-only hero sections without accessible HTML equivalents.
+
+## When refactoring UI
+
+- Before merging: confirm primary links still appear in View Source / SSR HTML.
+- After nav/layout changes: verify no duplicate landmarks (`<header>`, `<nav>`, `<footer>`).

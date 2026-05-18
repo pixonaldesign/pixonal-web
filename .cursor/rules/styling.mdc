@@ -1,0 +1,62 @@
+---
+description: Styling and layout gotchas — design tokens, Tailwind arbitrary values, responsive math
+alwaysApply: true
+---
+
+# Styling (mandatory)
+
+This codebase uses a CSS-first design token layer (`styles/tokens.css`) plus
+Tailwind v4 (`tailwind.config.ts`). Follow the patterns below — most of these
+rules exist because the alternative produced bugs that took multiple rounds
+to track down.
+
+## Design tokens are the source of truth
+
+- Use semantic typography utilities defined in `styles/tokens.css`:
+  - Mono / labels: `text-label`, `text-stat`, `text-news-caption`
+  - Sans display/headings: `text-display`, `text-display-accent`, `text-h1`, `text-h2`
+  - Sans body: `text-lead`, `text-body`, `text-body-tight`, `text-body-relaxed`
+  - Buttons / nav: `text-button`, `text-nav`
+- Use semantic spacing utilities, not raw rem/px: `gap-tight|stack|inline|block|section|feature`, `p-card`, `px-gutter`, `py-section`, `px-button`, `py-button`, `max-w-content`.
+- Responsive scaling is handled by CSS vars in `:root` media queries — do not add per-breakpoint `text-[size]` overrides; extend the token instead.
+- If you need a new token, add it to `styles/tokens.css` (and mirror in `tokens/*.ts` when relevant), don't inline magic numbers.
+
+## Source order matters in `tokens.css`
+
+Several semantic utilities (`.text-button`, `.text-h1`, `.text-h2`, `.text-body*`, `.text-nav`) set `font-family: var(--font-sans)` and are defined **after** `.font-mono` / `.font-sans` in the same `@layer utilities`. With equal specificity, later declarations win.
+
+- Do **not** combine `text-button` (or other sans semantic utilities) with `font-mono` / `font-ibm-plex-mono` and expect the family to change — it won't.
+- For mono text use the mono token (`text-label`, `text-stat`, `text-news-caption`) directly.
+- The same applies to text color set inside a wrapper that uses a typography utility — push `text-black` / `text-white` onto the inner `<span>` if needed.
+
+## Tailwind arbitrary `calc()` requires spaces
+
+CSS `calc()` requires whitespace around `+` and `-`. Tailwind's arbitrary-value parser strips spaces from class names, so:
+
+- `max-w-[calc(100vw-2.5rem)]` → compiles to `calc(100vw-2.5rem)` → invalid → silently ignored.
+- Correct forms:
+  - Underscore-as-space: `max-w-[calc(100vw_-_2.5rem)]`
+  - Inline style: `style={{ maxWidth: 'calc(100vw - 2.5rem)' }}` (preferred when the same expression also lives in a CSS variable so the two stay byte-identical).
+
+## Width + margin pitfalls on full-bleed sections
+
+Do not combine `w-full` with `mx-*` (or any horizontal margin) on a top-level page section. `w-full` is 100% of the parent's content box and margins are *outside* that box, so the element overflows by the total margin (visibly bleeds off the right edge). A plain block already fills `parent_width - margins`.
+
+- ✅ `<section className="aspect-video rounded-[20px] mx-5">…</section>`
+- ❌ `<section className="w-full aspect-video rounded-[20px] mx-5">…</section>`
+
+## Centering full-bleed carousels / clipped layouts
+
+For horizontally translating layouts where centering math depends on the visible width:
+
+- Do **not** use `100vw` in the math — it includes the scrollbar on desktop and will drift.
+- Avoid `100cqw` unless you've personally verified container-query layout in the target browsers and the container width is what you expect.
+- Measure the clipping container's `clientWidth` with a `ResizeObserver` and compute `transform` + child width in pixels. The card width and the carousel's `transform` must come from the same source of truth.
+
+## Image filters preserve alpha
+
+Partner / icon logos that need to be rendered in white over a dark surface use `filter brightness-0 invert`. This remaps RGB only; the alpha channel is preserved. Prefer detailed white-on-transparent assets over flat silhouette PNGs — the filter will render them correctly while keeping the detail.
+
+## Use Next `<Image>` for content imagery
+
+Always use `next/image` for content images (logos, hero art, cards). Provide explicit `width`/`height` or `fill` + `sizes` to prevent CLS. Decorative images use `alt=""`.

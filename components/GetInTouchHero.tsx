@@ -36,8 +36,8 @@ export default function GetInTouchHero() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col justify-start items-start gap-2.5">
-      <div className="w-full h-[790px] px-5 rounded-[20px] flex flex-col justify-center items-center gap-12 relative overflow-hidden">
+    <div className="w-full flex flex-col justify-start items-start gap-tight">
+      <div className="w-full h-[790px] px-5 rounded-[20px] flex flex-col justify-center items-center gap-block relative overflow-hidden">
         {/* Background Video */}
         <video
           ref={videoRef}
@@ -52,23 +52,18 @@ export default function GetInTouchHero() {
         {/* Content Overlay */}
         <div className="relative z-10 flex flex-col justify-center items-center gap-12">
           {/* Title */}
-          <div className="text-center text-8xl text-white leading-[1.1]">
-            <span className="font-light italic font-ibm-plex font-mono">
-              Transform your
-            </span>
-            <br />
-            <span className="font-normal font-untitled-sans">
-              Moment of Decision.
-            </span>
-          </div>
+          <h2 className="text-center text-white">
+            <span className="text-display-accent block">Transform your</span>
+            <span className="text-display block">Moment of Decision.</span>
+          </h2>
 
           {/* Button */}
           <Link
             href="/contact"
-            className="h-12 px-5 py-4 rounded-xl shadow-[0px_8px_16px_0px_rgba(27,27,27,0.16)] outline-1 -outline-offset-1 outline-white backdrop-blur-2xl flex flex-col justify-center items-start gap-2.5 hover:opacity-90 transition-opacity"
+            className="h-12 px-5 py-4 rounded-xl shadow-[0px_8px_16px_0px_rgba(27,27,27,0.16)] outline-1 -outline-offset-1 outline-white backdrop-blur-2xl flex flex-col justify-center items-start gap-tight hover:opacity-90 transition-opacity"
           >
             <div className="inline-flex justify-start items-center gap-3">
-              <span className="text-white text-base font-normal font-untitled-sans capitalize leading-4">
+              <span className="text-white text-button">
                 Get in Touch
               </span>
               <PixonalIcon name="arrow-right" size={24} className="text-white" />

@@ -1,7 +1,5 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
 import GetInTouch from '@/components/GetInTouch';
 import { getNewsArticle, getAllNewsArticles } from '@/lib/markdown';
 import Link from 'next/link';
@@ -72,9 +70,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <div className="bg-primary-900 min-h-screen">
-      {/* Navigation */}
-      <Navigation />
-
       {/* Article Header */}
       <section className="relative py-20 bg-linear-to-br from-primary-800 to-primary-900">
         <div className="max-w-4xl mx-auto px-4">
@@ -99,7 +94,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-display text-white mb-6">
               {article.title}
             </h1>
             
@@ -165,7 +160,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <section className="py-12 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <h3 className="text-h2 text-primary-900 mb-6">
               Share this article
             </h3>
             <div className="flex justify-center space-x-4">
@@ -196,12 +191,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
       {/* Related Articles */}
       <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-content mx-auto px-gutter">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-h1 text-primary-900 mb-4">
               Related Articles
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lead text-primary-600 max-w-3xl mx-auto">
               Continue exploring our latest insights and updates
             </p>
           </div>
@@ -230,8 +225,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       {/* Get in Touch Section */}
       <GetInTouch />
 
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }

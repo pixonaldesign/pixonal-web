@@ -24,11 +24,11 @@ export default async function NewsroomPage() {
     <>
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-primary-800 to-primary-900">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+        <div className="max-w-content mx-auto px-gutter text-center">
+          <h1 className="text-display text-white mb-6">
             Newsroom
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-4xl mx-auto">
+          <p className="text-lead text-primary-100 mb-8 max-w-4xl mx-auto">
             Stay updated with the latest news, insights, and announcements from Pixonal. 
             Discover industry trends, company updates, and thought leadership content.
           </p>
@@ -38,12 +38,12 @@ export default async function NewsroomPage() {
       {/* Featured Articles */}
       {featuredArticles.length > 0 && (
         <section className="py-20 bg-white">
-          <div className="max-w-6xl mx-auto px-4">
+          <div className="max-w-content mx-auto px-gutter">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-h1 text-primary-900 mb-4">
                 Featured Articles
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lead text-primary-600 max-w-3xl mx-auto">
                 Our most important and impactful stories
               </p>
             </div>
@@ -68,12 +68,12 @@ export default async function NewsroomPage() {
 
       {/* All Articles by Year */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-content mx-auto px-gutter">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-h1 text-primary-900 mb-4">
               All Articles
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lead text-primary-600 max-w-3xl mx-auto">
               Browse our complete collection of news and insights
             </p>
           </div>
@@ -119,10 +119,10 @@ export default async function NewsroomPage() {
       {/* Newsletter Signup */}
       <section className="py-20 bg-gradient-to-r from-accent-blue to-accent-red">
         <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-h1 text-white mb-6">
             Stay Updated
           </h2>
-          <p className="text-xl text-white/90 mb-8 leading-relaxed">
+          <p className="text-lead text-white/90 mb-8">
             Get the latest insights and updates from Pixonal delivered to your inbox
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">

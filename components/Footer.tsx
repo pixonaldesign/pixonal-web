@@ -7,8 +7,8 @@ export default async function Footer() {
   const newsArticles = allNewsArticles.slice(0, 2); // Get latest 2 articles
 
   return (
-    <footer className="w-[1360px] flex justify-center pb-10">
-      <div className="bg-black p-12 rounded-[20px] flex flex-col gap-20">
+    <footer className="w-full max-w-content flex justify-center pb-10">
+      <div className="bg-black p-card rounded-[20px] flex flex-col gap-section">
         <FooterClient newsArticles={newsArticles} />
       </div>
     </footer>

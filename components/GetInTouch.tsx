@@ -55,26 +55,26 @@ export default function GetInTouch({ className }: GetInTouchProps) {
 
   return (
     <section className={`bg-primary-800 py-16 ${className}`}>
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-content mx-auto px-gutter">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-block items-center">
           {/* Left Side - Content */}
-          <div className="space-y-8">
+          <div className="flex flex-col gap-block">
             <div>
-              <h2 className="text-4xl font-bold text-white mb-4">
+              <h2 className="text-h1 text-white mb-4">
                 Ready to Transform Your Organization?
               </h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <p className="text-lead text-primary-100">
                 Let&apos;s discuss how Pixonal can help you unlock the full potential of your data and drive meaningful change.
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="flex flex-col gap-stack">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-linear-to-r from-accent-blue to-accent-red rounded-lg flex items-center justify-center shrink-0">
                   <PixonalIcon name="lightning" size={24} className="text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Accelerate Innovation</h3>
+                  <h3 className="text-h2 text-white mb-2">Accelerate Innovation</h3>
                   <p className="text-gray-300">
                     Leverage our platform to rapidly prototype and deploy data-driven solutions.
                   </p>
@@ -86,7 +86,7 @@ export default function GetInTouch({ className }: GetInTouchProps) {
                   <PixonalIcon name="check-circle" size={24} className="text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Proven Results</h3>
+                  <h3 className="text-h2 text-white mb-2">Proven Results</h3>
                   <p className="text-gray-300">
                     Join organizations that have already transformed their operations with our solutions.
                   </p>
@@ -98,7 +98,7 @@ export default function GetInTouch({ className }: GetInTouchProps) {
                   <PixonalIcon name="users" size={24} className="text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Expert Support</h3>
+                  <h3 className="text-h2 text-white mb-2">Expert Support</h3>
                   <p className="text-gray-300">
                     Get dedicated support from our team of data scientists and industry experts.
                   </p>
@@ -109,7 +109,7 @@ export default function GetInTouch({ className }: GetInTouchProps) {
 
           {/* Right Side - Contact Form */}
           <div className="bg-white rounded-2xl p-8 shadow-2xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
+            <h3 className="text-h2 text-primary-900 mb-6">Get in Touch</h3>
             
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
@@ -123,7 +123,7 @@ export default function GetInTouch({ className }: GetInTouchProps) {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-stack">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                   Full Name *

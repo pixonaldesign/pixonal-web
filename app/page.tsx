@@ -2,7 +2,7 @@ import GetInTouch from '@/components/GetInTouch';
 import PixonalIcon from '@/components/PixonalIcon';
 import CaseStudiesCarousel from '@/components/CaseStudiesCarousel';
 import LlumenCard from '@/components/LlumenCard';
-import WhitepaperHero from '@/components/WhitepaperHero';
+import BlogHero from '@/components/BlogHero';
 import Partners from '@/components/Partners';
 import GetInTouchHero from '@/components/GetInTouchHero';
 import Hero from '@/components/Hero';
@@ -21,7 +21,7 @@ export default async function HomePage() {
 
       {/* Llumen Card Section */}
       <section className="py-20 bg-primary-900 mx-5">
-        <div className="px-4 flex justify-center">
+        <div className="px-gutter flex justify-center">
           <LlumenCard />
         </div>
       </section>
@@ -29,7 +29,7 @@ export default async function HomePage() {
       {/* Whitepaper Hero Section */}
       <section className="py-20 bg-primary-900 mx-5">
         <div className="mx-auto flex justify-center">
-          <WhitepaperHero />
+          <BlogHero />
         </div>
       </section>
 

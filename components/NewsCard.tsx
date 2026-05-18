@@ -63,7 +63,7 @@ export default function NewsCard({
           
           <div className="p-6">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm text-gray-500 font-mono">
+              <span className="text-news-caption text-primary-500">
                 {formatDate(date)}
               </span>
               {!image && (
@@ -73,15 +73,13 @@ export default function NewsCard({
               )}
             </div>
             
-            <h3 className={`font-bold text-gray-900 mb-3 group-hover:text-accent-blue transition-colors ${
-              featured ? 'text-2xl' : 'text-xl'
+            <h3 className={`text-h2 text-primary-900 mb-3 group-hover:text-accent-blue transition-colors ${
+              featured ? '' : ''
             }`}>
               {title}
             </h3>
             
-            <p className={`text-gray-600 leading-relaxed ${
-              featured ? 'text-lg' : 'text-base'
-            }`}>
+            <p className={`text-primary-600 text-body-relaxed`}>
               {excerpt}
             </p>
             

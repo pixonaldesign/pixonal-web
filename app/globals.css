@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@config "../tailwind.config.ts";
+@import "../styles/tokens.css";
 
 /* Custom Fonts */
 @font-face {
@@ -124,8 +126,10 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Untitled Sans', sans-serif;
-  line-height: 1.2;
+  font-family: var(--font-sans);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line-height);
+  letter-spacing: var(--tracking-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -133,6 +137,16 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Case Studies carousel — active dot progress fill */
+@keyframes case-study-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 /* Custom scrollbar */
@@ -154,6 +168,18 @@ a {
 }
 
 @layer utilities {
+  /* Scrollable nav menu: hide scrollbar track (global ::-webkit-scrollbar still applies otherwise) */
+  .nav-menu-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .nav-menu-scroll::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
   .text-balance {
     /* Fallback for older browsers */
     word-wrap: break-word;

@@ -151,19 +151,19 @@ export default function LlumenPage() {
         </div>
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-display text-white mb-6">
             Meet <span className="text-gradient">Llumen</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+          <p className="text-lead text-primary-100 mb-8">
             The revolutionary platform that transforms how organizations interact with data. 
             Intelligent processing, seamless governance, and powerful communication tools 
             to drive meaningful change.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-gradient-to-r from-accent-blue to-accent-red text-white px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-opacity">
+            <button className="bg-gradient-to-r from-accent-blue to-accent-red text-white px-8 py-4 rounded-full text-button hover:opacity-90 transition-opacity">
               Start Free Trial
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-primary-900 transition-colors">
+            <button className="border-2 border-white text-white px-8 py-4 rounded-full text-button hover:bg-white hover:text-primary-900 transition-colors">
               Watch Demo
             </button>
           </div>
@@ -172,12 +172,12 @@ export default function LlumenPage() {
 
       {/* Key Features Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-content mx-auto px-gutter">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-h1 text-primary-900 mb-4">
               Key Features
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lead text-primary-600 max-w-3xl mx-auto">
               Powerful capabilities designed to transform your data into actionable insights
             </p>
           </div>
@@ -186,7 +186,7 @@ export default function LlumenPage() {
             {features.map((feature, index) => (
               <div key={index} className="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-shadow">
                 <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-h2 text-primary-900 mb-4">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -200,12 +200,12 @@ export default function LlumenPage() {
 
       {/* Where Llumen Makes an Impact */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-content mx-auto px-gutter">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-h1 text-primary-900 mb-4">
               Where Llumen Makes an Impact
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lead text-primary-600 max-w-3xl mx-auto">
               See how organizations across industries are transforming with Llumen
             </p>
           </div>
@@ -213,7 +213,7 @@ export default function LlumenPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {impactAreas.map((area, index) => (
               <div key={index} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-h2 text-primary-900 mb-3">
                   {area.title}
                 </h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">
@@ -230,12 +230,12 @@ export default function LlumenPage() {
 
       {/* Llumen by Roles */}
       <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-content mx-auto px-gutter">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-h1 text-primary-900 mb-4">
               Llumen by Roles
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lead text-primary-600 max-w-3xl mx-auto">
               Tailored experiences for every member of your organization
             </p>
           </div>
@@ -243,7 +243,7 @@ export default function LlumenPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {roles.map((role, index) => (
               <div key={index} className="bg-gradient-to-br from-primary-50 to-primary-100 p-8 rounded-2xl">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-h2 text-primary-900 mb-4">
                   {role.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
@@ -265,12 +265,12 @@ export default function LlumenPage() {
 
       {/* Licenses That Fit Every Need */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-content mx-auto px-gutter">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-h1 text-primary-900 mb-4">
               Licenses That Fit Every Need
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lead text-primary-600 max-w-3xl mx-auto">
               Choose the perfect plan for your organization's size and requirements
             </p>
           </div>
@@ -289,7 +289,7 @@ export default function LlumenPage() {
                 )}
                 
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-h2 text-primary-900 mb-2">
                     {license.name}
                   </h3>
                   <div className="text-3xl font-bold text-gray-900 mb-2">
