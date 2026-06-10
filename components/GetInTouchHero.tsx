@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Link from 'next/link';
-import PixonalIcon from './PixonalIcon';
+import SecondaryButton from './SecondaryButton';
 
 export default function GetInTouchHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -23,22 +22,16 @@ export default function GetInTouchHero() {
           }
         });
       },
-      {
-        threshold: 0.5,
-      }
+      { threshold: 0.5 }
     );
 
     observer.observe(video);
-
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="w-full flex flex-col justify-start items-start gap-tight">
-      <div className="w-full h-[790px] px-5 rounded-[20px] flex flex-col justify-center items-center gap-block relative overflow-hidden">
-        {/* Background Video */}
+    <div className="w-full max-w-content mx-auto flex flex-col justify-start items-start gap-tight">
+      <div className="w-full h-[790px] px-5 rounded-card flex flex-col justify-center items-center gap-block relative overflow-hidden">
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
@@ -49,29 +42,21 @@ export default function GetInTouchHero() {
           <source src="/videos/getintouchbg.mp4" type="video/mp4" />
         </video>
 
-        {/* Content Overlay */}
         <div className="relative z-10 flex flex-col justify-center items-center gap-12">
-          {/* Title */}
           <h2 className="text-center text-white">
             <span className="text-display-accent block">Transform your</span>
             <span className="text-display block">Moment of Decision.</span>
           </h2>
 
-          {/* Button */}
-          <Link
+          <SecondaryButton
             href="/contact"
-            className="h-12 px-5 py-4 rounded-xl shadow-[0px_8px_16px_0px_rgba(27,27,27,0.16)] outline-1 -outline-offset-1 outline-white backdrop-blur-2xl flex flex-col justify-center items-start gap-tight hover:opacity-90 transition-opacity"
+            showArrow
+            className="shadow-[0px_8px_16px_0px_rgba(27,27,27,0.16)]"
           >
-            <div className="inline-flex justify-start items-center gap-3">
-              <span className="text-white text-button">
-                Get in Touch
-              </span>
-              <PixonalIcon name="arrow-right" size={24} className="text-white" />
-            </div>
-          </Link>
+            Get in Touch
+          </SecondaryButton>
         </div>
       </div>
     </div>
   );
 }
-

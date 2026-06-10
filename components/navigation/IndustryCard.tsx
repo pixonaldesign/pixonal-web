@@ -12,29 +12,31 @@ interface IndustryCardProps {
 
 /**
  * Industries menu card (Figma 1802:7797 default / 1802:7805 hover).
- * Default: bordered transparent surface. Hover: full-bleed background image
- * with a top-to-bottom dark gradient for legibility.
+ * - lg+: bordered transparent surface by default, full-bleed image reveals on
+ *        hover / keyboard focus.
+ * - <lg: image is always visible (touch devices have no hover) so users
+ *        immediately see which industry each card represents.
  */
 export default function IndustryCard({ item, onNavigate }: IndustryCardProps) {
   return (
     <Link
       href={item.href}
       onClick={onNavigate}
-      className="group relative flex h-[252px] min-w-0 flex-1 flex-col items-start justify-between rounded-[12px] border border-white/40 p-4 overflow-hidden transition-colors"
+      className="group relative flex h-[252px] min-w-0 flex-1 flex-col items-start justify-between rounded-card border border-white/40 p-4 overflow-hidden transition-colors"
     >
-      {/* Hover background — full-bleed image + gradient overlay */}
+      {/* Background — always visible below lg, hover-revealed at lg+ */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-[12px] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+        className="pointer-events-none absolute inset-0 rounded-card opacity-100 lg:opacity-0 transition-opacity duration-300 lg:group-hover:opacity-100 lg:group-focus-visible:opacity-100"
       >
         <Image
           src={item.image}
           alt=""
           fill
-          className="object-cover rounded-[12px]"
+          className="object-cover rounded-card"
           sizes="(max-width: 1024px) 50vw, 33vw"
         />
-        <div className="absolute inset-0 rounded-[12px] bg-gradient-to-b from-black/70 from-0% to-transparent to-[68.625%]" />
+        <div className="absolute inset-0 rounded-card bg-gradient-to-b from-black/70 from-0% to-transparent to-[68.625%]" />
       </div>
 
       <span className="relative z-10 w-full text-h2 text-white">

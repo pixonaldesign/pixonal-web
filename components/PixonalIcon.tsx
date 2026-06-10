@@ -15,13 +15,33 @@ import {
   ArrowRightIcon as PhosphorArrowRightIcon,
   PlayIcon as PhosphorPlayIcon,
   PauseIcon as PhosphorPauseIcon,
+  AsteriskIcon as PhosphorAsteriskIcon,
+  EyeIcon as PhosphorEyeIcon,
+  HammerIcon as PhosphorHammerIcon,
+  HardDrivesIcon as PhosphorHardDrivesIcon,
+  GitForkIcon as PhosphorGitForkIcon,
+  PresentationIcon as PhosphorPresentationIcon,
+  BellRingingIcon as PhosphorBellRingingIcon,
+  MonitorIcon as PhosphorMonitorIcon,
+  GraphIcon as PhosphorGraphIcon,
+  HeadCircuitIcon as PhosphorHeadCircuitIcon,
+  HandPalmIcon as PhosphorHandPalmIcon,
+  ClipboardTextIcon as PhosphorClipboardTextIcon,
   InstagramLogoIcon as PhosphorInstagramLogoIcon,
   LinkedinLogoIcon as PhosphorLinkedinLogoIcon,
   XLogoIcon as PhosphorXLogoIcon,
-  YoutubeLogoIcon as PhosphorYoutubeLogoIcon
+  YoutubeLogoIcon as PhosphorYoutubeLogoIcon,
+  MagnifyingGlassIcon as PhosphorMagnifyingGlassIcon,
+  ArrowUpRightIcon as PhosphorArrowUpRightIcon,
+  IntersectIcon as PhosphorIntersectIcon,
+  FlagBannerFoldIcon as PhosphorFlagBannerFoldIcon,
+  StrategyIcon as PhosphorStrategyIcon,
+  SealCheckIcon as PhosphorSealCheckIcon,
+  StackIcon as PhosphorStackIcon,
+  LinkBreakIcon as PhosphorLinkBreakIcon
 } from '@phosphor-icons/react';
 
-type IconName = 
+export type IconName = 
   | 'caret-down'
   | 'list'
   | 'lightning'
@@ -36,10 +56,30 @@ type IconName =
   | 'arrow-right'
   | 'play'
   | 'pause'
+  | 'asterisk'
+  | 'eye'
+  | 'hammer'
+  | 'hard-drives'
+  | 'git-fork'
+  | 'presentation'
+  | 'bell-ringing'
+  | 'monitor'
+  | 'graph'
+  | 'head-circuit'
+  | 'hand-palm'
+  | 'clipboard-text'
   | 'instagram'
   | 'linkedin'
   | 'x'
-  | 'youtube';
+  | 'youtube'
+  | 'magnifying-glass'
+  | 'arrow-up-right'
+  | 'intersect'
+  | 'flag-banner-fold'
+  | 'strategy'
+  | 'seal-check'
+  | 'stack'
+  | 'link-break';
 
 interface PixonalIconProps {
   name: IconName;
@@ -63,10 +103,30 @@ const iconMap = {
   'arrow-right': PhosphorArrowRightIcon,
   'play': PhosphorPlayIcon,
   'pause': PhosphorPauseIcon,
+  'asterisk': PhosphorAsteriskIcon,
+  'eye': PhosphorEyeIcon,
+  'hammer': PhosphorHammerIcon,
+  'hard-drives': PhosphorHardDrivesIcon,
+  'git-fork': PhosphorGitForkIcon,
+  'presentation': PhosphorPresentationIcon,
+  'bell-ringing': PhosphorBellRingingIcon,
+  'monitor': PhosphorMonitorIcon,
+  'graph': PhosphorGraphIcon,
+  'head-circuit': PhosphorHeadCircuitIcon,
+  'hand-palm': PhosphorHandPalmIcon,
+  'clipboard-text': PhosphorClipboardTextIcon,
   'instagram': PhosphorInstagramLogoIcon,
   'linkedin': PhosphorLinkedinLogoIcon,
   'x': PhosphorXLogoIcon,
   'youtube': PhosphorYoutubeLogoIcon,
+  'magnifying-glass': PhosphorMagnifyingGlassIcon,
+  'arrow-up-right': PhosphorArrowUpRightIcon,
+  'intersect': PhosphorIntersectIcon,
+  'flag-banner-fold': PhosphorFlagBannerFoldIcon,
+  'strategy': PhosphorStrategyIcon,
+  'seal-check': PhosphorSealCheckIcon,
+  'stack': PhosphorStackIcon,
+  'link-break': PhosphorLinkBreakIcon,
 };
 
 export default function PixonalIcon({ name, size = 16, className = "", weight = 'regular' }: PixonalIconProps) {

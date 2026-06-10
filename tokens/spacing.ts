@@ -1,6 +1,6 @@
 /**
  * Spacing primitives (4px base) and semantic aliases.
- * Stack gaps standardized to 8px / 12px (not Figma's 10px default).
+ * Mirrors styles/tokens.css — keep both in sync.
  */
 
 /** Primitive scale in px */
@@ -17,20 +17,26 @@ export const space = {
   12: 48,
   16: 64,
   20: 80,
+  24: 96,
+  28: 112,
+  30: 120,
+  32: 128,
+  36: 144,
+  40: 160,
   46: 184,
 } as const;
 
 export type SpaceKey = keyof typeof space;
 
-/** Semantic spacing — maps to primitives */
+/**
+ * Semantic spacing — static (NOT breakpoint-dependent).
+ * For breakpoint-dependent values see `layout` below.
+ */
 export const spacingSemantic = {
   'gap-tight': space[2],
   'gap-stack': space[3],
   'gap-inline': space[2],
   'gap-block': space[6],
-  'gap-section': space[10],
-  'gap-feature': space[12],
-  'padding-card': space[6],
   'padding-card-sm': space[3],
   'padding-button-x': space[4],
   'padding-button-y': space[3],
@@ -38,9 +44,15 @@ export const spacingSemantic = {
   'padding-nav-x': space[10],
 } as const;
 
-/** Layout tokens that change by breakpoint (see styles/tokens.css) */
+/**
+ * Layout tokens that change by breakpoint (see :root @media blocks in styles/tokens.css).
+ * Keys not listed for a breakpoint inherit the previous step.
+ */
 export const layout = {
-  gutter: { default: 20, md: 24, xl: 40 },
-  contentMax: { default: '100%', xl: 1360, '2xl': 1400 },
+  gutter: { default: 20, xl: 40 },
+  contentMax: { default: 1120, xl: 1360 },
   sectionY: { default: 80, md: 120, xl: 184 },
+  gapSection: { default: 40, md: 56, xl: 80 },
+  gapFeature: { default: 48, md: 72, xl: 120 },
+  cardPadding: { default: 24, md: 28, xl: 40 },
 } as const;

@@ -2,6 +2,9 @@
  * Pixonal design tokens
  * Source of truth for Tailwind @theme + semantic utilities.
  * TypeScript mirrors: tokens/*.ts
+ *
+ * Minimum supported viewport: 360px (see tokens/breakpoints.ts MIN_VIEWPORT_PX).
+ * Default (unprefixed) values target 360–767px. md/lg/xl/2xl step up from there.
  */
 
 @theme {
@@ -30,26 +33,39 @@
   --spacing-12: 48px;
   --spacing-16: 64px;
   --spacing-20: 80px;
+  --spacing-24: 96px;
+  --spacing-28: 112px;
+  --spacing-30: 120px;
+  --spacing-32: 128px;
+  --spacing-36: 144px;
+  --spacing-40: 160px;
   --spacing-46: 184px;
 
   /* Semantic spacing (Tailwind: gap-tight, p-gutter, etc.) */
+  /* Static (not breakpoint-dependent) — alias primitives. */
   --spacing-gap-tight: var(--spacing-2);
   --spacing-gap-stack: var(--spacing-3);
   --spacing-gap-inline: var(--spacing-2);
   --spacing-gap-block: var(--spacing-6);
-  --spacing-gap-section: var(--spacing-10);
-  --spacing-gap-feature: var(--spacing-12);
-  --spacing-card: var(--spacing-6);
   --spacing-card-sm: var(--spacing-3);
   --spacing-button-x: var(--spacing-4);
   --spacing-button-y: var(--spacing-3);
   --spacing-nav-y: var(--spacing-8);
   --spacing-nav-x: var(--spacing-10);
+  /* Responsive (defined in :root @media blocks below). Aliased here so
+   * Tailwind's @theme picks up the variable name; values come from :root. */
+  --spacing-gap-section: var(--layout-gap-section);
+  --spacing-gap-feature: var(--layout-gap-feature);
+  --spacing-card: var(--layout-card-padding);
   --spacing-gutter: var(--layout-gutter);
   --spacing-section-y: var(--layout-section-y);
 
   /* Layout */
   --width-content: var(--layout-content-max);
+
+  /* Radii — responsive (values come from :root @media blocks below).
+   * card: most container/section corners (16px below md, 20px md+). */
+  --radius-card: var(--layout-radius-card);
 
   /* Letter spacing */
   --tracking-sans: -0.02em;
@@ -61,13 +77,26 @@
 /* -------------------------------------------------------------------------- */
 
 :root {
+  /* Container shape (responsive — scales at xl).
+   * Below xl: content caps at 1120px with a 20px gutter on each side
+   * (so the visual frame is at most 1160px before extra whitespace).
+   * At xl+: content caps at 1360px with a 40px gutter, matching Figma's
+   * 1440 / 1920 artboards. */
   --layout-gutter: 20px;
-  --layout-content-max: 100%;
+  --layout-content-max: 1120px;
   --layout-section-y: 80px;
+
+  /* Intra-section rhythm (responsive — scales with section-y) */
+  --layout-gap-section: 40px;
+  --layout-gap-feature: 48px;
+  --layout-card-padding: 24px;
+  --layout-radius-card: 16px;
 
   /* Typography — default (< md) */
   --text-display-size: 48px;
   --text-display-line-height: 1.1;
+  --text-figure-size: 38px;
+  --text-figure-line-height: 1.1;
   --text-display-accent-size: 48px;
   --text-display-accent-line-height: 1.1;
   --text-h1-size: 28px;
@@ -76,10 +105,10 @@
   --text-h2-line-height: 1.3;
   --text-lead-size: 18px;
   --text-lead-line-height: 1.2;
-  --text-body-size: 16px;
+  --text-body-size: 14px;
   --text-body-line-height: 1.2;
-  --text-body-tight-line-height: 1.1;
-  --text-body-relaxed-line-height: 1.4;
+  --text-body-tight-line-height: 1.2;
+  --text-body-relaxed-line-height: 1.2;
   --text-button-line-height: 1.1;
   --text-nav-line-height: 1.1;
   --text-label-size: 14px;
@@ -92,20 +121,27 @@
 
 @media (min-width: 48rem) {
   :root {
-    --layout-gutter: 24px;
     --layout-section-y: 120px;
 
+    --layout-gap-section: 56px;
+    --layout-gap-feature: 72px;
+    --layout-card-padding: 28px;
+    --layout-radius-card: 20px;
+
     --text-display-size: 56px;
+    --text-figure-size: 44px;
     --text-display-accent-size: 56px;
     --text-h1-size: 32px;
     --text-h2-size: 22px;
     --text-label-size: 16px;
+    --text-body-size: 16px;
   }
 }
 
 @media (min-width: 64rem) {
   :root {
     --text-display-size: 72px;
+    --text-figure-size: 52px;
     --text-display-accent-size: 72px;
     --text-h1-size: 34px;
     --text-h2-size: 23px;
@@ -114,11 +150,17 @@
 
 @media (min-width: 90rem) {
   :root {
+    /* xl: container scales up to Figma 1440/1920 spec. */
     --layout-gutter: 40px;
     --layout-content-max: 1360px;
     --layout-section-y: 184px;
 
+    --layout-gap-section: 80px;
+    --layout-gap-feature: 120px;
+    --layout-card-padding: 40px;
+
     --text-display-size: 84px;
+    --text-figure-size: 60px;
     --text-display-accent-size: 84px;
     --text-h1-size: 36px;
     --text-h2-size: 24px;
@@ -128,8 +170,8 @@
 
 @media (min-width: 120rem) {
   :root {
-    --layout-content-max: 1400px;
-    /* h1 stays 36px at 2xl per design decision */
+    /* 2xl keeps the xl container values (1360px / 40px gutter).
+     * h1 stays 36px at 2xl per design decision. */
   }
 }
 
@@ -150,6 +192,14 @@
     font-family: var(--font-sans);
     font-size: var(--text-display-size);
     line-height: var(--text-display-line-height);
+    letter-spacing: var(--tracking-sans);
+    font-weight: 400;
+  }
+
+  .text-figure {
+    font-family: var(--font-sans);
+    font-size: var(--text-figure-size);
+    line-height: var(--text-figure-line-height);
     letter-spacing: var(--tracking-sans);
     font-weight: 400;
   }
@@ -286,6 +336,10 @@
   .px-gutter {
     padding-left: var(--layout-gutter);
     padding-right: var(--layout-gutter);
+  }
+
+  .scroll-px-gutter {
+    scroll-padding-inline: var(--layout-gutter);
   }
 
   .py-section {

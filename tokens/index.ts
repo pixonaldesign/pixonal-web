@@ -1,4 +1,9 @@
-export { breakpoints, breakpointPx, type BreakpointName } from './breakpoints';
+export {
+  breakpoints,
+  breakpointPx,
+  MIN_VIEWPORT_PX,
+  type BreakpointName,
+} from './breakpoints';
 export { space, spacingSemantic, layout, type SpaceKey } from './spacing';
 export {
   fontFamily,

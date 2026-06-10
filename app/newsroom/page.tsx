@@ -1,148 +1,39 @@
-import { Metadata } from 'next';
-import GetInTouch from '@/components/GetInTouch';
-import NewsCard from '@/components/NewsCard';
-import { getAllNewsArticles, groupArticlesByYear, getFeaturedArticles } from '@/lib/markdown';
+import type { Metadata } from 'next';
+import GetInTouchHero from '@/components/GetInTouchHero';
+import NewsroomHero from '@/components/newsroom/NewsroomHero';
+import NewsroomTabs from '@/components/newsroom/NewsroomTabs';
+import { getAllNewsArticles } from '@/lib/markdown';
 
 export const metadata: Metadata = {
-  title: 'Newsroom - Latest News & Insights',
-  description: 'Stay updated with the latest news, insights, and announcements from Pixonal. Discover industry trends, company updates, and thought leadership content.',
+  title: 'Newsroom — Pixonal',
+  description:
+    'Explore our latest updates, innovations, and milestones. Stay informed as we shape the future of data communication.',
+  alternates: { canonical: '/newsroom' },
   openGraph: {
-    title: 'Newsroom - Latest News & Insights',
-    description: 'Stay updated with the latest news, insights, and announcements from Pixonal.',
+    title: 'Newsroom — Pixonal',
+    description:
+      'Explore our latest updates, innovations, and milestones. Stay informed as we shape the future of data communication.',
+    url: '/newsroom',
   },
 };
 
 export default async function NewsroomPage() {
   const articles = await getAllNewsArticles();
-  const featuredArticles = getFeaturedArticles(articles);
-  const articlesByYear = groupArticlesByYear(articles);
-
-  const categories = ['All', 'Featured', 'Press Releases', 'In the News'];
-  const years = Object.keys(articlesByYear).sort((a, b) => parseInt(b) - parseInt(a));
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary-800 to-primary-900">
-        <div className="max-w-content mx-auto px-gutter text-center">
-          <h1 className="text-display text-white mb-6">
-            Newsroom
-          </h1>
-          <p className="text-lead text-primary-100 mb-8 max-w-4xl mx-auto">
-            Stay updated with the latest news, insights, and announcements from Pixonal. 
-            Discover industry trends, company updates, and thought leadership content.
-          </p>
+      <NewsroomHero />
+
+      <NewsroomTabs articles={articles} />
+
+      <section
+        className="bg-primary-900 pt-section px-gutter"
+        aria-label="Get in touch"
+      >
+        <div className="mx-auto flex justify-center">
+          <GetInTouchHero />
         </div>
       </section>
-
-      {/* Featured Articles */}
-      {featuredArticles.length > 0 && (
-        <section className="py-20 bg-white">
-          <div className="max-w-content mx-auto px-gutter">
-            <div className="text-center mb-16">
-              <h2 className="text-h1 text-primary-900 mb-4">
-                Featured Articles
-              </h2>
-              <p className="text-lead text-primary-600 max-w-3xl mx-auto">
-                Our most important and impactful stories
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {featuredArticles.slice(0, 2).map((article) => (
-                <NewsCard
-                  key={article.slug}
-                  title={article.title}
-                  excerpt={article.excerpt}
-                  date={article.date}
-                  category={article.category}
-                  image={article.image}
-                  slug={article.slug}
-                  featured={true}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* All Articles by Year */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-content mx-auto px-gutter">
-          <div className="text-center mb-16">
-            <h2 className="text-h1 text-primary-900 mb-4">
-              All Articles
-            </h2>
-            <p className="text-lead text-primary-600 max-w-3xl mx-auto">
-              Browse our complete collection of news and insights
-            </p>
-          </div>
-
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className="px-6 py-3 rounded-full border-2 border-gray-300 text-gray-700 hover:border-accent-blue hover:text-accent-blue transition-colors"
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-
-          {/* Articles by Year */}
-          <div className="space-y-16">
-            {years.map((year) => (
-              <div key={year}>
-                <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-                  {year}
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {articlesByYear[year].map((article) => (
-                    <NewsCard
-                      key={article.slug}
-                      title={article.title}
-                      excerpt={article.excerpt}
-                      date={article.date}
-                      category={article.category}
-                      image={article.image}
-                      slug={article.slug}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Signup */}
-      <section className="py-20 bg-gradient-to-r from-accent-blue to-accent-red">
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-h1 text-white mb-6">
-            Stay Updated
-          </h2>
-          <p className="text-lead text-white/90 mb-8">
-            Get the latest insights and updates from Pixonal delivered to your inbox
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
-            />
-            <button className="bg-white text-primary-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
-              Subscribe
-            </button>
-          </div>
-          <p className="text-white/70 text-sm mt-4">
-            We respect your privacy. Unsubscribe at any time.
-          </p>
-        </div>
-      </section>
-
-      {/* Get in Touch Section */}
-      <GetInTouch />
     </>
   );
 }

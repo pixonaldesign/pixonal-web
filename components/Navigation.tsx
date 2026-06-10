@@ -7,7 +7,7 @@ export default async function Navigation() {
   return (
     <nav
       aria-label="Main navigation"
-      className="w-full max-w-[1400px] mx-5"
+      className="w-full lg:max-w-[1400px] mx-auto"
     >
       <NavigationBar newsArticles={newsArticles} />
     </nav>

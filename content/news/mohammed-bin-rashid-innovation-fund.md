@@ -1,10 +1,10 @@
 ---
-title: "Mohammed Bin Rashid Innovation Fund Selects 20 Startups"
-date: "2025-01-15"
+title: "Dubai Land Department recognises over 120 leading entities for excellence in the real estate sector."
+date: "2025-01-30"
 category: "in-the-news"
 source: "Finance World"
-excerpt: "The Mohammed Bin Rashid Innovation Fund has selected 20 innovative startups for its latest funding round, with several focusing on data analytics and AI solutions."
-image: "/images/news/mohammed-bin-rashid-innovation-fund.png"
+excerpt: "Dubai Land Department recognised over 120 entities for excellence across the real estate sector, with Pixonal among the honourees."
+image: "/images/news/pxnl-mbr-innovation-fund.png"
 ---
 
 The Mohammed Bin Rashid Innovation Fund has announced the selection of 20 groundbreaking startups for its latest funding round, marking a significant milestone in the UAE's innovation ecosystem. The selected companies span various sectors, with a notable focus on data analytics, artificial intelligence, and smart city solutions.

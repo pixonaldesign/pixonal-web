@@ -1,9 +1,10 @@
 ---
-title: "Pixonal Launches Revolutionary Llumen Platform for Intelligent Data Processing"
-date: "2025-01-10"
+title: "Pixonal Honored as a Future100 Enterprise: Recognizing Innovation and Digital Excellence"
+date: "2025-01-25"
 category: "press releases"
-excerpt: "Pixonal announces the launch of Llumen, a groundbreaking platform that transforms how organizations interact with data through intelligent processing and advanced analytics."
-image: "/images/news/llumen-platform-launch.png"
+source: "UAE"
+excerpt: "Pixonal has been recognized as a Future100 Enterprise for its contribution to innovation and digital excellence in the UAE."
+image: "/images/news/pxnl-mbr-innovation-fund.png"
 ---
 
 Pixonal, a leading provider of intelligent data solutions and strategic advisory services, today announced the launch of Llumen, a revolutionary platform designed to transform how organizations interact with data across all industries.

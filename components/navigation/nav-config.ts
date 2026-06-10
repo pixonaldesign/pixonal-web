@@ -8,9 +8,9 @@ export type NavItem = {
   label: string;
 };
 
-/** Primary routes shown in the desktop bar (Figma Nav 4 — 150px columns). */
+/** Primary routes shown inline in the nav bar at ≥lg (1024px). 150px columns. */
 export const primaryNavLinks: readonly NavItem[] = [
-  { href: '/llumen', label: 'Llumen®' },
+  { href: '/llumen', label: 'Llumen' },
   { href: '/industries', label: 'Industries' },
   { href: '/advisory', label: 'Advisory' },
   { href: '/newsroom', label: 'Newsroom' },
@@ -38,33 +38,34 @@ export type IndustryMenuItem = NavItem & { image: string };
 export const industriesMenuItems: readonly IndustryMenuItem[] = [
   {
     label: 'People & Workforce',
-    href: '/industries',
-    image: '/images/nav/industries/people-workforce.png',
+    href: '/industries/people-workforce',
+    image: '/images/industries/people-and-workforce/people-workforce.png',
   },
   {
     label: 'Cities & Infrastructure',
-    href: '/industries',
-    image: '/images/nav/industries/cities-infrastructure.png',
+    href: '/industries/cities-infrastructure',
+    image:
+      '/images/industries/cities-and-infrastructure/cities-infrastructure.png',
   },
   {
     label: 'Environment & Energy',
-    href: '/industries',
-    image: '/images/nav/industries/environment-energy.png',
+    href: '/industries/environment-energy',
+    image: '/images/industries/environment-energy/environment-energy.png',
   },
   {
     label: 'Commerce & Operations',
-    href: '/industries',
-    image: '/images/nav/industries/commerce-operations.png',
+    href: '/industries/commerce-operations',
+    image: '/images/industries/commerce-and-operations/commerce-operations.png',
   },
   {
     label: 'Trade & Customs',
-    href: '/industries',
-    image: '/images/nav/industries/trade-customs.png',
+    href: '/industries/trade-customs',
+    image: '/images/industries/trade-customs/trade-customs.png',
   },
   {
     label: 'Safety & Defense',
-    href: '/industries',
-    image: '/images/nav/industries/safety-defense.png',
+    href: '/industries/safety-defense',
+    image: '/images/industries/safety-and-security/safety-defense.png',
   },
 ] as const;
 
@@ -74,8 +75,8 @@ export const industriesMenu = {
     'Each sector—whether urban transit, public safety, or talent strategies—faces complex demands. Our domain-agnostic frameworks unify data experiences for immediate clarity and adaptability, aligning diverse stakeholders under one strategic vision.',
 } as const;
 
-/** Inline nav links visible at xl (1440px Figma artboard). Menu icon is always visible. */
-export const NAV_DESKTOP_BREAKPOINT = 'xl' as const;
+/** Inline nav links visible at ≥lg (1024px). Menu icon is always visible. */
+export const NAV_DESKTOP_BREAKPOINT = 'lg' as const;
 
 /** Open menu surface — solid primary-900 (#1A1A1A) + 30px blur, shared by nav bar and overlay so both read as one opaque panel */
 export const navMenuSurfaceClass =

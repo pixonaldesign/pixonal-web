@@ -2,9 +2,8 @@
 
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import GradientButton from './GradientButton';
-import PixonalIcon from './PixonalIcon';
+import PrimaryButton from './PrimaryButton';
+import SecondaryButton from './SecondaryButton';
 
 export default function LlumenCard() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -33,8 +32,7 @@ export default function LlumenCard() {
   }, []);
 
   return (
-    <div className="relative w-full max-w-content mx-auto rounded-[20px] overflow-hidden bg-primary-900 p-5 flex flex-col items-center gap-6">
-      {/* Background layers: gradient + image + bottom fade */}
+    <div className="relative w-full max-w-content mx-auto rounded-card overflow-hidden bg-primary-900 p-5 flex flex-col items-center gap-6">
       <div aria-hidden className="absolute inset-0 pointer-events-none">
         <Image
           src="/images/llumen/card-bg.png"
@@ -53,7 +51,6 @@ export default function LlumenCard() {
         />
       </div>
 
-      {/* Heading */}
       <div className="relative z-10 flex flex-col items-center text-center gap-5 w-full max-w-[770px] px-4 pt-2">
         <h2 className="text-primary-50 text-h1">
           Llumen —
@@ -65,9 +62,8 @@ export default function LlumenCard() {
         </p>
       </div>
 
-      {/* Video + overlapping button bar */}
-      <div className="relative z-10 w-full flex flex-col items-center">
-        <div className="aspect-[160/90] w-full rounded-[20px] overflow-hidden bg-primary-700 border border-primary-700">
+      <div className="relative z-10 w-full flex flex-col items-center gap-block lg:gap-0">
+        <div className="aspect-[160/90] w-full rounded-card overflow-hidden bg-primary-700 border border-primary-700">
           <video
             ref={videoRef}
             className="w-full h-full object-cover"
@@ -80,24 +76,35 @@ export default function LlumenCard() {
           </video>
         </div>
 
-        {/* Button bar overlaps bottom of video */}
-        <div className="relative w-full -mt-[60px] sm:-mt-[80px] rounded-b-[20px] overflow-hidden">
-          <Image
-            src="/images/llumen/buttons-bg.png"
-            alt=""
-            fill
-            className="object-cover pointer-events-none"
-            sizes="(max-width: 1400px) 100vw, 1400px"
+        <div className="@container relative z-10 w-full lg:-mt-[60px]">
+          {/*
+            At lg+ the buttons overlap the video. This gradient supplies the
+            dark backing the removed buttons-bg.png used to provide, and the
+            negative inset extends it past the card's p-5 padding so it meets
+            the card's rounded edges cleanly.
+          */}
+          <div
+            aria-hidden
+            className="hidden lg:block absolute -inset-x-5 -bottom-5 top-0 rounded-b-card"
+            style={{
+              background:
+                'linear-gradient(180deg, rgba(18,18,18,0) 0%, rgba(18,18,18,0.6) 55%, rgba(18,18,18,0.92) 100%)',
+            }}
           />
-          <div className="relative flex flex-wrap gap-5 items-center justify-center px-2.5 py-5">
-            <GradientButton href="/llumen#demo">Request Demo</GradientButton>
-            <Link
+          <div className="relative z-10 flex flex-col gap-block items-stretch lg:py-5 @[360px]:flex-row @[360px]:items-center @[360px]:justify-center">
+            <PrimaryButton
+              href="/llumen#demo"
+              className="w-full @[360px]:w-auto @[360px]:max-sm:flex-1"
+            >
+              Request Demo
+            </PrimaryButton>
+            <SecondaryButton
               href="/llumen"
-              className="h-[52px] px-4 rounded-xl border border-white inline-flex items-center justify-center gap-2 text-white text-button whitespace-nowrap bg-black/20 backdrop-blur-[10px] hover:bg-white/10 transition-colors"
+              showArrow
+              className="w-full @[360px]:w-auto @[360px]:max-sm:flex-1"
             >
               Explore Llumen
-              <PixonalIcon name="arrow-right" size={24} />
-            </Link>
+            </SecondaryButton>
           </div>
         </div>
       </div>

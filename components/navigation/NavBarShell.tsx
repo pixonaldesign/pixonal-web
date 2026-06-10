@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import NavLink from '@/components/NavLink';
 import PixonalIcon from '@/components/PixonalIcon';
+import PrimaryButton from '@/components/PrimaryButton';
 import { contactCta, navMenuSurfaceClass, primaryNavLinks } from './nav-config';
 
 interface NavBarShellProps {
@@ -25,13 +26,15 @@ export default function NavBarShell({
   menuPanelId,
   industriesPanelId,
 }: NavBarShellProps) {
-  const isAnyOpen = isMenuOpen || isIndustriesOpen;
+  // Only the full menu overlay merges visually with the bar (shared surface).
+  // The Industries overlay is a separate detached card — keep the bar in its
+  // normal pill shape so the two read as distinct elements.
   return (
     <div
       className={`w-full h-[66px] pl-5 pr-3.5 flex justify-between items-center border border-white/10 transition-[border-radius,background,backdrop-filter] ${
-        isAnyOpen
-          ? `${navMenuSurfaceClass} rounded-t-[20px] rounded-b-none border-b border-white/10`
-          : 'rounded-[20px] bg-[rgba(44,44,44,0.2)] backdrop-blur-[15px]'
+        isMenuOpen
+          ? `${navMenuSurfaceClass} rounded-t-card rounded-b-none border-b border-white/10`
+          : 'rounded-card bg-[rgba(44,44,44,0.2)] backdrop-blur-[15px]'
       }`}
     >
       <Link href="/" className="shrink-0 pl-1" aria-label="Pixonal home">
@@ -46,7 +49,7 @@ export default function NavBarShell({
       </Link>
 
       <div className="flex h-full items-center self-stretch min-w-0">
-        <ul className="hidden xl:flex h-full items-stretch" role="list">
+        <ul className="hidden lg:flex h-full items-stretch" role="list">
           {primaryNavLinks.map((item, index) => {
             const isLast = index === primaryNavLinks.length - 1;
             const isIndustries = item.href === INDUSTRIES_HREF;
@@ -69,8 +72,16 @@ export default function NavBarShell({
                     aria-controls={industriesPanelId}
                     aria-haspopup="dialog"
                   >
-                    <span className="text-center text-white text-body capitalize">
+                    <span className="flex items-center gap-1.5 text-center text-white text-body capitalize">
                       {item.label}
+                      <PixonalIcon
+                        name="caret-down"
+                        size={16}
+                        weight="regular"
+                        className={`text-white transition-transform duration-200 ${
+                          isIndustriesOpen ? 'rotate-180' : ''
+                        }`}
+                      />
                     </span>
                   </Link>
                 ) : (
@@ -89,13 +100,7 @@ export default function NavBarShell({
 
         <div className="flex h-full items-center gap-3 shrink-0">
           <div className="h-full w-[150px] border-r border-white/10 flex items-center justify-center">
-            <NavLink
-              href={contactCta.href}
-              className="opacity-95 bg-white rounded-[10px] p-3 inline-flex items-center justify-center"
-              labelClassName="text-center text-black text-body capitalize"
-            >
-              {contactCta.label}
-            </NavLink>
+            <PrimaryButton href={contactCta.href}>{contactCta.label}</PrimaryButton>
           </div>
 
           <button

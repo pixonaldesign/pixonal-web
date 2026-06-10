@@ -5,6 +5,8 @@ interface PartnerCard {
   logo: string;
   textLogo?: string;
   backgroundImage: string;
+  /** Optional override for the logo's max-height utilities. */
+  logoClassName?: string;
 }
 
 interface PartnerLogo {
@@ -28,7 +30,8 @@ const featuredPartners: PartnerCard[] = [
   {
     description: 'Strategic data solutions for executive leadership',
     logo: '/images/partners/executiveoffice.png',
-    backgroundImage: '/images/partners/partner-3.png'
+    backgroundImage: '/images/partners/partner-3.png',
+    logoClassName: 'w-[200px] lg:w-[260px] h-auto max-h-none'
   }
 ];
 
@@ -47,24 +50,40 @@ const partnerLogos: PartnerLogo[] = [
   { logo: '/images/partners/itc.png', name: 'Integrated Transport Centre' }
 ];
 
-export default function Partners() {
+interface PartnersProps {
+  /** Section heading. Defaults to the home-page two-line title. */
+  title?: string;
+}
+
+export default function Partners({ title }: PartnersProps) {
   return (
-    <section className="bg-primary-900 py-section px-5">
+    <section className="bg-primary-900 py-section px-gutter">
       <div className="w-full mx-auto flex flex-col gap-6 items-center max-w-content pb-12">
         {/* Title */}
         <div className="flex flex-col gap-block items-start w-full pb-6">
           <h2 className="text-h1 text-white whitespace-pre">
-          Partnered with Visionary <br />
-          Decision-Makers
+            {title ?? (
+              <>
+                Partnered with Visionary <br />
+                Decision-Makers
+              </>
+            )}
           </h2>
         </div>
 
-        {/* Featured Partner Cards */}
-        <div className="flex gap-6 justify-center max-w-content">
+        {/*
+          Featured Partner Cards.
+          - < sm: 1 column, square card, vertical content (logo on top, description below).
+          - sm – lg: 1 column, auto height, horizontal content (logo on the
+            left, description on the right) — avoids the oversized square at
+            single-column widths.
+          - >= lg: 3 columns, square card, vertical content (original).
+        */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
           {featuredPartners.map((partner, index) => (
             <div
               key={index}
-              className="border border-stone-300/16 relative rounded-[12px] overflow-hidden group w-[calc((95vw-48px)/3)] aspect-square"
+              className="border border-stone-300/16 relative rounded-card overflow-hidden group w-full"
             >
               {/* Background Image */}
               <div className="absolute inset-0">
@@ -74,24 +93,23 @@ export default function Partners() {
                   fill
                   className="object-cover blur-sm"
                 />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors" />
               </div>
-              
-              {/* Content Overlay */}
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors p-6 flex flex-col justify-between items-center">
-                {/* Flexible top section - allows logos to be centered */}
-                <div className="flex-1 flex flex-col justify-center items-center gap-4">
-                  {/* Logo */}
+
+              {/* Content. aspect-square below sm and at lg+; horizontal flow between. */}
+              <div className="relative z-10 aspect-[3/2] sm:aspect-auto lg:aspect-square sm:min-h-[220px] lg:min-h-0 p-6 flex flex-col sm:flex-row lg:flex-col justify-between sm:justify-center lg:justify-between items-center gap-4 sm:gap-8 lg:gap-4">
+                {/* Logo cluster */}
+                <div className="flex-1 sm:flex-none sm:w-2/5 lg:flex-1 lg:w-auto flex flex-col justify-center items-center gap-4 min-h-0">
                   <div className="flex items-center justify-center shrink-0">
                     <Image
                       src={partner.logo}
                       alt="Partner logo"
                       width={120}
                       height={120}
-                      className="max-h-[120px] max-w-full object-contain"
+                      className={`${partner.logoClassName ?? 'max-h-[88px] lg:max-h-[120px]'} max-w-full object-contain`}
                     />
                   </div>
-                  
-                  {/* Text Logo (if available) */}
+
                   {partner.textLogo && (
                     <div className="flex items-center justify-center shrink-0">
                       <Image
@@ -99,14 +117,14 @@ export default function Partners() {
                         alt="Partner text logo"
                         width={200}
                         height={40}
-                        className="max-h-[40px] max-w-full object-contain"
+                        className="max-h-[28px] lg:max-h-[40px] max-w-full object-contain"
                       />
                     </div>
                   )}
                 </div>
-                
-                {/* Bottom - Description anchored */}
-                <p className="text-body-relaxed text-white text-center shrink-0">
+
+                {/* Description */}
+                <p className="text-body-relaxed text-white text-center sm:text-left lg:text-center sm:flex-1 lg:flex-none shrink-0">
                   {partner.description}
                 </p>
               </div>
@@ -115,8 +133,8 @@ export default function Partners() {
         </div>
 
         {/* Partner Logos Grid */}
-        <div className="w-full border border-stone-300/16 rounded-[20px] px-6 py-8 md:px-10 md:py-[60px]">
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-x-8 gap-y-10 md:gap-x-[78px] md:gap-y-[71px] items-center justify-items-center">
+        <div className="w-full border border-stone-300/16 rounded-card px-6 py-8 md:px-10 md:py-[60px]">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-10 md:gap-x-12 md:gap-y-12 lg:gap-x-[78px] lg:gap-y-[71px] items-center justify-items-center">
             {partnerLogos.map((partner, index) => (
               <div
                 key={index}

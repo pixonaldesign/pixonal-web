@@ -1,10 +1,18 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { NewsArticle } from '@/lib/markdown';
 import PixonalIcon from '@/components/PixonalIcon';
-import { navMenuSurfaceClass, overlayNavLinks } from './nav-config';
+import IndustryCard from './IndustryCard';
+import {
+  industriesMenuItems,
+  navMenuSurfaceClass,
+  overlayNavLinks,
+} from './nav-config';
+
+const INDUSTRIES_HREF = '/industries';
 
 interface NavOverlayProps {
   id: string;
@@ -41,6 +49,9 @@ export default function NavOverlay({
   newsArticles,
 }: NavOverlayProps) {
   const displayArticles = newsArticles.slice(0, 4);
+  // Inline accordion for the Industries entry on mobile/tablet — clicking
+  // "Industries" expands the 6 industry links instead of navigating.
+  const [isIndustriesExpanded, setIsIndustriesExpanded] = useState(false);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -73,30 +84,80 @@ export default function NavOverlay({
         aria-label="Site menu"
         aria-hidden={!isOpen}
         hidden={!isOpen}
-        className={`absolute left-0 right-0 top-full z-50 w-full rounded-b-[20px] rounded-t-none border border-white/10 border-t-0 pb-section shadow-[0px_8px_32px_rgba(0,0,0,0.4)] max-h-[calc(100dvh-1.25rem-66px-1.25rem)] overflow-x-hidden overflow-y-auto overscroll-contain nav-menu-scroll ${navMenuSurfaceClass}`}
+        className={`absolute left-0 right-0 top-full z-50 w-full rounded-b-card rounded-t-none border border-white/10 border-t-0 pb-section shadow-[0px_8px_32px_rgba(0,0,0,0.4)] max-h-[calc(100dvh-1.25rem-66px-1.25rem)] overflow-x-hidden overflow-y-auto overscroll-contain nav-menu-scroll ${navMenuSurfaceClass}`}
         tabIndex={isOpen ? 0 : -1}
       >
         <div className="flex flex-col gap-section px-6 pt-10 pb-10">
-          <div className="flex flex-col xl:flex-row justify-between items-start gap-section w-full">
-            <nav aria-label="Menu navigation" className="shrink-0">
-              <ul className="flex flex-col gap-5 w-[251px]" role="list">
-                {overlayNavLinks.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      onClick={onClose}
-                      className="text-white text-h2 hover:text-white/80 transition-colors block"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
+          <div className="flex flex-col lg:flex-row justify-between items-start gap-section w-full">
+            <nav aria-label="Menu navigation" className="shrink-0 w-full lg:w-auto">
+              <ul
+                className="flex flex-col gap-5 w-full lg:w-[251px]"
+                role="list"
+              >
+                {overlayNavLinks.map((item) => {
+                  if (item.href === INDUSTRIES_HREF) {
+                    // Industries expands inline into a 6-item sub-list.
+                    // SEO is still satisfied because each sub-link is a real
+                    // <Link href="/industries/..."> rendered in the DOM —
+                    // hidden=!isOpen on the panel doesn't strip them from
+                    // the static HTML.
+                    return (
+                      <li key={item.href}>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setIsIndustriesExpanded((prev) => !prev)
+                          }
+                          aria-expanded={isIndustriesExpanded}
+                          aria-controls={`${id}-industries-sublist`}
+                          className="text-white text-h2 hover:text-white/80 transition-colors flex items-center gap-3"
+                        >
+                          {item.label}
+                          <PixonalIcon
+                            name="caret-down"
+                            size={20}
+                            weight="regular"
+                            className={`text-white transition-transform duration-200 ${
+                              isIndustriesExpanded ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </button>
+                        <ul
+                          id={`${id}-industries-sublist`}
+                          role="list"
+                          hidden={!isIndustriesExpanded}
+                          className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-5"
+                        >
+                          {industriesMenuItems.map((industry) => (
+                            <li key={industry.href} className="flex min-w-0">
+                              <IndustryCard
+                                item={industry}
+                                onNavigate={onClose}
+                              />
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    );
+                  }
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={onClose}
+                        className="text-white text-h2 hover:text-white/80 transition-colors block"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
 
             <div className="flex flex-col lg:flex-row gap-section w-full min-w-0">
               <div className="flex-1 min-w-0 max-w-full lg:max-w-none">
-                <div className="aspect-[160/90] w-full rounded-[20px] bg-zinc-800/40 flex flex-col justify-between p-5 relative overflow-hidden">
+                <div className="aspect-[160/90] w-full rounded-card bg-zinc-800/40 flex flex-col justify-between p-5 relative overflow-hidden">
                   <div className="flex flex-col gap-2 text-white relative z-10">
                     <p className="text-news-caption">Llumen</p>
                     <p className="text-body-tight capitalize max-w-[178px]">
@@ -112,7 +173,7 @@ export default function NavOverlay({
               </div>
 
               <div className="flex-1 min-w-0 max-w-full lg:max-w-none">
-                <div className="aspect-[160/90] w-full rounded-[20px] relative overflow-hidden flex flex-col justify-between p-5">
+                <div className="aspect-[160/90] w-full rounded-card relative overflow-hidden flex flex-col justify-between p-5">
                   <Image
                     src="/images/nav/data-for-humans-card.jpg"
                     alt=""
@@ -139,8 +200,8 @@ export default function NavOverlay({
             </div>
           </div>
 
-          <div className="flex flex-col xl:flex-row justify-between items-start gap-section w-full">
-            <div className="flex flex-col justify-between gap-section xl:min-h-[409px] shrink-0">
+          <div className="flex flex-col lg:flex-row justify-between items-start gap-section w-full">
+            <div className="flex flex-col justify-between gap-section lg:min-h-[409px] shrink-0">
               <div className="flex flex-col gap-section">
                 <a href="#" className="hover:opacity-70 transition-opacity" aria-label="LinkedIn">
                   <Image
@@ -181,7 +242,7 @@ export default function NavOverlay({
             </div>
 
             <section
-              className="flex flex-col gap-section w-full xl:max-w-[1166px]"
+              className="flex flex-col gap-section w-full lg:max-w-[1166px]"
               aria-label="Latest news"
             >
               <ul className="grid grid-cols-1 lg:grid-cols-2 gap-section" role="list">

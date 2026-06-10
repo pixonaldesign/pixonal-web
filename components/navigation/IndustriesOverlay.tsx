@@ -4,7 +4,6 @@ import IndustryCard from './IndustryCard';
 import {
   industriesMenu,
   industriesMenuItems,
-  navMenuSurfaceClass,
 } from './nav-config';
 
 interface IndustriesOverlayProps {
@@ -31,7 +30,7 @@ export default function IndustriesOverlay({
         aria-label="Industries menu"
         aria-hidden={!isOpen}
         hidden={!isOpen}
-        className={`absolute left-0 right-0 top-full z-50 w-full rounded-b-[20px] rounded-t-none border border-white/10 border-t-0 shadow-[0px_8px_32px_rgba(0,0,0,0.4)] max-h-[calc(100dvh-1.25rem-66px-1.25rem)] overflow-x-hidden overflow-y-auto overscroll-contain nav-menu-scroll ${navMenuSurfaceClass}`}
+        className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-50 w-full rounded-card border border-white/10 shadow-[0px_8px_32px_rgba(0,0,0,0.4)] max-h-[calc(100dvh-1.25rem-66px-0.5rem-1.25rem)] overflow-x-hidden overflow-y-auto overscroll-contain nav-menu-scroll bg-[rgba(44,44,44,0.4)] backdrop-blur-[100px]"
         tabIndex={isOpen ? 0 : -1}
       >
         <div className="flex flex-col gap-10 px-5 py-8 md:px-8">

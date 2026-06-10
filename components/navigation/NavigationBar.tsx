@@ -49,7 +49,7 @@ export default function NavigationBar({ newsArticles }: NavigationBarProps) {
   }, [isAnyOpen, closeAll]);
 
   return (
-    <div className={`relative w-full flex flex-col ${isAnyOpen ? '' : 'gap-tight'}`}>
+    <div className={`relative w-full flex flex-col ${isMenuOpen ? '' : 'gap-tight'}`}>
       <NavBarShell
         isMenuOpen={isMenuOpen}
         isIndustriesOpen={isIndustriesOpen}

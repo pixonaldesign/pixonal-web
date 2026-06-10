@@ -84,7 +84,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-sans antialiased bg-zinc-900">
         <div className="w-full min-h-screen flex flex-col justify-start items-center relative">
-          <div className="w-full flex flex-col justify-start items-center gap-section rounded-[20px]">
+          <div className="w-full flex flex-col justify-start items-center gap-section rounded-card">
             <header className="flex justify-center fixed top-5 left-5 right-5 z-50 w-[calc(100%-2.5rem)]">
               <Navigation />
             </header>
