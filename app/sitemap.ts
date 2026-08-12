@@ -61,10 +61,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  // News articles
+  // News articles (skip externally hosted press releases)
   const articles = await getAllNewsArticles();
   const newsPages = articles
-    .filter((article) => article.slug) // Filter out articles with undefined slugs
+    .filter((article) => article.slug && !article.externalUrl)
     .map((article) => ({
       url: `${baseUrl}/newsroom/${article.slug}`,
       lastModified: new Date(article.date),

@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react';
 import NewsArticleCard from './NewsArticleCard';
 import Tabs, { type TabItem } from '@/components/ui/Tabs';
-import type { NewsArticle } from '@/lib/markdown';
+import type { NewsArticle } from '@/lib/news';
 
 type TabId = 'featured' | 'press-releases' | 'in-the-news';
 
@@ -27,6 +27,7 @@ function matchesCategory(article: NewsArticle, tab: TabId): boolean {
     case 'in-the-news':
       return c === 'in-the-news' || c === 'in the news';
     case 'featured':
+      return c === 'featured';
     default:
       return true;
   }
@@ -48,10 +49,16 @@ function matchesCategory(article: NewsArticle, tab: TabId): boolean {
 export default function NewsroomTabs({ articles }: NewsroomTabsProps) {
   const [active, setActive] = useState<TabId>('featured');
 
-  const filtered = useMemo(
-    () => articles.filter((article) => matchesCategory(article, active)),
-    [articles, active],
-  );
+  const filtered = useMemo(() => {
+    const matched = articles.filter((article) => matchesCategory(article, active));
+    if (active !== 'featured') return matched;
+    return [...matched].sort((a, b) => {
+      const ao = a.featuredOrder ?? Number.MAX_SAFE_INTEGER;
+      const bo = b.featuredOrder ?? Number.MAX_SAFE_INTEGER;
+      if (ao !== bo) return ao - bo;
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+  }, [articles, active]);
 
   const heroArticle = active === 'featured' ? filtered[0] : undefined;
   const gridArticles =
@@ -147,10 +154,10 @@ function CompactListByYear({ articles }: { articles: NewsArticle[] }) {
       {groups.map(({ year, items }) => (
         <div
           key={year || 'undated'}
-          className="flex w-full flex-col gap-6 md:flex-row md:items-start md:gap-10"
+          className="relative flex w-full flex-col gap-6 md:flex-row md:items-start md:gap-10"
         >
           <p
-            className="text-h2 text-white shrink-0 md:w-1/5"
+            className="text-h2 text-white shrink-0 self-start md:sticky md:top-[calc(1.25rem+66px+32px)] md:w-1/5"
             aria-hidden={year === 0}
           >
             {year || ''}

@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { NewsArticle } from '@/lib/markdown';
+import type { NewsArticle } from '@/lib/news';
 import PixonalIcon from '@/components/PixonalIcon';
+import NewsArticleLink from '@/components/newsroom/NewsArticleLink';
 import IndustryCard from './IndustryCard';
 import {
   industriesMenuItems,
@@ -272,13 +273,13 @@ export default function NavOverlay({
                               {formatDate(article.date)}
                             </time>
                           </div>
-                          <Link
-                            href={`/newsroom/${article.slug}`}
+                          <NewsArticleLink
+                            article={article}
                             onClick={onClose}
                             className="text-white text-body-tight capitalize line-clamp-4 hover:text-white/80 transition-colors"
                           >
                             {article.title}
-                          </Link>
+                          </NewsArticleLink>
                         </div>
                       </article>
                     </li>

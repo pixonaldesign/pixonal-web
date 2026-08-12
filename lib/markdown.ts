@@ -3,21 +3,13 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import remarkHtml from 'remark-html';
+import type { NewsArticle } from '@/lib/news';
+
+export type { NewsArticle } from '@/lib/news';
+export { getNewsArticleHref, isExternalNewsArticle } from '@/lib/news';
 
 const newsDirectory = path.join(process.cwd(), 'content/news');
 const caseStudiesDirectory = path.join(process.cwd(), 'content/casestudies');
-
-export interface NewsArticle {
-  slug: string;
-  title: string;
-  date: string;
-  category: string;
-  source?: string;
-  excerpt: string;
-  image?: string;
-  content: string;
-  readingTime?: number;
-}
 
 export async function getAllNewsArticles(): Promise<NewsArticle[]> {
   try {
@@ -50,6 +42,10 @@ export async function getAllNewsArticles(): Promise<NewsArticle[]> {
           image: data.image || '',
           content: contentHtml,
           readingTime,
+          externalUrl: data.externalUrl || undefined,
+          eyebrow: data.eyebrow || undefined,
+          featuredOrder:
+            typeof data.featuredOrder === 'number' ? data.featuredOrder : undefined,
         };
       });
 
@@ -89,6 +85,10 @@ export async function getNewsArticle(slug: string): Promise<NewsArticle | null> 
       image: data.image || '',
       content: contentHtml,
       readingTime,
+      externalUrl: data.externalUrl || undefined,
+      eyebrow: data.eyebrow || undefined,
+      featuredOrder:
+        typeof data.featuredOrder === 'number' ? data.featuredOrder : undefined,
     };
   } catch (error) {
     console.error(`Error reading news article ${slug}:`, error);

@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { NewsArticle } from '@/lib/markdown';
+import type { NewsArticle } from '@/lib/news';
+import NewsArticleLink from '@/components/newsroom/NewsArticleLink';
 import PixonalIcon from './PixonalIcon';
 
 interface FooterClientProps {
@@ -113,12 +114,12 @@ export default function FooterClient({ newsArticles }: FooterClientProps) {
                         </div>
                       </div>
                       <div className="text-white text-button">
-                        <Link
-                          href={`/newsroom/${article.slug}`}
+                        <NewsArticleLink
+                          article={article}
                           className="hover:text-white/80 transition-colors"
                         >
                           {article.title}
-                        </Link>
+                        </NewsArticleLink>
                       </div>
                     </div>
                   </div>

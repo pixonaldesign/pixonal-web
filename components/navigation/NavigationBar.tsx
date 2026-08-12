@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useId, useState } from 'react';
-import { NewsArticle } from '@/lib/markdown';
+import type { NewsArticle } from '@/lib/news';
 import NavBarShell from './NavBarShell';
 import NavOverlay from './NavOverlay';
 import IndustriesOverlay from './IndustriesOverlay';

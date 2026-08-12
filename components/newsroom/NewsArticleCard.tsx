@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import Image from 'next/image';
-import type { NewsArticle } from '@/lib/markdown';
+import type { NewsArticle } from '@/lib/news';
+import NewsArticleLink from './NewsArticleLink';
 
 type NewsArticleCardVariant = 'hero' | 'grid' | 'compact';
 
@@ -54,14 +54,16 @@ export default function NewsArticleCard({
 
   const isHero = resolved === 'hero';
   const year = article.date ? new Date(article.date).getFullYear() : '';
-  const eyebrowParts = [formatCategory(article.category), year, article.source]
-    .filter(Boolean)
-    .join(' / ');
+  const eyebrowParts =
+    article.eyebrow ||
+    [formatCategory(article.category), year, article.source]
+      .filter(Boolean)
+      .join(' / ');
 
   return (
     <article className="group flex h-full w-full flex-col">
-      <Link
-        href={`/newsroom/${article.slug}`}
+      <NewsArticleLink
+        article={article}
         className="flex h-full flex-col gap-4 md:gap-5 lg:gap-6"
       >
         <div
@@ -92,7 +94,7 @@ export default function NewsArticleCard({
             {article.title}
           </h3>
         </div>
-      </Link>
+      </NewsArticleLink>
     </article>
   );
 }
@@ -115,7 +117,7 @@ function CompactCard({ article }: { article: NewsArticle }) {
 
   return (
     <article className="group w-full">
-      <Link href={`/newsroom/${article.slug}`} className="block w-full">
+      <NewsArticleLink article={article} className="block w-full">
         {/* <md — grid card layout (mirrors Featured tab cards). */}
         <div className="flex flex-col gap-4 md:hidden">
           <div className="relative aspect-[16/10] w-full overflow-hidden rounded-card bg-zinc-800">
@@ -162,7 +164,7 @@ function CompactCard({ article }: { article: NewsArticle }) {
             </h3>
           </div>
         </div>
-      </Link>
+      </NewsArticleLink>
     </article>
   );
 }

@@ -14,7 +14,7 @@ interface ArticlePageProps {
 export async function generateStaticParams() {
   const articles = await getAllNewsArticles();
   return articles
-    .filter((article) => article.slug) // Filter out articles with undefined slugs
+    .filter((article) => article.slug && !article.externalUrl)
     .map((article) => ({
       slug: article.slug,
     }));
