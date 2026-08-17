@@ -33,7 +33,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        "untitled-sans": ["var(--font-sans)"],
+        roobert: ["var(--font-sans)"],
         "ibm-plex-mono": ["var(--font-mono)"],
       },
       backdropBlur: {

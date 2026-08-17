@@ -26,7 +26,7 @@ interface FooterClientProps {
 const mainLinks: { label: string; href: string }[][] = [
   [
     { label: 'Llumen', href: '/llumen' },
-    { label: 'Advisory', href: '/advisory' },
+    { label: 'About', href: '/about' },
     { label: 'Rooms', href: '/rooms' },
     { label: 'Careers', href: '/careers' },
   ],

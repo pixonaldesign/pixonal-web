@@ -8,6 +8,11 @@ import type { IndustryMenuItem } from './nav-config';
 interface IndustryCardProps {
   item: IndustryMenuItem;
   onNavigate: () => void;
+  /**
+   * `panel` — nav-bar Industries overlay (taller bordered cards).
+   * `hamburger` — hamburger Industries accordion (16:9 thumbnails).
+   */
+  variant?: 'panel' | 'hamburger';
 }
 
 /**
@@ -17,12 +22,22 @@ interface IndustryCardProps {
  * - <lg: image is always visible (touch devices have no hover) so users
  *        immediately see which industry each card represents.
  */
-export default function IndustryCard({ item, onNavigate }: IndustryCardProps) {
+export default function IndustryCard({
+  item,
+  onNavigate,
+  variant = 'panel',
+}: IndustryCardProps) {
+  const isHamburger = variant === 'hamburger';
+
   return (
     <Link
       href={item.href}
       onClick={onNavigate}
-      className="group relative flex h-[252px] min-w-0 flex-1 flex-col items-start justify-between rounded-card border border-white/40 p-4 overflow-hidden transition-colors"
+      className={
+        isHamburger
+          ? 'group relative flex aspect-video min-w-0 w-full flex-col items-start justify-between rounded-card border border-white/10 p-4 overflow-hidden transition-colors'
+          : 'group relative flex h-[252px] min-w-0 flex-1 flex-col items-start justify-between rounded-card border border-white/40 p-4 overflow-hidden transition-colors'
+      }
     >
       {/* Background — always visible below lg, hover-revealed at lg+ */}
       <div
@@ -34,12 +49,20 @@ export default function IndustryCard({ item, onNavigate }: IndustryCardProps) {
           alt=""
           fill
           className="object-cover rounded-card"
-          sizes="(max-width: 1024px) 50vw, 33vw"
+          sizes={
+            isHamburger
+              ? '(max-width: 1024px) 100vw, 251px'
+              : '(max-width: 1024px) 50vw, 33vw'
+          }
         />
         <div className="absolute inset-0 rounded-card bg-gradient-to-b from-black/70 from-0% to-transparent to-[68.625%]" />
       </div>
 
-      <span className="relative z-10 w-full text-h2 text-white">
+      <span
+        className={`relative z-10 w-full text-white ${
+          isHamburger ? 'text-body-tight' : 'text-h2'
+        }`}
+      >
         {item.label}
       </span>
 

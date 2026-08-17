@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import HeroSection from '@/components/HeroSection';
 import HeroBlurOverlay from '@/components/HeroBlurOverlay';
+import SecondaryButton from '@/components/SecondaryButton';
 import { contactHero } from '@/lib/contact';
 
 /**
  * Contact page hero — shared hero shell (same as home / About) with a globe
- * still background, an eyebrow, and the display title.
+ * still background, an eyebrow, the display title, and a Contact Us CTA that
+ * scrolls to the details section below.
  */
 export default function ContactHero() {
   return (
@@ -33,6 +35,9 @@ export default function ContactHero() {
           </span>
         ))}
       </h1>
+      <SecondaryButton href="#contact-details" showArrow>
+        Contact Us
+      </SecondaryButton>
     </HeroSection>
   );
 }

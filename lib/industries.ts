@@ -226,21 +226,21 @@ export const industries: Industry[] = [
   },
 
   // -------------------------------------------------------------------------
-  // Cities & Infrastructure — real Figma copy (node 2435:10241)
+  // Cities & Digital Twin — real Figma copy (node 2435:10241)
   // Each Key Advantages tab has its own gradient applied to the outer card.
   // -------------------------------------------------------------------------
   {
     slug: 'cities-infrastructure',
-    label: 'Cities & Infrastructure',
+    label: 'Cities & Digital Twin',
     description:
-      'Govern the city through connected, cross-department intelligence',
+      'Govern the city through connected digital twin intelligence across departments',
     hero: {
-      title: 'Govern the city through connected, cross-department intelligence',
+      title: 'Govern the city through connected digital twin intelligence',
       image: assets('cities-and-infrastructure', 'cities-infrastructure.png'),
       video: assets('cities-and-infrastructure', 'hero-video.mp4'),
     },
     overview:
-      'City operations depend on coordination between transport, utilities, public works, planning, and citizen services. Llumen gives agencies a shared intelligence layer that reveals how conditions in one sector influence another. It supports both daily operations and long-range planning with structured, governed insight built for the complexity of modern cities.',
+      'City operations depend on coordination between transport, utilities, public works, planning, and citizen services. Llumen gives agencies a shared digital twin of the city — an intelligence layer that reveals how conditions in one sector influence another. It supports both daily operations and long-range planning with structured, governed insight built for the complexity of modern cities.',
     keyAdvantagesEyebrow: 'Key Advantages',
     // Fallback only — every tab below carries its own gradient.
     keyAdvantagesGradient:

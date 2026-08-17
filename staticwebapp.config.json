@@ -1,6 +1,16 @@
 {
   "routes": [
     {
+      "route": "/advisory",
+      "redirect": "/",
+      "statusCode": 301
+    },
+    {
+      "route": "/advisory/",
+      "redirect": "/",
+      "statusCode": 301
+    },
+    {
       "route": "/*",
       "serve": "/404.html",
       "statusCode": 404

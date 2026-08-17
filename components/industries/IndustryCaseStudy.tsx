@@ -3,7 +3,7 @@ import CaseStudyApproach from './case-study/CaseStudyApproach';
 import CaseStudyAutoScroll from './case-study/CaseStudyAutoScroll';
 import CaseStudyClosing from './case-study/CaseStudyClosing';
 import CaseStudyIntro from './case-study/CaseStudyIntro';
-import CaseStudyMediaCarousel from './case-study/CaseStudyMediaCarousel';
+import CaseStudyMediaStack from './case-study/CaseStudyMediaStack';
 import CaseStudyPoints from './case-study/CaseStudyPoints';
 
 interface IndustryCaseStudyProps {
@@ -11,9 +11,9 @@ interface IndustryCaseStudyProps {
 }
 
 /**
- * Full per-industry case study: intro + stats, then the narrative sections in
- * order. Objectives / Visualization / Discoveries are carousels; Approach is a
- * grouped icon-card section; Results is a text grid.
+ * Full per-industry case study: intro + stats, then narrative sections in
+ * order. Media sections are vertical stacks (no carousels); Approach may be
+ * grouped icon cards or a media stack; Results is a text grid or closing.
  */
 export default function IndustryCaseStudy({ data }: IndustryCaseStudyProps) {
   return (
@@ -29,7 +29,7 @@ export default function IndustryCaseStudy({ data }: IndustryCaseStudyProps) {
         challenges={data.challenges}
       />
       {data.objectives ? (
-        <CaseStudyMediaCarousel
+        <CaseStudyMediaStack
           data={data.objectives}
           titleClassName="text-h1"
           gapClassName="gap-6 md:gap-10"
@@ -39,14 +39,14 @@ export default function IndustryCaseStudy({ data }: IndustryCaseStudyProps) {
       {'groups' in data.approach ? (
         <CaseStudyApproach data={data.approach} />
       ) : (
-        <CaseStudyMediaCarousel
+        <CaseStudyMediaStack
           data={data.approach}
           titleClassName="text-h1"
           gapClassName="gap-6 md:gap-10"
           topPaddingOnly
         />
       )}
-      <CaseStudyMediaCarousel
+      <CaseStudyMediaStack
         data={data.visualization}
         titleClassName="text-h1"
         gapClassName="gap-6 md:gap-10"

@@ -12,7 +12,6 @@ export type NavItem = {
 export const primaryNavLinks: readonly NavItem[] = [
   { href: '/llumen', label: 'Llumen' },
   { href: '/industries', label: 'Industries' },
-  { href: '/advisory', label: 'Advisory' },
   { href: '/newsroom', label: 'Newsroom' },
 ] as const;
 
@@ -42,7 +41,7 @@ export const industriesMenuItems: readonly IndustryMenuItem[] = [
     image: '/images/industries/people-and-workforce/people-workforce.png',
   },
   {
-    label: 'Cities & Infrastructure',
+    label: 'Cities & Digital Twin',
     href: '/industries/cities-infrastructure',
     image:
       '/images/industries/cities-and-infrastructure/cities-infrastructure.png',

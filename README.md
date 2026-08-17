@@ -1,6 +1,6 @@
 # Pixonal Website
 
-A modern, static website for Pixonal built with Next.js 16, featuring intelligent data solutions and strategic advisory services.
+A modern, static website for Pixonal built with Next.js 16, featuring intelligent data solutions.
 
 ## Features
 
@@ -17,7 +17,9 @@ A modern, static website for Pixonal built with Next.js 16, featuring intelligen
 - **Landing Page** (`/`) - Homepage with hero, features, and CTAs
 - **Llumen** (`/llumen`) - Product page for the Llumen platform
 - **Industries** (`/industries`) - Overview and detail pages for 6 industry sectors
-- **Advisory** (`/advisory`) - Strategic advisory services information
+- **Industries** (`/industries/[slug]`) - Sector pages with Data / People / AI pillars
+- **Llumen** (`/llumen`) - Platform overview
+- **Newsroom** (`/newsroom`) - News and press
 - **Newsroom** (`/newsroom`) - News articles and insights
 - **Contact** (`/contact`) - Contact information and form
 
@@ -25,7 +27,7 @@ A modern, static website for Pixonal built with Next.js 16, featuring intelligen
 
 - **Framework**: Next.js 16 with App Router
 - **Styling**: Tailwind CSS v4 + CSS-first design tokens (`styles/tokens.css`)
-- **Fonts**: Untitled Sans + IBM Plex Mono (self-hosted in `public/fonts/`)
+- **Fonts**: Roobert + IBM Plex Mono (self-hosted in `public/fonts/`)
 - **Icons**: `@phosphor-icons/react` via the `PixonalIcon` wrapper
 - **Content**: Markdown files for news articles and case studies
 - **Forms**: Formspree integration
@@ -140,7 +142,11 @@ pixonal-web/
 │   ├── page.tsx                  # Landing page
 │   ├── llumen/                   # Llumen product page
 │   ├── industries/               # /industries + /industries/[slug]
-│   ├── advisory/                 # Advisory services page
+│   ├── about/                    # About page
+│   ├── contact/                  # Contact page
+│   ├── industries/               # Industry pages
+│   ├── llumen/                   # Llumen platform page
+│   ├── newsroom/                 # Newsroom pages
 │   ├── newsroom/                 # /newsroom + /newsroom/[slug]
 │   ├── case-studies/             # /case-studies + /case-studies/[slug]
 │   ├── contact/                  # Contact page
@@ -184,7 +190,7 @@ pixonal-web/
 │   ├── spacing.ts
 │   └── typography.ts
 ├── public/                       # Static assets
-│   ├── fonts/                    # Self-hosted Untitled Sans + IBM Plex Mono
+│   ├── fonts/                    # Self-hosted Roobert + IBM Plex Mono
 │   ├── images/
 │   │   ├── nav/industries/       # Industries dropdown hover backgrounds
 │   │   ├── blog/                 # BlogHero stacked backgrounds

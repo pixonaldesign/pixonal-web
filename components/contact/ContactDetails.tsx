@@ -46,6 +46,7 @@ function OfficeCard({ office }: { office: ContactOffice }) {
 export default function ContactDetails() {
   return (
     <section
+      id="contact-details"
       className="bg-primary-900 py-section px-gutter"
       aria-labelledby="contact-org-heading"
     >

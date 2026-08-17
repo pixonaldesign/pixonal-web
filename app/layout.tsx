@@ -5,15 +5,15 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Pixonal - Intelligent Data Solutions & Strategic Advisory",
+    default: "Pixonal - Intelligent Data Solutions",
     template: "%s | Pixonal",
   },
   description:
-    "Empowering organizations with intelligent data solutions and strategic advisory services. Transform your operations with our Llumen platform across mobility, real estate, citizen services, and more.",
+    "Empowering organizations with intelligent data solutions. Transform your operations with our Llumen platform across mobility, real estate, citizen services, and more.",
   keywords: [
     "data analytics",
     "intelligent solutions",
-    "strategic advisory",
+    "digital twin",
     "digital transformation",
     "Llumen platform",
     "mobility solutions",
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://pixonal.com",
-    title: "Pixonal - Intelligent Data Solutions & Strategic Advisory",
+    title: "Pixonal - Intelligent Data Solutions",
     description:
-      "Empowering organizations with intelligent data solutions and strategic advisory services.",
+      "Empowering organizations with intelligent data solutions.",
     siteName: "Pixonal",
     images: [
       {
@@ -54,9 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pixonal - Intelligent Data Solutions & Strategic Advisory",
+    title: "Pixonal - Intelligent Data Solutions",
     description:
-      "Empowering organizations with intelligent data solutions and strategic advisory services.",
+      "Empowering organizations with intelligent data solutions.",
     images: ["/images/og-image.jpg"],
   },
   robots: {

@@ -127,13 +127,14 @@ export default function NavOverlay({
                           id={`${id}-industries-sublist`}
                           role="list"
                           hidden={!isIndustriesExpanded}
-                          className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-5"
+                          className="mt-4 grid grid-cols-1 gap-stack"
                         >
                           {industriesMenuItems.map((industry) => (
                             <li key={industry.href} className="flex min-w-0">
                               <IndustryCard
                                 item={industry}
                                 onNavigate={onClose}
+                                variant="hamburger"
                               />
                             </li>
                           ))}
@@ -191,7 +192,7 @@ export default function NavOverlay({
                   </div>
                   <div className="relative z-10">
                     <FeatureCardButton
-                      href="/advisory"
+                      href="/about"
                       label="Read More from Our White Paper"
                       onNavigate={onClose}
                     />

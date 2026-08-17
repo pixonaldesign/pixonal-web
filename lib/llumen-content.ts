@@ -549,7 +549,7 @@ export const llumenIndustriesIntro =
 export const llumenIndustries: IndustrySlide[] = [
   {
     id: 'cities-infrastructure',
-    label: 'Cities & Infrastructure',
+    label: 'Cities & Digital Twin',
     number: '01',
     title: 'Plan, manage, and monitor the city from one live interface',
     impact:

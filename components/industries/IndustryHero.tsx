@@ -2,6 +2,7 @@ import Image from 'next/image';
 import HeroSection from '@/components/HeroSection';
 import HeroVideoBackground from '@/components/HeroVideoBackground';
 import HeroBlurOverlay from '@/components/HeroBlurOverlay';
+import SecondaryButton from '@/components/SecondaryButton';
 
 interface IndustryHeroProps {
   label: string;
@@ -13,7 +14,8 @@ interface IndustryHeroProps {
 /**
  * Industry page hero — reuses the shared HeroSection shell so the layout
  * matches the home and Llumen heroes exactly. Renders the
- * "Industries / <Label>" breadcrumb-style eyebrow above the title.
+ * "Industries / <Label>" breadcrumb-style eyebrow above the title, plus a
+ * Request Demo CTA.
  */
 export default function IndustryHero({
   label,
@@ -39,7 +41,7 @@ export default function IndustryHero({
         ) : null
       }
       overlay={<HeroBlurOverlay />}
-      contentClassName="gap-tight items-start"
+      contentClassName="gap-block items-start"
       wrapperClassName="justify-end px-gutter md:px-10 lg:px-20 pb-20 md:pb-30 lg:pb-50"
     >
       <p className="text-stat !uppercase text-white">
@@ -52,6 +54,9 @@ export default function IndustryHero({
       >
         {title}
       </h1>
+      <SecondaryButton href="/contact" showArrow>
+        Request Demo
+      </SecondaryButton>
     </HeroSection>
   );
 }

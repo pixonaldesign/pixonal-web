@@ -4,7 +4,7 @@
  */
 
 export const fontFamily = {
-  sans: "'Untitled Sans', sans-serif",
+  sans: "'Roobert', sans-serif",
   mono: "'IBM Plex Mono', monospace",
   monoItalic: "'IBM Plex Mono', monospace",
 } as const;
