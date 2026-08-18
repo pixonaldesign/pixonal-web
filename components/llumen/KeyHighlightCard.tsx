@@ -21,7 +21,7 @@ export default function KeyHighlightCard({ highlight, width }: KeyHighlightCardP
           alt=""
           fill
           className="object-cover"
-          sizes="(max-width: 1440px) 100vw, 1360px"
+          sizes="(max-width: 1580px) 100vw, 1360px"
           priority={highlight.id === 'clarity'}
         />
         <div

@@ -80,8 +80,7 @@
   /* Container shape (responsive — scales at xl).
    * Below xl: content caps at 1120px with a 20px gutter on each side
    * (so the visual frame is at most 1160px before extra whitespace).
-   * At xl+: content caps at 1360px with a 40px gutter, matching Figma's
-   * 1440 / 1920 artboards. */
+   * At xl+: content caps at 1580px with a 40px gutter. */
   --layout-gutter: 20px;
   --layout-content-max: 1120px;
   --layout-section-y: 80px;
@@ -150,9 +149,9 @@
 
 @media (min-width: 90rem) {
   :root {
-    /* xl: container scales up to Figma 1440/1920 spec. */
+    /* xl: content max widens to 1580px. */
     --layout-gutter: 40px;
-    --layout-content-max: 1360px;
+    --layout-content-max: 1580px;
     --layout-section-y: 184px;
 
     --layout-gap-section: 80px;
@@ -170,7 +169,7 @@
 
 @media (min-width: 120rem) {
   :root {
-    /* 2xl keeps the xl container values (1360px / 40px gutter).
+    /* 2xl keeps the xl container values (1580px / 40px gutter).
      * h1 stays 36px at 2xl per design decision. */
   }
 }

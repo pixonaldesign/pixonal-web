@@ -10,7 +10,7 @@ export default function BlogHero() {
           alt=""
           fill
           className="object-cover"
-          sizes="(max-width: 1400px) 100vw, 1400px"
+          sizes="(max-width: 1580px) 100vw, 1580px"
           priority={false}
         />
         <Image
@@ -18,7 +18,7 @@ export default function BlogHero() {
           alt=""
           fill
           className="object-cover"
-          sizes="(max-width: 1400px) 100vw, 1400px"
+          sizes="(max-width: 1580px) 100vw, 1580px"
           priority={false}
         />
       </div>

@@ -46,7 +46,7 @@ export default function AboutLogosSection({
                 alt=""
                 fill
                 className="object-cover"
-                sizes="(max-width: 1400px) 100vw, 1320px"
+                sizes="(max-width: 1580px) 100vw, 1580px"
               />
             </div>
           )}

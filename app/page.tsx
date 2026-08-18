@@ -14,10 +14,8 @@ export default function HomePage() {
 
       <CaseStudiesCarousel cards={caseStudyCards} />
 
-      <section className="bg-primary-900 py-section px-gutter">
-        <div className="flex justify-center">
-          <LlumenCard />
-        </div>
+      <section className="bg-primary-900 py-section">
+        <LlumenCard />
       </section>
 
       <section className="bg-primary-900 py-section px-gutter">

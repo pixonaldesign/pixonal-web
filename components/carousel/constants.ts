@@ -6,7 +6,7 @@ const XL_BREAKPOINT_PX = breakpoints.xl;
 
 /**
  * Returns the active `--layout-content-max` for a given viewport width.
- * Mirrors styles/tokens.css: 1120px below xl, 1360px at xl+.
+ * Mirrors styles/tokens.css: 1120px below xl, 1580px at xl+.
  */
 export function getCarouselContentMaxPx(viewportWidth: number): number {
   return viewportWidth >= XL_BREAKPOINT_PX

@@ -48,7 +48,7 @@ export default function CaseStudyPoints({
               alt=""
               fill
               className="object-cover"
-              sizes="(max-width: 1360px) 100vw, 1360px"
+              sizes="(max-width: 1580px) 100vw, 1580px"
             />
           </div>
         ) : null}

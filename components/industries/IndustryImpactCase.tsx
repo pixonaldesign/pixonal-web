@@ -22,7 +22,7 @@ export default function IndustryImpactCase({ data }: IndustryImpactCaseProps) {
             src={data.image}
             alt=""
             fill
-            sizes="(max-width: 1024px) 100vw, 1400px"
+            sizes="(max-width: 1024px) 100vw, 1580px"
             className="object-cover"
           />
           <div

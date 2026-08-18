@@ -50,7 +50,7 @@ export const spacingSemantic = {
  */
 export const layout = {
   gutter: { default: 20, xl: 40 },
-  contentMax: { default: 1120, xl: 1360 },
+  contentMax: { default: 1120, xl: 1580 },
   sectionY: { default: 80, md: 120, xl: 184 },
   gapSection: { default: 40, md: 56, xl: 80 },
   gapFeature: { default: 48, md: 72, xl: 120 },

@@ -78,8 +78,8 @@ export default function NewsArticleCard({
               fill
               sizes={
                 isHero
-                  ? '(max-width: 1024px) 100vw, 1400px'
-                  : '(max-width: 768px) 100vw, (max-width: 1400px) 50vw, 680px'
+                  ? '(max-width: 1024px) 100vw, 1580px'
+                  : '(max-width: 768px) 100vw, (max-width: 1580px) 50vw, 780px'
               }
               className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               priority={isHero}

@@ -45,7 +45,7 @@ export default function IndustriesOverlay({
 
           <ul
             role="list"
-            className="grid w-full max-w-[1360px] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid w-full max-w-[1580px] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
           >
             {industriesMenuItems.map((item) => (
               <li key={item.label} className="flex min-w-0">
