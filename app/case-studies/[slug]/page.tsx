@@ -43,7 +43,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
   if (!caseStudy) {
     return (
-      <div className="min-h-screen bg-primary-900 flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-h1 text-white mb-4">Case Study Not Found</h1>
           <p className="text-gray-300 mb-8">The case study you&apos;re looking for doesn&apos;t exist.</p>

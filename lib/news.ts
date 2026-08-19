@@ -29,3 +29,24 @@ export function isExternalNewsArticle(
 ): boolean {
   return Boolean(article.externalUrl);
 }
+
+const IMPACT_HIGHLIGHT_NEWS_COUNT = 4;
+
+/** Featured articles first, then latest — used by the home Impact Highlights grid. */
+export function getImpactHighlightNews(
+  articles: NewsArticle[],
+  count = IMPACT_HIGHLIGHT_NEWS_COUNT,
+): NewsArticle[] {
+  const withImage = articles.filter((article) => article.image);
+  const featured = withImage
+    .filter((article) => article.category.toLowerCase() === 'featured')
+    .sort(
+      (a, b) =>
+        (a.featuredOrder ?? Number.MAX_SAFE_INTEGER) -
+        (b.featuredOrder ?? Number.MAX_SAFE_INTEGER),
+    );
+  const rest = withImage.filter(
+    (article) => article.category.toLowerCase() !== 'featured',
+  );
+  return [...featured, ...rest].slice(0, count);
+}

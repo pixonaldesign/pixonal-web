@@ -38,7 +38,9 @@ import {
   StrategyIcon as PhosphorStrategyIcon,
   SealCheckIcon as PhosphorSealCheckIcon,
   StackIcon as PhosphorStackIcon,
-  LinkBreakIcon as PhosphorLinkBreakIcon
+  LinkBreakIcon as PhosphorLinkBreakIcon,
+  PlusIcon as PhosphorPlusIcon,
+  MinusIcon as PhosphorMinusIcon,
 } from '@phosphor-icons/react';
 
 export type IconName = 
@@ -79,7 +81,9 @@ export type IconName =
   | 'strategy'
   | 'seal-check'
   | 'stack'
-  | 'link-break';
+  | 'link-break'
+  | 'plus'
+  | 'minus';
 
 interface PixonalIconProps {
   name: IconName;
@@ -127,6 +131,8 @@ const iconMap = {
   'seal-check': PhosphorSealCheckIcon,
   'stack': PhosphorStackIcon,
   'link-break': PhosphorLinkBreakIcon,
+  'plus': PhosphorPlusIcon,
+  'minus': PhosphorMinusIcon,
 };
 
 export default function PixonalIcon({ name, size = 16, className = "", weight = 'regular' }: PixonalIconProps) {

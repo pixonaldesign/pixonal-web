@@ -1,36 +1,41 @@
-import CaseStudiesCarousel from '@/components/CaseStudiesCarousel';
 import LlumenCard from '@/components/LlumenCard';
-import BlogHero from '@/components/BlogHero';
 import Partners from '@/components/Partners';
-import GetInTouchHero from '@/components/GetInTouchHero';
 import Hero from '@/components/Hero';
+import ImpactHighlightsSection from '@/components/home/ImpactHighlightsSection';
+import InteractiveStatementSection from '@/components/home/InteractiveStatementSection';
+import ParallaxSection from '@/components/scroll/ParallaxSection';
 import { getIndustryCaseStudyCards } from '@/lib/industry-case-studies';
+import { getAllNewsArticles } from '@/lib/markdown';
+import { getImpactHighlightNews } from '@/lib/news';
 
-export default function HomePage() {
+export default async function HomePage() {
   const caseStudyCards = getIndustryCaseStudyCards();
+  const newsArticles = getImpactHighlightNews(await getAllNewsArticles());
+
   return (
     <>
-      <Hero />
+      <ParallaxSection speed="hero">
+        <Hero />
+      </ParallaxSection>
 
-      <CaseStudiesCarousel cards={caseStudyCards} />
+      <ParallaxSection speed="statement">
+        <InteractiveStatementSection />
+      </ParallaxSection>
 
-      <section className="bg-primary-900 py-section">
+      <ParallaxSection speed="caseStudies">
+        <ImpactHighlightsSection
+          caseStudies={caseStudyCards}
+          news={newsArticles}
+        />
+      </ParallaxSection>
+
+      <ParallaxSection speed="llumen">
         <LlumenCard />
-      </section>
+      </ParallaxSection>
 
-      <section className="bg-primary-900 py-section px-gutter">
-        <div className="mx-auto flex justify-center">
-          <BlogHero />
-        </div>
-      </section>
-
-      <Partners />
-
-      <section className="bg-primary-900 pt-section px-gutter">
-        <div className="mx-auto flex justify-center">
-          <GetInTouchHero />
-        </div>
-      </section>
+      <ParallaxSection speed="partners">
+        <Partners />
+      </ParallaxSection>
     </>
   );
 }

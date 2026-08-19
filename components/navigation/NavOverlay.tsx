@@ -8,12 +8,11 @@ import PixonalIcon from '@/components/PixonalIcon';
 import NewsArticleLink from '@/components/newsroom/NewsArticleLink';
 import IndustryCard from './IndustryCard';
 import {
+  INDUSTRIES_HREF,
   industriesMenuItems,
   navMenuSurfaceClass,
   overlayNavLinks,
 } from './nav-config';
-
-const INDUSTRIES_HREF = '/industries';
 
 interface NavOverlayProps {
   id: string;
@@ -115,12 +114,10 @@ export default function NavOverlay({
                         >
                           {item.label}
                           <PixonalIcon
-                            name="caret-down"
+                            name={isIndustriesExpanded ? 'minus' : 'plus'}
                             size={20}
                             weight="regular"
-                            className={`text-white transition-transform duration-200 ${
-                              isIndustriesExpanded ? 'rotate-180' : ''
-                            }`}
+                            className="text-white"
                           />
                         </button>
                         <ul

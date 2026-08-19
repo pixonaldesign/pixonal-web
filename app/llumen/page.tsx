@@ -41,14 +41,7 @@ export default function LlumenPage() {
       <LlumenImpactSection />
       <LlumenLicensesTable />
 
-      <section
-        className="bg-primary-900 pt-section px-gutter"
-        aria-label="Get in touch"
-      >
-        <div className="mx-auto flex justify-center">
-          <GetInTouchHero />
-        </div>
-      </section>
+      <GetInTouchHero />
     </>
   );
 }

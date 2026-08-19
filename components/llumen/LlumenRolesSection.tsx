@@ -23,9 +23,9 @@ export default function LlumenRolesSection() {
     <section
       id="roles"
       aria-labelledby="roles-heading"
-      className="bg-primary-900 py-section flex flex-col gap-section"
+      className="py-section flex flex-col gap-section"
     >
-      <div className="w-full max-w-content mx-auto px-gutter flex flex-col">
+      <div className="w-full max-w-content mx-auto px-5 flex flex-col">
         <header className="flex flex-col gap-stack max-w-[670px]">
           <h2 id="roles-heading" className="text-display text-primary-50">
             Llumen by roles
@@ -75,7 +75,7 @@ export default function LlumenRolesSection() {
             controlVariant="arrows"
             controlsAlign="center"
             sectionClassName="flex flex-col"
-            controlsClassName="w-full max-w-content mx-auto flex px-gutter pt-8"
+            controlsClassName="w-full max-w-content mx-auto flex px-5 pt-8"
             getSlideKey={(card, index) => `${activeRole.id}-${card.title}-${index}`}
             getSlideWidth={(card) => resolveFeatureCardWidth(card, viewportWidth)}
             renderSlide={(card, { width }) => <FeatureCard card={card} width={width} />}

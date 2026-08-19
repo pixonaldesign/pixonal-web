@@ -23,7 +23,7 @@ export default function AboutHero() {
       }
       overlay={<HeroBlurOverlay />}
       contentClassName="gap-block items-start"
-      wrapperClassName="justify-end px-gutter md:px-10 lg:px-20 pb-20 md:pb-30 lg:pb-50"
+      wrapperClassName="justify-end px-gutter md:px-10 lg:px-20 xl:px-0 pb-20 md:pb-30 lg:pb-50"
     >
       <p className="text-stat !uppercase text-white">{aboutHero.eyebrow}</p>
       <h1 id="about-hero-heading" className="text-display text-white max-w-[1014px]">

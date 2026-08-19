@@ -8,7 +8,7 @@ import AboutSectionHeader from './AboutSectionHeader';
 export default function AboutVision() {
   return (
     <section
-      className="bg-primary-900 py-section px-gutter"
+      className="py-section px-gutter"
       aria-labelledby="about-vision-heading"
     >
       <div className="mx-auto flex max-w-content flex-col gap-section">

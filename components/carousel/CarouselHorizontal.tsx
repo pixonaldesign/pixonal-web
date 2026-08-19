@@ -34,9 +34,9 @@ export default function CarouselHorizontal<T>({
   renderSlide,
   getSlideWidth,
   titleVariant = 'feature',
-  sectionClassName = 'bg-primary-900 py-section flex flex-col justify-center items-center',
-  headerClassName = 'w-full max-w-content mx-auto flex flex-col gap-block items-start px-5 xl:px-0 pb-12',
-  controlsClassName = 'w-full max-w-content mx-auto flex px-gutter py-4',
+  sectionClassName = 'py-section flex flex-col justify-center items-center',
+  headerClassName = 'w-full max-w-content mx-auto flex flex-col gap-block items-start px-5 pb-12',
+  controlsClassName = 'w-full max-w-content mx-auto flex px-5 py-4',
   controlsAlign = 'center',
 }: CarouselHorizontalProps<T>) {
   const slideCount = slides.length;
@@ -72,7 +72,7 @@ export default function CarouselHorizontal<T>({
     >
       {(title || descriptionLead || subtitle) && (
         <div className={headerClassName}>
-          <div className="flex flex-col gap-block items-start w-full max-w-content">
+          <div className="flex flex-col gap-block items-start w-full">
             {title ? (
               <header className="flex flex-col gap-stack max-w-[670px]">
                 <h2 id={headingId} className={titleClass}>

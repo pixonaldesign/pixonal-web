@@ -28,7 +28,7 @@ export default function AboutLogosSection({
 }: AboutLogosSectionProps) {
   return (
     <section
-      className="bg-primary-900 py-section px-gutter"
+      className="py-section px-gutter"
       aria-labelledby={headingId}
     >
       <div className="mx-auto flex max-w-content flex-col gap-block">

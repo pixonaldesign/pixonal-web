@@ -5,8 +5,8 @@ import HeroBlurOverlay from './HeroBlurOverlay';
 export default function Hero() {
   return (
     <HeroSection
-      contentClassName="gap-tight items-start"
-      wrapperClassName="justify-end px-gutter md:px-10 lg:px-20 pb-20 lg:pb-30 xl:pb-50"
+      contentClassName="gap-6 items-center"
+      wrapperClassName="justify-end px-gutter md:px-10 lg:px-20 xl:px-0 pb-20 lg:pb-30 xl:pb-50"
       background={
         <HeroVideoBackground
           src="/videos/home-hero.mp4"
@@ -15,14 +15,11 @@ export default function Hero() {
       }
       overlay={<HeroBlurOverlay />}
     >
-      <h1 className="w-full max-w-content text-white text-display">
-        Intelligence at the
+      <h1 className="w-full text-center text-white text-display">
+        Agentic command rooms running
         <br />
-        Moment of Decision
+        cities and critical operations.
       </h1>
-      <p className="w-full max-w-content text-white font-mono font-semibold uppercase text-[length:var(--text-lead-size)] leading-[var(--text-lead-line-height)] tracking-[var(--tracking-mono)] lg:whitespace-pre">
-        Governance + Interaction + Communication
-      </p>
     </HeroSection>
   );
 }

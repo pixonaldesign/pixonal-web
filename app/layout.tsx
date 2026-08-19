@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+import SiteHeader from "@/components/navigation/SiteHeader";
 
 export const metadata: Metadata = {
   title: {
@@ -82,20 +84,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased bg-zinc-900">
-        <div className="w-full min-h-screen flex flex-col justify-start items-center relative">
-          <div className="w-full flex flex-col justify-start items-center gap-section rounded-card">
-            <header className="flex justify-center fixed top-5 left-5 right-5 z-50 w-[calc(100%-2.5rem)]">
+      <body className="font-sans antialiased bg-[var(--background)]">
+        <SmoothScrollProvider>
+          <div className="w-full min-h-screen flex flex-col justify-start items-center relative">
+          <div className="w-full flex flex-col justify-start items-center rounded-card">
+            <SiteHeader>
               <Navigation />
-            </header>
+            </SiteHeader>
 
             {/* Page Content */}
-            <main className="w-full">{children}</main>
+            <main className="relative z-0 w-full overflow-visible">{children}</main>
 
             {/* Footer */}
             <Footer />
           </div>
         </div>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

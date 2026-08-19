@@ -126,9 +126,9 @@ export default function AboutStorySection({
   const viewportWidth = useWindowWidth();
 
   return (
-    <section className="bg-primary-900 py-section" aria-labelledby={headingId}>
+    <section className="py-section" aria-labelledby={headingId}>
       <div className="flex flex-col gap-section">
-        <div className="mx-auto w-full max-w-content px-5 xl:px-0">
+        <div className="mx-auto w-full max-w-content px-5">
           <AboutSectionHeader
             id={headingId}
             title={title}

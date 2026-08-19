@@ -20,7 +20,7 @@ export default function LlumenLicensesTable() {
     <section
       id="licenses"
       aria-labelledby="licenses-heading"
-      className="bg-primary-900 py-section px-gutter"
+      className="py-section px-gutter"
     >
       <div className="max-w-content mx-auto">
         {/* sm+ — original table */}

@@ -161,7 +161,7 @@ export default function LlumenImpactSection() {
     <section
       id="impact"
       aria-labelledby="impact-heading"
-      className="bg-primary-900 py-section px-gutter"
+      className="py-section px-gutter"
     >
       <div className="max-w-content mx-auto flex flex-col gap-section">
         <header className="flex flex-col gap-stack max-w-[670px]">

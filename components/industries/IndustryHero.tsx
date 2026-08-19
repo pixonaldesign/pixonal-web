@@ -42,7 +42,7 @@ export default function IndustryHero({
       }
       overlay={<HeroBlurOverlay />}
       contentClassName="gap-block items-start"
-      wrapperClassName="justify-end px-gutter md:px-10 lg:px-20 pb-20 md:pb-30 lg:pb-50"
+      wrapperClassName="justify-end px-gutter md:px-10 lg:px-20 xl:px-0 pb-20 md:pb-30 lg:pb-50"
     >
       <p className="text-stat !uppercase text-white">
         <span className="text-white/40">Industries / </span>

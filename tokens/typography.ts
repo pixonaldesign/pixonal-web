@@ -104,6 +104,12 @@ export const typeScale = {
     xl: { fontSize: 12, lineHeight: 1.2 },
     '2xl': { fontSize: 12, lineHeight: 1.2 },
   },
+  'impact-title': {
+    default: { fontSize: 20, lineHeight: 1.3 },
+  },
+  'impact-copy': {
+    default: { fontSize: 16, lineHeight: 1.2 },
+  },
 } as const satisfies Record<string, ResponsiveTypeScale>;
 
 export type TypeTokenName = keyof typeof typeScale;
@@ -128,4 +134,6 @@ export const typeMeta = {
   label: { family: 'mono', weight: 600, transform: 'uppercase' as const },
   stat: { family: 'mono', weight: 600, transform: 'capitalize' as const },
   'news-caption': { family: 'mono', weight: 600, transform: 'uppercase' as const },
+  'impact-title': { family: 'sans', weight: 600, transform: 'none' as const },
+  'impact-copy': { family: 'sans', weight: 400, transform: 'none' as const },
 } as const satisfies Record<TypeTokenName, unknown>;

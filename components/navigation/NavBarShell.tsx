@@ -5,39 +5,97 @@ import Image from 'next/image';
 import NavLink from '@/components/NavLink';
 import PixonalIcon from '@/components/PixonalIcon';
 import PrimaryButton from '@/components/PrimaryButton';
-import { contactCta, navMenuSurfaceClass, primaryNavLinks } from './nav-config';
+import {
+  COMPANY_HREF,
+  contactCta,
+  INDUSTRIES_HREF,
+  LLUMEN_HREF,
+  llumenOverlayEnabled,
+  navMenuSurfaceClass,
+  primaryNavLinks,
+} from './nav-config';
+import NavTabUnderline from './NavTabUnderline';
+
+const tabCellClass =
+  'h-full w-[150px] border-l border-white/10 flex items-center justify-center shrink-0';
+const tabLinkClass = `${tabCellClass} group/tab`;
+
+function NavTabLabel({
+  label,
+  isOpen = false,
+  showToggle = false,
+}: {
+  label: string;
+  isOpen?: boolean;
+  showToggle?: boolean;
+}) {
+  return (
+    <span className="relative inline-flex items-center gap-1.5 text-center text-white text-body capitalize">
+      {label}
+      {showToggle ? (
+        <PixonalIcon
+          name={isOpen ? 'minus' : 'plus'}
+          size={14}
+          weight="regular"
+          className="text-white"
+        />
+      ) : null}
+      <NavTabUnderline />
+    </span>
+  );
+}
 
 interface NavBarShellProps {
   isMenuOpen: boolean;
+  isLlumenOpen: boolean;
   isIndustriesOpen: boolean;
+  isCompanyOpen: boolean;
   onMenuToggle: () => void;
+  onLlumenOpen: () => void;
+  onIndustriesOpen: () => void;
+  onCompanyOpen: () => void;
+  onLlumenToggle: () => void;
   onIndustriesToggle: () => void;
+  onCompanyToggle: () => void;
+  onHoverDismiss: () => void;
   menuPanelId: string;
+  llumenPanelId: string;
   industriesPanelId: string;
+  companyPanelId: string;
 }
-
-const INDUSTRIES_HREF = '/industries';
 
 export default function NavBarShell({
   isMenuOpen,
+  isLlumenOpen,
   isIndustriesOpen,
+  isCompanyOpen,
   onMenuToggle,
+  onLlumenOpen,
+  onIndustriesOpen,
+  onCompanyOpen,
+  onLlumenToggle,
   onIndustriesToggle,
+  onCompanyToggle,
+  onHoverDismiss,
   menuPanelId,
+  llumenPanelId,
   industriesPanelId,
+  companyPanelId,
 }: NavBarShellProps) {
-  // Only the full menu overlay merges visually with the bar (shared surface).
-  // The Industries overlay is a separate detached card — keep the bar in its
-  // normal pill shape so the two read as distinct elements.
   return (
     <div
-      className={`w-full h-[66px] pl-5 pr-3.5 flex justify-between items-center border border-white/10 transition-[border-radius,background,backdrop-filter] ${
+      className={`w-full h-[66px] pl-5 pr-3.5 lg:pr-0 flex justify-between items-center border border-white/10 transition-[border-radius,background,backdrop-filter] relative z-[60] ${
         isMenuOpen
           ? `${navMenuSurfaceClass} rounded-t-card rounded-b-none border-b border-white/10`
-          : 'rounded-card bg-[rgba(44,44,44,0.2)] backdrop-blur-[15px]'
+          : `rounded-card ${navMenuSurfaceClass}`
       }`}
     >
-      <Link href="/" className="shrink-0 pl-1" aria-label="Pixonal home">
+      <Link
+        href="/"
+        className="shrink-0 pl-1"
+        aria-label="Pixonal home"
+        onMouseEnter={onHoverDismiss}
+      >
         <Image
           src="/images/logo.svg"
           alt="Pixonal"
@@ -50,62 +108,101 @@ export default function NavBarShell({
 
       <div className="flex h-full items-center self-stretch min-w-0">
         <ul className="hidden lg:flex h-full items-stretch" role="list">
-          {primaryNavLinks.map((item, index) => {
-            const isLast = index === primaryNavLinks.length - 1;
+          {primaryNavLinks.map((item) => {
+            const isLlumen = item.href === LLUMEN_HREF;
             const isIndustries = item.href === INDUSTRIES_HREF;
-            const cellClass = `h-full w-[150px] border-l border-white/10 flex items-center justify-center shrink-0 ${
-              isLast ? 'border-r border-white/10' : ''
-            }`;
-            return (
-              <li key={item.href} className="flex h-full">
-                {isIndustries ? (
-                  // Keep a real <a href> in server HTML for SEO crawlability,
-                  // but intercept clicks to open the dropdown instead.
+
+            if (isLlumen && llumenOverlayEnabled) {
+              return (
+                <li key={item.href} className="flex h-full">
                   <Link
                     href={item.href}
+                    onMouseEnter={onLlumenOpen}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      onLlumenToggle();
+                    }}
+                    className={tabLinkClass}
+                    aria-expanded={isLlumenOpen}
+                    aria-controls={llumenPanelId}
+                    aria-haspopup="dialog"
+                  >
+                    <NavTabLabel
+                      label={item.label}
+                      isOpen={isLlumenOpen}
+                      showToggle
+                    />
+                  </Link>
+                </li>
+              );
+            }
+
+            if (isIndustries) {
+              return (
+                <li key={item.href} className="flex h-full">
+                  <Link
+                    href={item.href}
+                    onMouseEnter={onIndustriesOpen}
                     onClick={(event) => {
                       event.preventDefault();
                       onIndustriesToggle();
                     }}
-                    className={cellClass}
+                    className={tabLinkClass}
                     aria-expanded={isIndustriesOpen}
                     aria-controls={industriesPanelId}
                     aria-haspopup="dialog"
                   >
-                    <span className="flex items-center gap-1.5 text-center text-white text-body capitalize">
-                      {item.label}
-                      <PixonalIcon
-                        name="caret-down"
-                        size={16}
-                        weight="regular"
-                        className={`text-white transition-transform duration-200 ${
-                          isIndustriesOpen ? 'rotate-180' : ''
-                        }`}
-                      />
-                    </span>
+                    <NavTabLabel
+                      label={item.label}
+                      isOpen={isIndustriesOpen}
+                      showToggle
+                    />
                   </Link>
-                ) : (
-                  <NavLink
-                    href={item.href}
-                    className={cellClass}
-                    labelClassName="text-center text-white text-body capitalize"
-                  >
-                    {item.label}
-                  </NavLink>
-                )}
+                </li>
+              );
+            }
+
+            return (
+              <li
+                key={item.href}
+                className="flex h-full"
+                onMouseEnter={onHoverDismiss}
+              >
+                <NavLink href={item.href} className={tabLinkClass}>
+                  <NavTabLabel label={item.label} />
+                </NavLink>
               </li>
             );
           })}
+
+          <li className="flex h-full">
+            <Link
+              href={COMPANY_HREF}
+              onMouseEnter={onCompanyOpen}
+              onClick={(event) => {
+                event.preventDefault();
+                onCompanyToggle();
+              }}
+              className={tabLinkClass}
+              aria-expanded={isCompanyOpen}
+              aria-controls={companyPanelId}
+              aria-haspopup="dialog"
+            >
+              <NavTabLabel label="Company" isOpen={isCompanyOpen} showToggle />
+            </Link>
+          </li>
         </ul>
 
-        <div className="flex h-full items-center gap-3 shrink-0">
-          <div className="h-full w-[150px] border-r border-white/10 flex items-center justify-center">
-            <PrimaryButton href={contactCta.href}>{contactCta.label}</PrimaryButton>
+        <div className="flex h-full items-center shrink-0">
+          <div className={tabCellClass} onMouseEnter={onHoverDismiss}>
+            <PrimaryButton href={contactCta.href} className="normal-case">
+              {contactCta.label}
+            </PrimaryButton>
           </div>
 
           <button
             type="button"
-            className="opacity-95 p-2.5 rounded-[10px] flex items-center justify-center hover:bg-white/5 transition-colors"
+            className="lg:hidden opacity-95 p-2.5 rounded-[10px] flex items-center justify-center hover:bg-white/5 transition-colors"
             onClick={onMenuToggle}
             aria-expanded={isMenuOpen}
             aria-controls={menuPanelId}

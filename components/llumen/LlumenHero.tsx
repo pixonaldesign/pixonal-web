@@ -11,7 +11,7 @@ export default function LlumenHero() {
       ariaLabelledBy="llumen-hero-heading"
       background={<HeroVideoBackground src="/videos/llumen/llumen-hero-video.mp4" />}
       overlay={<HeroBlurOverlay />}
-      wrapperClassName="justify-end px-gutter md:px-10 lg:px-20 pb-20 md:pb-30 lg:pb-50"
+      wrapperClassName="justify-end px-gutter md:px-10 lg:px-20 xl:px-0 pb-20 md:pb-30 lg:pb-50"
     >
       <p className="text-stat text-primary-50 uppercase">Llumen</p>
       <h1 id="llumen-hero-heading" className="text-display text-primary-50">

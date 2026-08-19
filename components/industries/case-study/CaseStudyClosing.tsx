@@ -11,7 +11,7 @@ interface CaseStudyClosingProps {
  */
 export default function CaseStudyClosing({ data }: CaseStudyClosingProps) {
   return (
-    <section className="bg-primary-900 py-section px-gutter">
+    <section className="py-section px-gutter">
       <div className="mx-auto flex w-full max-w-content flex-col gap-6 md:gap-10">
         <header className="flex flex-col gap-block">
           <h2 id={data.id} className="text-h1 text-primary-50">

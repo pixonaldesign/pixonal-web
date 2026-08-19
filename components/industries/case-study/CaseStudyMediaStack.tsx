@@ -15,7 +15,7 @@ function CaseStudyMediaCard({ slide }: { slide: CaseStudyMediaSlide }) {
   const aspectClass = ASPECT_CLASS[slide.aspect ?? '16/9'];
 
   return (
-    <div className="flex flex-col gap-4 lg:gap-6 max-w-content mx-auto w-full px-5 xl:px-0">
+    <div className="flex flex-col gap-4 lg:gap-6 max-w-content mx-auto w-full px-5">
       <div className={`relative ${aspectClass} overflow-hidden rounded-card`}>
         <Image
           src={slide.image}
@@ -59,14 +59,14 @@ export default function CaseStudyMediaStack({
 }: CaseStudyMediaStackProps) {
   return (
     <section
-      className={`bg-primary-900 ${topPaddingOnly ? '' : 'py-section'}`}
+      className={topPaddingOnly ? undefined : 'py-section'}
       style={
         topPaddingOnly ? { paddingTop: 'var(--layout-section-y)' } : undefined
       }
       aria-labelledby={data.id}
     >
       <div className={`flex flex-col ${gapClassName}`}>
-        <div className="mx-auto flex w-full max-w-content flex-col gap-block px-5 xl:px-0">
+        <div className="mx-auto flex w-full max-w-content flex-col gap-block px-5">
           {data.eyebrow ? (
             <p className="text-stat !uppercase text-white/40">{data.eyebrow}</p>
           ) : null}

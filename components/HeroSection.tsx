@@ -30,7 +30,7 @@ interface HeroSectionProps {
 }
 
 /**
- * Shared hero shell used by the home and llumen pages.
+ * Shared hero shell used by the home and inner pages.
  * Layout contract:
  *  - Sub-lg: `h-[80dvh]` (80% of dynamic viewport height).
  *  - lg+:    strict 16:9 aspect-ratio that scales smoothly with viewport width.
@@ -43,7 +43,7 @@ export default function HeroSection({
   overlay,
   children,
   contentClassName = 'gap-block items-start',
-  wrapperClassName = 'justify-center px-gutter md:px-10 lg:px-20 py-20 md:py-40',
+  wrapperClassName = 'justify-center px-gutter md:px-10 lg:px-20 xl:px-0 py-20 md:py-40',
 }: HeroSectionProps) {
   return (
     <section

@@ -14,7 +14,7 @@ export default function IndustryImpactCase({ data }: IndustryImpactCaseProps) {
   return (
     <section
       aria-labelledby="industry-impact-case-heading"
-      className="bg-primary-900 px-gutter py-section"
+      className="px-gutter py-section"
     >
       <div className="max-w-content mx-auto">
         <div className="relative rounded-card overflow-hidden aspect-[16/9] lg:aspect-[1400/760] flex">

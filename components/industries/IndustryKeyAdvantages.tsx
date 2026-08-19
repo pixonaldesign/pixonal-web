@@ -180,7 +180,7 @@ export default function IndustryKeyAdvantages({
     <section
       id="key-advantages"
       aria-labelledby="industry-overview-heading"
-      className="bg-primary-900 py-section px-gutter"
+      className="py-section px-gutter"
     >
       <div className="max-w-content mx-auto flex flex-col gap-section">
         {/* Overview header — same shape as the Llumen Impact section header. */}

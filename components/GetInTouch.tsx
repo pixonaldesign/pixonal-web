@@ -55,7 +55,7 @@ export default function GetInTouch({ className }: GetInTouchProps) {
 
   return (
     <section className={`bg-primary-800 py-16 ${className}`}>
-      <div className="max-w-content mx-auto px-gutter">
+      <div className="max-w-content mx-auto px-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-block items-center">
           {/* Left Side - Content */}
           <div className="flex flex-col gap-block">

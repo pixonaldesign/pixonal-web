@@ -47,7 +47,7 @@ export default function ContactDetails() {
   return (
     <section
       id="contact-details"
-      className="bg-primary-900 py-section px-gutter"
+      className="py-section px-gutter"
       aria-labelledby="contact-org-heading"
     >
       <div className="mx-auto flex max-w-content flex-col gap-feature">

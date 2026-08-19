@@ -69,7 +69,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   };
 
   return (
-    <div className="bg-primary-900 min-h-screen">
+    <div className="min-h-screen">
       {/* Article Header */}
       <section className="relative py-20 bg-linear-to-br from-primary-800 to-primary-900">
         <div className="max-w-4xl mx-auto px-4">
@@ -191,7 +191,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
       {/* Related Articles */}
       <section className="py-20 bg-white">
-        <div className="max-w-content mx-auto px-gutter">
+        <div className="max-w-content mx-auto px-5">
           <div className="text-center mb-16">
             <h2 className="text-h1 text-primary-900 mb-4">
               Related Articles

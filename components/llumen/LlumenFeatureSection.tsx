@@ -17,7 +17,7 @@ export default function LlumenFeatureSection({ section }: LlumenFeatureSectionPr
     !!section.secondaryFeatures && section.secondaryFeatures.length > 0;
 
   return (
-    <div className="bg-primary-900 py-section flex flex-col gap-section">
+    <div className="py-section flex flex-col gap-section">
       <Carousel
         sectionId={section.id}
         title={section.title}

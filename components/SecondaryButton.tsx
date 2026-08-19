@@ -54,7 +54,7 @@ export default function SecondaryButton({
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} onClick={onClick}>
         {label}
       </Link>
     );

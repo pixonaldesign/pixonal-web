@@ -1,28 +1,50 @@
 'use client';
 
-import IndustryCard from './IndustryCard';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import {
   industriesMenu,
   industriesMenuItems,
+  navOverlayPanelClass,
+  navOverlaySurfaceClass,
 } from './nav-config';
+import NavOverlayHoverPane from './NavOverlayHoverPane';
+import NavTabUnderline from './NavTabUnderline';
 
 interface IndustriesOverlayProps {
   id: string;
   isOpen: boolean;
   onClose: () => void;
+  onPointerEnter?: () => void;
+  onPointerLeave?: () => void;
 }
 
 /**
- * Industries dropdown — same crawlable-in-DOM strategy as NavOverlay.
- * Figma node 437:421.
+ * Industries dropdown — same layout and hover preview as LlumenOverlay.
  */
 export default function IndustriesOverlay({
   id,
   isOpen,
   onClose,
+  onPointerEnter,
+  onPointerLeave,
 }: IndustriesOverlayProps) {
+  const [hoveredIndustryId, setHoveredIndustryId] = useState<string | null>(null);
+  const activeIndustry =
+    industriesMenuItems.find((item) => item.id === hoveredIndustryId) ?? null;
+
+  useEffect(() => {
+    if (!isOpen) setHoveredIndustryId(null);
+  }, [isOpen]);
+
   return (
-    <>
+    <div
+      className={`absolute left-0 right-0 top-full z-50 w-full pt-2 ${
+        isOpen ? '' : 'pointer-events-none'
+      }`}
+      onMouseEnter={onPointerEnter}
+      onMouseLeave={onPointerLeave}
+    >
       <div
         id={id}
         role="dialog"
@@ -30,12 +52,12 @@ export default function IndustriesOverlay({
         aria-label="Industries menu"
         aria-hidden={!isOpen}
         hidden={!isOpen}
-        className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-50 w-full rounded-card border border-white/10 shadow-[0px_8px_32px_rgba(0,0,0,0.4)] max-h-[calc(100dvh-1.25rem-66px-0.5rem-1.25rem)] overflow-x-hidden overflow-y-auto overscroll-contain nav-menu-scroll bg-[rgba(44,44,44,0.4)] backdrop-blur-[100px]"
+        className={`w-full rounded-card border border-white/10 shadow-[0px_8px_32px_rgba(0,0,0,0.4)] overflow-x-hidden overflow-y-auto overscroll-contain nav-menu-scroll ${navOverlayPanelClass} ${navOverlaySurfaceClass}`}
         tabIndex={isOpen ? 0 : -1}
       >
         <div className="flex flex-col gap-10 px-5 py-8 md:px-8">
-          <div className="flex w-full max-w-[520px] flex-col gap-2">
-            <p className="text-label text-primary-100/40">
+          <div className="flex w-full flex-col gap-2 sm:max-w-[520px]">
+            <p className="text-label text-primary-100/40 uppercase">
               {industriesMenu.eyebrow}
             </p>
             <p className="text-body-tight text-white">
@@ -43,27 +65,49 @@ export default function IndustriesOverlay({
             </p>
           </div>
 
-          <ul
-            role="list"
-            className="grid w-full max-w-[1580px] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
-          >
-            {industriesMenuItems.map((item) => (
-              <li key={item.label} className="flex min-w-0">
-                <IndustryCard item={item} onNavigate={onClose} />
-              </li>
-            ))}
-          </ul>
+          <div className="flex w-full flex-col gap-8 lg:flex-row lg:gap-10">
+            <div className="w-full shrink-0 lg:max-w-[320px]">
+              <ul role="list" className="flex flex-col gap-4">
+                {industriesMenuItems.map((item) => {
+                  const isDimmed =
+                    hoveredIndustryId !== null && hoveredIndustryId !== item.id;
+
+                  return (
+                    <li key={item.id}>
+                      <Link
+                        href={item.href}
+                        onClick={onClose}
+                        onMouseEnter={() => setHoveredIndustryId(item.id)}
+                        onFocus={() => setHoveredIndustryId(item.id)}
+                        className={`group/tab inline-flex text-h2 text-white transition-opacity duration-200 ${
+                          isDimmed ? 'opacity-50' : 'opacity-100'
+                        }`}
+                      >
+                        <span className="relative inline-flex">
+                          {item.label}
+                          <NavTabUnderline active={hoveredIndustryId === item.id} />
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            {activeIndustry ? (
+              <NavOverlayHoverPane
+                src={activeIndustry.image}
+                width={activeIndustry.imageWidth}
+                height={activeIndustry.imageHeight}
+                description={activeIndustry.description}
+                href={activeIndustry.href}
+                ctaLabel="View industry"
+                onCtaClick={onClose}
+              />
+            ) : null}
+          </div>
         </div>
       </div>
-
-      {isOpen && (
-        <button
-          type="button"
-          className="fixed inset-0 z-40 cursor-default bg-transparent"
-          onClick={onClose}
-          aria-label="Close industries menu"
-        />
-      )}
-    </>
+    </div>
   );
 }

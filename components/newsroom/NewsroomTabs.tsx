@@ -67,7 +67,7 @@ export default function NewsroomTabs({ articles }: NewsroomTabsProps) {
   return (
     <section
       aria-labelledby="newsroom-tabs-heading"
-      className="bg-primary-900 py-section px-gutter"
+      className="py-section px-gutter"
     >
       <h2 id="newsroom-tabs-heading" className="sr-only">
         News by category

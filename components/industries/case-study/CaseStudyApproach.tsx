@@ -13,7 +13,7 @@ interface CaseStudyApproachProps {
 export default function CaseStudyApproach({ data }: CaseStudyApproachProps) {
   return (
     <section
-      className="bg-primary-900 px-gutter"
+      className="px-gutter"
       style={{ paddingTop: 'var(--layout-section-y)' }}
       aria-labelledby={data.id}
     >

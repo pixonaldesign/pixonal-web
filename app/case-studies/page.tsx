@@ -21,7 +21,7 @@ export default async function CaseStudiesPage() {
     <>
       {/* Hero Section */}
       <section className="relative py-20 bg-linear-to-br from-primary-800 to-primary-900">
-        <div className="max-w-content mx-auto px-gutter text-center">
+        <div className="max-w-content mx-auto px-5 text-center">
           <h1 className="text-display text-white mb-6">
             Case Studies
           </h1>
@@ -33,7 +33,7 @@ export default async function CaseStudiesPage() {
 
       {/* Case Studies Grid */}
       <section className="py-20 bg-white">
-        <div className="max-w-content mx-auto px-gutter">
+        <div className="max-w-content mx-auto px-5">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {caseStudies.map((study) => (
               <Link

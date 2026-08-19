@@ -34,7 +34,7 @@ export default function CaseStudyIntro({
   return (
     <section
       id={CASE_STUDY_ANCHOR_ID}
-      className="bg-primary-900 pb-section px-gutter scroll-mt-[88px]"
+      className="pb-section px-gutter scroll-mt-[88px]"
       aria-labelledby={headingId}
     >
       <div className="mx-auto w-full max-w-content">

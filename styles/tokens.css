@@ -34,6 +34,7 @@
   --spacing-16: 64px;
   --spacing-20: 80px;
   --spacing-24: 96px;
+  --spacing-25: 100px;
   --spacing-28: 112px;
   --spacing-30: 120px;
   --spacing-32: 128px;
@@ -47,6 +48,7 @@
   --spacing-gap-stack: var(--spacing-3);
   --spacing-gap-inline: var(--spacing-2);
   --spacing-gap-block: var(--spacing-6);
+  --spacing-gap-footer: var(--spacing-25);
   --spacing-card-sm: var(--spacing-3);
   --spacing-button-x: var(--spacing-4);
   --spacing-button-y: var(--spacing-3);
@@ -67,6 +69,9 @@
    * card: most container/section corners (16px below md, 20px md+). */
   --radius-card: var(--layout-radius-card);
 
+  /* Surfaces */
+  --color-surface-raised: #262626;
+
   /* Letter spacing */
   --tracking-sans: -0.02em;
   --tracking-mono: 0.06em;
@@ -83,7 +88,8 @@
    * At xl+: content caps at 1580px with a 40px gutter. */
   --layout-gutter: 20px;
   --layout-content-max: 1120px;
-  --layout-section-y: 80px;
+  --layout-section-y: 64px;
+  --layout-content-pad-x: 0px;
 
   /* Intra-section rhythm (responsive — scales with section-y) */
   --layout-gap-section: 40px;
@@ -116,11 +122,17 @@
   --text-stat-line-height: 1.1;
   --text-news-caption-size: 12px;
   --text-news-caption-line-height: 1.2;
+  --text-impact-title-size: 20px;
+  --text-impact-title-line-height: 1.3;
+  --text-impact-copy-size: 16px;
+  --text-impact-copy-line-height: 1.2;
+  --text-footer-tagline-size: 100px;
+  --text-footer-tagline-line-height: 1.1;
 }
 
 @media (min-width: 48rem) {
   :root {
-    --layout-section-y: 120px;
+    --layout-section-y: 96px;
 
     --layout-gap-section: 56px;
     --layout-gap-feature: 72px;
@@ -152,7 +164,8 @@
     /* xl: content max widens to 1580px. */
     --layout-gutter: 40px;
     --layout-content-max: 1580px;
-    --layout-section-y: 184px;
+    --layout-section-y: 120px;
+    --layout-content-pad-x: var(--spacing-5);
 
     --layout-gap-section: 80px;
     --layout-gap-feature: 120px;
@@ -193,6 +206,14 @@
     line-height: var(--text-display-line-height);
     letter-spacing: var(--tracking-sans);
     font-weight: 400;
+  }
+
+  .text-footer-tagline {
+    font-family: var(--font-sans);
+    font-size: var(--text-footer-tagline-size);
+    line-height: var(--text-footer-tagline-line-height);
+    letter-spacing: var(--tracking-sans);
+    font-weight: 600;
   }
 
   .text-figure {
@@ -307,6 +328,22 @@
     text-transform: uppercase;
   }
 
+  .text-impact-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-impact-title-size);
+    line-height: var(--text-impact-title-line-height);
+    letter-spacing: var(--tracking-sans);
+    font-weight: 600;
+  }
+
+  .text-impact-copy {
+    font-family: var(--font-sans);
+    font-size: var(--text-impact-copy-size);
+    line-height: var(--text-impact-copy-line-height);
+    letter-spacing: var(--tracking-sans);
+    font-weight: 400;
+  }
+
   /* Semantic spacing */
   .gap-tight {
     gap: var(--spacing-gap-tight);
@@ -322,6 +359,10 @@
 
   .gap-block {
     gap: var(--spacing-gap-block);
+  }
+
+  .gap-footer {
+    gap: var(--spacing-gap-footer);
   }
 
   .gap-section {
@@ -370,5 +411,87 @@
 
   .max-w-content {
     max-width: var(--layout-content-max);
+    padding-inline: var(--layout-content-pad-x);
+  }
+}
+
+/* Unlayered so it beats Next/Image defaults. Scale comes from impactCardHover. */
+.impact-card-media {
+  object-fit: cover;
+  transform-origin: center;
+  transition: transform var(--impact-card-hover-duration, 500ms) ease;
+}
+
+.group:hover .impact-card-media {
+  transform: scale(var(--impact-card-hover-scale, 1.06));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .impact-card-media {
+    transition: none;
+  }
+
+  .group:hover .impact-card-media {
+    transform: none;
+  }
+}
+
+.statement-mask-slot {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.statement-mask-in,
+.statement-mask-out {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.statement-mask-out {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  animation-name: statement-mask-out;
+  animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+  animation-fill-mode: forwards;
+}
+
+.statement-mask-in {
+  animation-name: statement-mask-in;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+}
+
+@keyframes statement-mask-out {
+  from {
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+  }
+  to {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes statement-mask-in {
+  from {
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(100%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .statement-mask-out,
+  .statement-mask-in {
+    animation: none;
+    clip-path: none;
+    transform: none;
   }
 }

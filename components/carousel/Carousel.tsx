@@ -60,12 +60,12 @@ export default function Carousel<T>({
     controlsAlign === 'end' ? 'justify-end' : 'justify-center';
 
   const resolvedSectionClassName =
-    sectionClassName ?? 'bg-primary-900 py-section flex flex-col justify-center items-center';
+    sectionClassName ?? 'py-section flex flex-col justify-center items-center';
   const resolvedHeaderClassName =
     headerClassName ??
-    'w-full max-w-content mx-auto flex flex-col gap-block items-start pb-12 px-5 xl:px-0';
+    'w-full max-w-content mx-auto flex flex-col gap-block items-start pb-12 px-5';
   const resolvedControlsClassName =
-    controlsClassName ?? 'w-full max-w-content mx-auto flex px-gutter py-4';
+    controlsClassName ?? 'w-full max-w-content mx-auto flex px-5 py-4';
 
   return (
     <section
@@ -74,7 +74,7 @@ export default function Carousel<T>({
       aria-labelledby={headingId ?? undefined}
     >
       <div className={resolvedHeaderClassName}>
-        <div className="flex flex-col gap-block items-start w-full max-w-content">
+        <div className="flex flex-col gap-block items-start w-full">
           <h2
             id={headingId}
             className={`${

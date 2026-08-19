@@ -28,7 +28,7 @@ export default function CaseStudyPoints({
 }: CaseStudyPointsProps) {
   return (
     <section
-      className={`bg-primary-900 px-gutter ${topPaddingOnly ? '' : 'py-section'}`}
+      className={`px-gutter ${topPaddingOnly ? '' : 'py-section'}`}
       style={
         topPaddingOnly ? { paddingTop: 'var(--layout-section-y)' } : undefined
       }
