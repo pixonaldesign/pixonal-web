@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { withBasePath } from '@/lib/base-path';
+import { videoPosterSrc } from '@/lib/video-poster';
 
 interface HeroVideoBackgroundProps {
   src: string;
@@ -9,7 +10,10 @@ interface HeroVideoBackgroundProps {
   type?: string;
   /** IntersectionObserver threshold for autoplay/pause. */
   threshold?: number;
-  /** Optional poster image while the video loads. */
+  /**
+   * Poster while the video loads. Defaults to the sibling first-frame JPEG
+   * generated next to the video (`foo.mp4` → `foo.jpg`).
+   */
   poster?: string;
 }
 
@@ -53,7 +57,7 @@ export default function HeroVideoBackground({
       muted
       loop
       playsInline
-      poster={poster ? withBasePath(poster) : undefined}
+      poster={withBasePath(poster ?? videoPosterSrc(src))}
     >
       <source src={withBasePath(src)} type={type} />
     </video>

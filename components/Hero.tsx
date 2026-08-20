@@ -8,10 +8,7 @@ export default function Hero() {
       contentClassName="gap-6 items-center"
       wrapperClassName="justify-end px-gutter md:px-10 lg:px-20 xl:px-0 pb-20 lg:pb-30 xl:pb-50"
       background={
-        <HeroVideoBackground
-          src="/videos/home-hero.mp4"
-          poster="/images/hero-background.jpg"
-        />
+        <HeroVideoBackground src="/videos/home-hero.mp4" />
       }
       overlay={<HeroBlurOverlay />}
     >

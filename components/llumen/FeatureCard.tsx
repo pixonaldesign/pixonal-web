@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 import Image from '@/components/PrefixedImage';
-import { withBasePath } from '@/lib/base-path';
+import PrefixedVideo from '@/components/PrefixedVideo';
 import type { FeatureCard as FeatureCardType } from '@/lib/llumen-content';
 import { resolveFeatureCardWidth } from '@/lib/feature-card-layout';
 
@@ -35,7 +35,7 @@ export default function FeatureCard({ card, width }: FeatureCardProps) {
   const isVideo = isVideoSource(card);
   const isBleed = card.bleed === true;
   const hasMedia = !!card.image;
-  const mediaSrc = card.image ? withBasePath(card.image) : '';
+  const mediaSrc = card.image ?? '';
 
   const backgroundStyle: CSSProperties = card.cardBackground
     ? { background: card.cardBackground }
@@ -59,7 +59,7 @@ export default function FeatureCard({ card, width }: FeatureCardProps) {
         {hasMedia ? (
           isBleed ? (
             isVideo ? (
-              <video
+              <PrefixedVideo
                 src={mediaSrc}
                 autoPlay
                 loop
@@ -85,7 +85,7 @@ export default function FeatureCard({ card, width }: FeatureCardProps) {
             // aspect ratio via object-contain.
             <div className="relative w-full h-full">
               {isVideo ? (
-                <video
+                <PrefixedVideo
                   src={mediaSrc}
                   autoPlay
                   loop

@@ -1,5 +1,5 @@
 import { aboutVision } from '@/lib/about';
-import { withBasePath } from '@/lib/base-path';
+import PrefixedVideo from '@/components/PrefixedVideo';
 import AboutSectionHeader from './AboutSectionHeader';
 
 /**
@@ -21,15 +21,14 @@ export default function AboutVision() {
         />
 
         <div className="relative aspect-video w-full overflow-hidden rounded-card bg-black">
-          <video
+          <PrefixedVideo
             className="absolute inset-0 h-full w-full object-cover"
+            src={aboutVision.video}
             autoPlay
             muted
             loop
             playsInline
-          >
-            <source src={withBasePath(aboutVision.video)} type="video/mp4" />
-          </video>
+          />
         </div>
       </div>
     </section>

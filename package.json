@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "predev": "node scripts/generate-video-posters.mjs",
+    "prebuild": "node scripts/generate-video-posters.mjs",
+    "generate:video-posters": "node scripts/generate-video-posters.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -26,6 +29,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.0.0",
+    "ffmpeg-static": "^5.3.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
