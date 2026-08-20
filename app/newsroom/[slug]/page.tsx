@@ -6,22 +6,21 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 interface ArticlePageProps {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
   const articles = await getAllNewsArticles();
   return articles
-    .filter((article) => article.slug && !article.externalUrl)
+    .filter((article) => article.slug)
     .map((article) => ({
       slug: article.slug,
     }));
 }
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
-  const article = await getNewsArticle(params.slug);
+  const { slug } = await params;
+  const article = await getNewsArticle(slug);
   
   if (!article) {
     return {
@@ -41,7 +40,8 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-  const article = await getNewsArticle(params.slug);
+  const { slug } = await params;
+  const article = await getNewsArticle(slug);
 
   if (!article) {
     notFound();
