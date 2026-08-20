@@ -3,8 +3,7 @@ import PrefixedVideo from '@/components/PrefixedVideo';
 import AboutSectionHeader from './AboutSectionHeader';
 
 /**
- * "Our Vision" — the same display title + bold lead + muted subtitle header
- * used by the story carousels, above a full-width 16:9 media card.
+ * "Our Vision" — figure title + lead subtitle, above a full-width 16:9 media card.
  */
 export default function AboutVision() {
   return (

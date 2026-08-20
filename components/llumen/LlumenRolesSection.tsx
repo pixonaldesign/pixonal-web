@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Carousel } from '@/components/carousel';
+import SectionHeader from '@/components/SectionHeader';
 import Tabs from '@/components/ui/Tabs';
 import {
   llumenRoles,
@@ -26,15 +27,11 @@ export default function LlumenRolesSection() {
       className="py-section flex flex-col gap-section"
     >
       <div className="w-full max-w-content mx-auto px-5 flex flex-col">
-        <header className="flex flex-col gap-stack max-w-[670px]">
-          <h2 id="roles-heading" className="text-display text-primary-50">
-            Llumen by roles
-          </h2>
-          <p className="text-body text-primary-50/40">
-            <span className="text-primary-50">{llumenRolesIntroLead} </span>
-            {llumenRolesIntro}
-          </p>
-        </header>
+        <SectionHeader
+          id="roles-heading"
+          title="Llumen by roles"
+          subtitle={`${llumenRolesIntroLead} ${llumenRolesIntro}`}
+        />
 
         <Tabs
           items={llumenRoles.map((role) => ({ id: role.id, label: role.label }))}

@@ -53,7 +53,7 @@ interface CaseStudyMediaStackProps {
  */
 export default function CaseStudyMediaStack({
   data,
-  titleClassName = 'text-display',
+  titleClassName = 'text-figure',
   gapClassName = 'gap-10',
   topPaddingOnly = false,
 }: CaseStudyMediaStackProps) {
@@ -66,7 +66,7 @@ export default function CaseStudyMediaStack({
       aria-labelledby={data.id}
     >
       <div className={`flex flex-col ${gapClassName}`}>
-        <div className="mx-auto flex w-full max-w-content flex-col gap-block px-5">
+        <div className="mx-auto flex w-full max-w-content flex-col gap-stack px-5">
           {data.eyebrow ? (
             <p className="text-stat !uppercase text-white/40">{data.eyebrow}</p>
           ) : null}
@@ -74,10 +74,8 @@ export default function CaseStudyMediaStack({
             {data.title}
           </h2>
           {data.lead || data.subtitle ? (
-            <p className="text-body text-primary-50/40 max-w-[640px]">
-              {data.lead ? (
-                <span className="text-primary-50">{data.lead} </span>
-              ) : null}
+            <p className="text-lead text-primary-50/70 max-w-[840px]">
+              {data.lead ? `${data.lead} ` : null}
               {data.subtitle}
             </p>
           ) : null}

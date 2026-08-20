@@ -1,10 +1,11 @@
 import ImpactCarousel from '@/components/carousel/ImpactCarousel';
+import SectionHeader from '@/components/SectionHeader';
 import type { KeyAdvantageTab } from '@/lib/industries';
 
 interface IndustryKeyAdvantagesProps {
-  /** Overview heading (left column of the section header). Defaults to "Overview". */
+  /** Overview heading. Defaults to "Overview". */
   overviewHeading?: string;
-  /** Overview paragraph (right column of the section header). */
+  /** Overview supporting copy. */
   overviewText: string;
   /** Label above the tab strip — typically "Key Advantages". */
   eyebrow: string;
@@ -34,17 +35,12 @@ export default function IndustryKeyAdvantages({
       className="flex flex-col gap-impact-intro py-section"
     >
       <div className="px-gutter">
-        <header className="mx-auto flex w-full max-w-content flex-col gap-block lg:flex-row lg:items-start lg:gap-5">
-          <h2
-            id="industry-overview-heading"
-            className="text-h1 text-primary-50 lg:w-[498px] shrink-0"
-          >
-            {overviewHeading}
-          </h2>
-          <p className="text-body text-primary-50/80 flex-1 lg:max-w-[842px]">
-            {overviewText}
-          </p>
-        </header>
+        <SectionHeader
+          className="mx-auto flex w-full max-w-content flex-col gap-stack"
+          id="industry-overview-heading"
+          title={overviewHeading}
+          subtitle={overviewText}
+        />
       </div>
 
       <ImpactCarousel

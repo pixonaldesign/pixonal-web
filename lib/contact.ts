@@ -1,6 +1,5 @@
 /** Hero copy for the Contact page (Figma "Video" frame with a globe still). */
 export const contactHero = {
-  eyebrow: 'Contact us',
   titleLines: ['Transform your', 'Moment of Decision'],
   image: '/images/contact-hero.png',
 } as const;
@@ -22,6 +21,43 @@ export interface ContactOffice {
   /** Free-form phone string; may contain multiple numbers. */
   phone: string;
 }
+
+/** Contact form copy and options (easy to swap without touching markup). */
+export const contactForm = {
+  title: "Let's work together",
+  subtitle:
+    "Tell us about your organisation and we'll follow up with the right team.",
+  topicsLegend: 'What can we help with? Select all that apply:',
+  topics: [
+    { id: 'demo', label: 'Llumen platform demo' },
+    { id: 'industry', label: 'Industry solution' },
+    { id: 'partnership', label: 'Partnership' },
+    { id: 'media', label: 'Media / press' },
+    { id: 'other', label: 'Other' },
+  ],
+  countries: [
+    'United Arab Emirates',
+    'Saudi Arabia',
+    'Egypt',
+    'Bahrain',
+    'Kuwait',
+    'Qatar',
+    'Oman',
+    'United States',
+    'United Kingdom',
+    'Other',
+  ],
+  sources: [
+    'Search',
+    'LinkedIn',
+    'Event / conference',
+    'Referral',
+    'News',
+    'Other',
+  ],
+  privacy:
+    'By submitting this form, your information will be processed in accordance with our privacy practices.',
+} as const;
 
 /** Regional offices / points of contact. */
 export const contactOffices: ContactOffice[] = [

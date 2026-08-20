@@ -63,4 +63,6 @@ export const layout = {
   endCta: { height: 600, fade: 240 },
   /** Llumen Impact carousel. Overlay and copy live in `styles/tokens.css`. */
   impactSlide: { height: 800, introGap: 40, copyPadding: 24 },
+  /** Centered contact form column. */
+  formMax: { default: 800 },
 } as const;

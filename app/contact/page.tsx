@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import ContactHero from '@/components/contact/ContactHero';
-import ContactDetails from '@/components/contact/ContactDetails';
+import ContactFormSection from '@/components/contact/ContactFormSection';
 
 export const metadata: Metadata = {
   title: 'Contact Pixonal — Transform your Moment of Decision',
@@ -19,7 +19,7 @@ export default function ContactPage() {
   return (
     <>
       <ContactHero />
-      <ContactDetails />
+      <ContactFormSection />
     </>
   );
 }

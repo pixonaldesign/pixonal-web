@@ -5,6 +5,7 @@ import CarouselAutoControls from './CarouselAutoControls';
 import CarouselHorizontal from './CarouselHorizontal';
 import { CAROUSEL_SLIDE_DURATION_MS } from './constants';
 import type { CarouselProps } from './types';
+import SectionHeader from '@/components/SectionHeader';
 import { useCenteredCarousel } from '@/hooks/useCenteredCarousel';
 
 export default function Carousel<T>({
@@ -15,7 +16,6 @@ export default function Carousel<T>({
   headingId,
   slides,
   layout = 'centered',
-  titleVariant = 'impact',
   controlVariant = 'auto',
   slideDurationMs = CAROUSEL_SLIDE_DURATION_MS,
   getSlideKey,
@@ -38,7 +38,6 @@ export default function Carousel<T>({
         getSlideKey={getSlideKey}
         renderSlide={renderSlide}
         getSlideWidth={getSlideWidth}
-        titleVariant={titleVariant}
         sectionClassName={sectionClassName}
         headerClassName={headerClassName}
         controlsClassName={controlsClassName}
@@ -73,26 +72,16 @@ export default function Carousel<T>({
       className={resolvedSectionClassName}
       aria-labelledby={headingId ?? undefined}
     >
-      <div className={resolvedHeaderClassName}>
-        <div className="flex flex-col gap-block items-start w-full">
-          <h2
+      {(title || descriptionLead || subtitle) ? (
+        <div className={resolvedHeaderClassName}>
+          <SectionHeader
             id={headingId}
-            className={`${
-              titleVariant === 'feature' ? 'text-display' : 'text-h1'
-            } text-primary-50 whitespace-pre-wrap`}
-          >
-            {title ?? ''}
-          </h2>
-          {(descriptionLead || subtitle) ? (
-            <p className="text-body text-primary-50/40 max-w-[640px]">
-              {descriptionLead ? (
-                <span className="text-primary-50">{descriptionLead} </span>
-              ) : null}
-              {subtitle}
-            </p>
-          ) : null}
+            title={title ?? ''}
+            titleClassName="text-figure text-primary-50 whitespace-pre-wrap"
+            subtitle={[descriptionLead, subtitle].filter(Boolean).join(' ') || undefined}
+          />
         </div>
-      </div>
+      ) : null}
 
       <div ref={carousel.viewportRef} className="w-full relative overflow-hidden">
         <div

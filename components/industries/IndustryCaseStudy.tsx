@@ -31,7 +31,6 @@ export default function IndustryCaseStudy({ data }: IndustryCaseStudyProps) {
       {data.objectives ? (
         <CaseStudyMediaStack
           data={data.objectives}
-          titleClassName="text-h1"
           gapClassName="gap-6 md:gap-10"
           topPaddingOnly
         />
@@ -41,27 +40,23 @@ export default function IndustryCaseStudy({ data }: IndustryCaseStudyProps) {
       ) : (
         <CaseStudyMediaStack
           data={data.approach}
-          titleClassName="text-h1"
           gapClassName="gap-6 md:gap-10"
           topPaddingOnly
         />
       )}
       <CaseStudyMediaStack
         data={data.visualization}
-        titleClassName="text-h1"
         gapClassName="gap-6 md:gap-10"
         topPaddingOnly
       />
       <CaseStudyPoints
         data={data.discoveries}
-        titleClassName="text-h1"
         gapClassName="gap-6 md:gap-10"
         topPaddingOnly
       />
       {'points' in data.results ? (
         <CaseStudyPoints
           data={data.results}
-          titleClassName="text-h1"
           gapClassName="gap-6 md:gap-10"
         />
       ) : (

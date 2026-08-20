@@ -17,11 +17,11 @@ interface CaseStudyPointsBlockProps {
 export default function CaseStudyPointsBlock({
   data,
   gapClassName = 'gap-section',
-  titleClassName = 'text-display',
+  titleClassName = 'text-figure',
 }: CaseStudyPointsBlockProps) {
   return (
     <div className={`flex flex-col ${gapClassName}`}>
-      <header className="flex flex-col gap-block">
+      <header className="flex flex-col gap-stack">
         {data.eyebrow ? (
           <p className="text-stat !uppercase text-white/40">{data.eyebrow}</p>
         ) : null}
@@ -29,7 +29,7 @@ export default function CaseStudyPointsBlock({
           {data.title}
         </h2>
         {data.lead ? (
-          <p className="text-body text-primary-50/40 max-w-[640px]">
+          <p className="text-lead text-primary-50/70 max-w-[840px]">
             {data.lead}
           </p>
         ) : null}

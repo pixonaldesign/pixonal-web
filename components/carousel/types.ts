@@ -4,7 +4,7 @@ export type CarouselControlVariant = 'auto' | 'arrows';
 
 export type CarouselLayout = 'centered' | 'horizontal';
 
-/** Impact Highlights uses `impact`; Llumen feature sections use `feature`. */
+/** Kept for call-site compat; section titles always use `text-figure`. */
 export type CarouselTitleVariant = 'impact' | 'feature';
 
 export type CarouselSlideRenderContext = {

@@ -40,9 +40,9 @@ export default function CaseStudyIntro({
       <div className="mx-auto w-full max-w-content">
         <div aria-hidden className="h-px w-full bg-white/10" />
         <div className="flex flex-col gap-section pt-10">
-        <div className="flex flex-col gap-block">
+        <div className="flex flex-col gap-stack">
           <div className="flex flex-col gap-tight">
-            <h2 id={headingId} className="text-display text-primary-50">
+            <h2 id={headingId} className="text-figure text-primary-50">
               {title}
             </h2>
             {partner ? (
@@ -52,7 +52,7 @@ export default function CaseStudyIntro({
               </p>
             ) : null}
           </div>
-          <p className="text-lead normal-case text-primary-50/70 max-w-[900px]">
+          <p className="text-lead text-primary-50/70 max-w-[840px]">
             {summary}
           </p>
         </div>
@@ -93,7 +93,6 @@ export default function CaseStudyIntro({
           <CaseStudyPointsBlock
             data={challenges}
             gapClassName="gap-6 md:gap-10"
-            titleClassName="text-h1"
           />
         ) : null}
         </div>

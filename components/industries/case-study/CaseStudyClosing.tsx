@@ -1,4 +1,5 @@
 import Image from '@/components/PrefixedImage';
+import SectionHeader from '@/components/SectionHeader';
 import type { CaseStudyClosingSection } from '@/lib/industry-case-studies';
 
 interface CaseStudyClosingProps {
@@ -13,14 +14,7 @@ export default function CaseStudyClosing({ data }: CaseStudyClosingProps) {
   return (
     <section className="py-section px-gutter">
       <div className="mx-auto flex w-full max-w-content flex-col gap-6 md:gap-10">
-        <header className="flex flex-col gap-block">
-          <h2 id={data.id} className="text-h1 text-primary-50">
-            {data.title}
-          </h2>
-          <p className="text-lead normal-case text-primary-50/70 max-w-[900px]">
-            {data.body}
-          </p>
-        </header>
+        <SectionHeader id={data.id} title={data.title} subtitle={data.body} />
 
         {data.image ? (
           <div className="relative aspect-video overflow-hidden rounded-card">

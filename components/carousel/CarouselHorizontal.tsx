@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import CarouselArrowControls from './CarouselArrowControls';
 import type { CarouselProps } from './types';
+import SectionHeader from '@/components/SectionHeader';
 import { useCenteredCarousel } from '@/hooks/useCenteredCarousel';
 
 type CarouselHorizontalProps<T> = Pick<
@@ -20,7 +21,6 @@ type CarouselHorizontalProps<T> = Pick<
   | 'headerClassName'
   | 'controlsClassName'
   | 'controlsAlign'
-  | 'titleVariant'
 >;
 
 export default function CarouselHorizontal<T>({
@@ -33,7 +33,6 @@ export default function CarouselHorizontal<T>({
   getSlideKey,
   renderSlide,
   getSlideWidth,
-  titleVariant = 'feature',
   sectionClassName = 'py-section flex flex-col justify-center items-center',
   headerClassName = 'w-full max-w-content mx-auto flex flex-col gap-block items-start px-5 pb-12',
   controlsClassName = 'w-full max-w-content mx-auto flex px-5 py-4',
@@ -61,36 +60,22 @@ export default function CarouselHorizontal<T>({
   const controlsJustifyClass =
     controlsAlign === 'end' ? 'justify-end' : 'justify-center';
 
-  const titleClass =
-    titleVariant === 'feature' ? 'text-display text-primary-50' : 'text-h1 text-primary-50';
-
   return (
     <section
       id={sectionId}
       className={sectionClassName}
       aria-labelledby={headingId ?? undefined}
     >
-      {(title || descriptionLead || subtitle) && (
+      {(title || descriptionLead || subtitle) ? (
         <div className={headerClassName}>
-          <div className="flex flex-col gap-block items-start w-full">
-            {title ? (
-              <header className="flex flex-col gap-stack max-w-[670px]">
-                <h2 id={headingId} className={titleClass}>
-                  {title}
-                </h2>
-                {(descriptionLead || subtitle) && (
-                  <p className="text-body text-primary-50/40">
-                    {descriptionLead ? (
-                      <span className="text-primary-50">{descriptionLead} </span>
-                    ) : null}
-                    {subtitle}
-                  </p>
-                )}
-              </header>
-            ) : null}
-          </div>
+          <SectionHeader
+            id={headingId}
+            title={title ?? ''}
+            titleClassName="text-figure text-primary-50 whitespace-pre-wrap"
+            subtitle={[descriptionLead, subtitle].filter(Boolean).join(' ') || undefined}
+          />
         </div>
-      )}
+      ) : null}
 
       <div ref={carousel.viewportRef} className="w-full relative overflow-hidden">
         <div

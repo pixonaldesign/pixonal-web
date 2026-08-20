@@ -60,10 +60,10 @@ export default function GetInTouch({ className }: GetInTouchProps) {
           {/* Left Side - Content */}
           <div className="flex flex-col gap-block">
             <div>
-              <h2 className="text-h1 text-white mb-4">
+              <h2 className="text-figure text-white mb-4">
                 Ready to Transform Your Organization?
               </h2>
-              <p className="text-lead text-primary-100">
+              <p className="text-lead text-primary-50/70">
                 Let&apos;s discuss how Pixonal can help you unlock the full potential of your data and drive meaningful change.
               </p>
             </div>

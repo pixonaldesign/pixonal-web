@@ -193,7 +193,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <section className="py-20 bg-white">
         <div className="max-w-content mx-auto px-5">
           <div className="text-center mb-16">
-            <h2 className="text-h1 text-primary-900 mb-4">
+            <h2 className="text-figure text-primary-900 mb-4">
               Related Articles
             </h2>
             <p className="text-lead text-primary-600 max-w-3xl mx-auto">

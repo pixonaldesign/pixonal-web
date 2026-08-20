@@ -1,4 +1,5 @@
 import ImpactCarousel from '@/components/carousel/ImpactCarousel';
+import SectionHeader from '@/components/SectionHeader';
 import {
   llumenIndustries,
   llumenIndustriesIntro,
@@ -25,14 +26,12 @@ export default function LlumenImpactSection() {
       className="flex flex-col gap-impact-intro py-section"
     >
       <div className="px-gutter">
-        <header className="mx-auto flex w-full max-w-content flex-col gap-stack">
-          <h2 id="impact-heading" className="text-figure text-primary-50">
-            Impact
-          </h2>
-          <p className="text-lead text-primary-50/70 max-w-[840px]">
-            {llumenIndustriesIntroLead} {llumenIndustriesIntro}
-          </p>
-        </header>
+        <SectionHeader
+          className="mx-auto flex w-full max-w-content flex-col gap-stack"
+          id="impact-heading"
+          title="Impact"
+          subtitle={`${llumenIndustriesIntroLead} ${llumenIndustriesIntro}`}
+        />
       </div>
 
       <ImpactCarousel

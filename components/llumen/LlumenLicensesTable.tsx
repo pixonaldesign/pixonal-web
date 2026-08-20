@@ -25,7 +25,7 @@ export default function LlumenLicensesTable() {
       <div className="max-w-content mx-auto">
         {/* sm+ — original table */}
         <div className="hidden sm:flex rounded-card p-card bg-gradient-to-b from-[#354258] via-[#354258] via-[9%] to-[#1d1d27] to-[40%] flex-col gap-20">
-          <h2 id="licenses-heading" className="text-h1 text-primary-50">
+          <h2 id="licenses-heading" className="text-figure text-primary-50">
             Licenses That Fit Every Need
           </h2>
 
@@ -103,10 +103,10 @@ export default function LlumenLicensesTable() {
         {/* <sm — tabbed card */}
         <div className="sm:hidden rounded-card p-4 bg-gradient-to-b from-[#354258] via-[#354258] via-[9%] to-[#1d1d27] to-[40%] flex flex-col gap-6">
           <div className="flex flex-col gap-2">
-            <h2 id="licenses-heading-mobile" className="text-h1 text-primary-50">
+            <h2 id="licenses-heading-mobile" className="text-figure text-primary-50">
               Licenses That Fit Every Need
             </h2>
-            <p className="text-body text-primary-50/60">
+            <p className="text-lead text-primary-50/70">
               Compare plans and find the right license for your mission.
             </p>
           </div>

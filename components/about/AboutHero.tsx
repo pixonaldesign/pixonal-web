@@ -4,8 +4,8 @@ import HeroBlurOverlay from '@/components/HeroBlurOverlay';
 import { aboutHero } from '@/lib/about';
 
 /**
- * About page hero — reuses the shared hero shell (same as home / Llumen)
- * with a still image background, an eyebrow, and the display title.
+ * About page hero — same layout as the home hero: centered display title
+ * at the bottom of the frame.
  */
 export default function AboutHero() {
   return (
@@ -22,11 +22,13 @@ export default function AboutHero() {
         />
       }
       overlay={<HeroBlurOverlay />}
-      contentClassName="gap-block items-start"
-      wrapperClassName="justify-end px-gutter md:px-10 lg:px-20 xl:px-0 pb-20 md:pb-30 lg:pb-50"
+      contentClassName="gap-6 items-center"
+      wrapperClassName="justify-end px-gutter md:px-10 lg:px-20 xl:px-0 pb-20 lg:pb-30 xl:pb-50"
     >
-      <p className="text-stat !uppercase text-white">{aboutHero.eyebrow}</p>
-      <h1 id="about-hero-heading" className="text-display text-white max-w-[1014px]">
+      <h1
+        id="about-hero-heading"
+        className="w-full text-center text-white text-display"
+      >
         {aboutHero.title}
       </h1>
     </HeroSection>

@@ -32,7 +32,7 @@ export default function AboutLogosSection({
       aria-labelledby={headingId}
     >
       <div className="mx-auto flex max-w-content flex-col gap-block">
-        <h2 id={headingId} className="text-h1 text-white capitalize">
+        <h2 id={headingId} className="text-figure text-white capitalize">
           {title}
         </h2>
 

@@ -6,7 +6,7 @@ interface CaseStudyApproachProps {
 }
 
 /**
- * Approach & Methodology — a main `h1`-styled title above stacked groups, each
+ * Approach & Methodology — a figure-styled title above stacked groups, each
  * with an `h2`-styled sub-title and the same advisory-style black icon cards as
  * the Context & Key Challenges section.
  */
@@ -18,7 +18,7 @@ export default function CaseStudyApproach({ data }: CaseStudyApproachProps) {
       aria-labelledby={data.id}
     >
       <div className="mx-auto flex w-full max-w-content flex-col gap-section">
-        <h2 id={data.id} className="text-h1 text-primary-50">
+        <h2 id={data.id} className="text-figure text-primary-50">
           {data.title}
         </h2>
 

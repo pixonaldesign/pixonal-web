@@ -1,6 +1,5 @@
 /** Hero copy for the About page. The Figma frame uses a still image. */
 export const aboutHero = {
-  eyebrow: 'About Pixonal',
   title: 'Transforming Data into Strategic Leadership Assets',
   image: '/images/about/hero.png',
 } as const;

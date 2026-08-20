@@ -1,13 +1,11 @@
 import Image from '@/components/PrefixedImage';
 import HeroSection from '@/components/HeroSection';
 import HeroBlurOverlay from '@/components/HeroBlurOverlay';
-import SecondaryButton from '@/components/SecondaryButton';
 import { contactHero } from '@/lib/contact';
 
 /**
- * Contact page hero — shared hero shell (same as home / About) with a globe
- * still background, an eyebrow, the display title, and a Contact Us CTA that
- * scrolls to the details section below.
+ * Contact page hero — same layout as the home hero: centered display title
+ * at the bottom of the frame, over a globe still.
  */
 export default function ContactHero() {
   return (
@@ -24,20 +22,17 @@ export default function ContactHero() {
         />
       }
       overlay={<HeroBlurOverlay />}
-      contentClassName="gap-block items-start"
-      wrapperClassName="justify-end px-gutter md:px-10 lg:px-20 xl:px-0 pb-20 md:pb-30 lg:pb-50"
+      contentClassName="gap-6 items-center"
+      wrapperClassName="justify-end px-gutter md:px-10 lg:px-20 xl:px-0 pb-20 lg:pb-30 xl:pb-50"
     >
-      <p className="text-stat !uppercase text-white">{contactHero.eyebrow}</p>
-      <h1 id="contact-hero-heading" className="text-display text-white">
-        {contactHero.titleLines.map((line) => (
-          <span key={line} className="block">
-            {line}
-          </span>
-        ))}
+      <h1
+        id="contact-hero-heading"
+        className="w-full text-center text-white text-display"
+      >
+        {contactHero.titleLines[0]}
+        <br />
+        {contactHero.titleLines[1]}
       </h1>
-      <SecondaryButton href="#contact-details" showArrow>
-        Contact Us
-      </SecondaryButton>
     </HeroSection>
   );
 }

@@ -109,9 +109,8 @@ interface AboutStorySectionProps {
 }
 
 /**
- * About narrative section — reuses `Carousel` and its built-in feature header
- * (display title + bold lead + muted subtitle), the same pattern as the Llumen
- * feature sections on the home/product pages.
+ * About narrative section — figure title + lead subtitle, matching other
+ * marketing section headers (Llumen Impact, feature carousels).
  */
 export default function AboutStorySection({
   headingId,
