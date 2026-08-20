@@ -69,9 +69,12 @@
   /* Radii — responsive (values come from :root @media blocks below).
    * card: most container/section corners (16px below md, 20px md+). */
   --radius-card: var(--layout-radius-card);
+  --radius-tab: 12px;
 
   /* Surfaces */
   --color-surface-raised: #262626;
+  /* Brighter fill used as the progress overlay on raised tabs. */
+  --color-surface-raised-fill: #4a4a4a;
 
   /* Letter spacing */
   --tracking-sans: -0.02em;
@@ -103,6 +106,35 @@
    * into the footer. `--end-cta-fade` is both the mask falloff and the
    * amount the footer tucks under the CTA. */
   --layout-end-cta-height: 600px;
+  --layout-impact-slide-height: 800px;
+  --layout-impact-intro-gap: 40px;
+  --impact-slide-copy-padding: 24px;
+  --impact-slide-copy-max: 35%;
+  --impact-slide-overlay: linear-gradient(
+    to right,
+    rgb(0 0 0 / 0.88) 0%,
+    rgb(0 0 0 / 0) 100%
+  );
+  --impact-slide-blur-1: 2px;
+  --impact-slide-blur-2: 6px;
+  --impact-slide-blur-3: 14px;
+  --impact-slide-blur-mask-1: linear-gradient(
+    to right,
+    #000 0%,
+    #000 50%,
+    transparent 100%
+  );
+  --impact-slide-blur-mask-2: linear-gradient(
+    to right,
+    #000 0%,
+    #000 28%,
+    transparent 75%
+  );
+  --impact-slide-blur-mask-3: linear-gradient(
+    to right,
+    #000 0%,
+    transparent 55%
+  );
   --end-cta-fade: 240px;
   --end-cta-mask: linear-gradient(
     to bottom,
@@ -398,6 +430,65 @@
     height: var(--layout-end-cta-height);
   }
 
+  .h-impact-slide {
+    height: var(--layout-impact-slide-height);
+  }
+
+  .gap-impact-intro {
+    gap: var(--layout-impact-intro-gap);
+  }
+
+  .impact-slide-overlay {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: 50%;
+    pointer-events: none;
+  }
+
+  .impact-slide-overlay-blur,
+  .impact-slide-overlay-tint {
+    position: absolute;
+    inset: 0;
+  }
+
+  .impact-slide-overlay-blur {
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+  .impact-slide-overlay-blur-1 {
+    -webkit-backdrop-filter: blur(var(--impact-slide-blur-1));
+    backdrop-filter: blur(var(--impact-slide-blur-1));
+    -webkit-mask-image: var(--impact-slide-blur-mask-1);
+    mask-image: var(--impact-slide-blur-mask-1);
+  }
+
+  .impact-slide-overlay-blur-2 {
+    -webkit-backdrop-filter: blur(var(--impact-slide-blur-2));
+    backdrop-filter: blur(var(--impact-slide-blur-2));
+    -webkit-mask-image: var(--impact-slide-blur-mask-2);
+    mask-image: var(--impact-slide-blur-mask-2);
+  }
+
+  .impact-slide-overlay-blur-3 {
+    -webkit-backdrop-filter: blur(var(--impact-slide-blur-3));
+    backdrop-filter: blur(var(--impact-slide-blur-3));
+    -webkit-mask-image: var(--impact-slide-blur-mask-3);
+    mask-image: var(--impact-slide-blur-mask-3);
+  }
+
+  .impact-slide-overlay-tint {
+    background-image: var(--impact-slide-overlay);
+  }
+
+  .impact-slide-copy {
+    max-width: var(--impact-slide-copy-max);
+    padding: var(--impact-slide-copy-padding);
+  }
+
   .end-cta-mask {
     -webkit-mask-image: var(--end-cta-mask);
     mask-image: var(--end-cta-mask);
@@ -478,6 +569,11 @@
 
   .group:hover .impact-card-media {
     transform: none;
+  }
+
+  .impact-slide-overlay-blur {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 }
 

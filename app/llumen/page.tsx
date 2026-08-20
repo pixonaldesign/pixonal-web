@@ -3,7 +3,6 @@ import KeyHighlightsCarousel from '@/components/llumen/KeyHighlightsCarousel';
 import LlumenHero from '@/components/llumen/LlumenHero';
 import LlumenFeatureSection from '@/components/llumen/LlumenFeatureSection';
 import LlumenImpactSection from '@/components/llumen/LlumenImpactSection';
-import LlumenLicensesTable from '@/components/llumen/LlumenLicensesTable';
 import LlumenRolesSection from '@/components/llumen/LlumenRolesSection';
 import {
   aiPoweredInteraction,
@@ -38,7 +37,6 @@ export default function LlumenPage() {
 
       <LlumenRolesSection />
       <LlumenImpactSection />
-      <LlumenLicensesTable />
     </>
   );
 }

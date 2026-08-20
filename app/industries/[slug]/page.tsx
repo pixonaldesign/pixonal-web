@@ -57,7 +57,6 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
       <IndustryKeyAdvantages
         overviewText={industry.overview}
         eyebrow={industry.keyAdvantagesEyebrow}
-        gradient={industry.keyAdvantagesGradient}
         tabs={industry.keyAdvantages}
       />
 

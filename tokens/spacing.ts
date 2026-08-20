@@ -61,4 +61,6 @@ export const layout = {
   cardPadding: { default: 24, md: 28, xl: 40 },
   /** Get in Touch band. Mask falloff lives in `styles/tokens.css`. */
   endCta: { height: 600, fade: 240 },
+  /** Llumen Impact carousel. Overlay and copy live in `styles/tokens.css`. */
+  impactSlide: { height: 800, introGap: 40, copyPadding: 24 },
 } as const;

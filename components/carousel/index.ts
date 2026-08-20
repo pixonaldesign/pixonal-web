@@ -1,6 +1,7 @@
 export { default as Carousel } from './Carousel';
 export { default as CarouselAutoControls } from './CarouselAutoControls';
 export { default as CarouselArrowControls } from './CarouselArrowControls';
+export { default as ImpactCarousel } from './ImpactCarousel';
 export {
   getCarouselContentMaxPx,
   CAROUSEL_GAP_PX,
@@ -14,3 +15,7 @@ export type {
   CarouselSlideRenderContext,
   CarouselTitleVariant,
 } from './types';
+export type {
+  ImpactCarouselBlock,
+  ImpactCarouselSlide,
+} from './ImpactCarousel';
