@@ -1,14 +1,19 @@
 import type { NextConfig } from "next";
 
-const isGithubPages = process.env.GITHUB_PAGES === "true";
+const basePath =
+  process.env.GITHUB_PAGES === "true" ? "/pixonal-web" : "";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: "export",
   trailingSlash: true,
+  basePath: basePath || undefined,
+  assetPrefix: basePath || undefined,
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
-  ...(isGithubPages ? { basePath: '/pixonal-web' } : {}),
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
 };
 
 export default nextConfig;

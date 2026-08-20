@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import remarkHtml from 'remark-html';
 import type { NewsArticle } from '@/lib/news';
+import { prefixHtmlAssets } from '@/lib/base-path';
 
 export type { NewsArticle } from '@/lib/news';
 export { getNewsArticleHref, isExternalNewsArticle } from '@/lib/news';
@@ -26,7 +27,7 @@ export async function getAllNewsArticles(): Promise<NewsArticle[]> {
         const processedContent = await remark()
           .use(remarkHtml)
           .process(content);
-        const contentHtml = processedContent.toString();
+        const contentHtml = prefixHtmlAssets(processedContent.toString());
 
         // Calculate reading time (average 200 words per minute)
         const wordCount = content.split(/\s+/).length;
@@ -69,7 +70,7 @@ export async function getNewsArticle(slug: string): Promise<NewsArticle | null> 
     const processedContent = await remark()
       .use(remarkHtml)
       .process(content);
-    const contentHtml = processedContent.toString();
+    const contentHtml = prefixHtmlAssets(processedContent.toString());
 
     // Calculate reading time
     const wordCount = content.split(/\s+/).length;
@@ -143,7 +144,7 @@ export async function getAllCaseStudies(): Promise<CaseStudy[]> {
         const processedContent = await remark()
           .use(remarkHtml)
           .process(content);
-        const contentHtml = processedContent.toString();
+        const contentHtml = prefixHtmlAssets(processedContent.toString());
 
         return {
           slug,
@@ -175,7 +176,7 @@ export async function getCaseStudy(slug: string): Promise<CaseStudy | null> {
     const processedContent = await remark()
       .use(remarkHtml)
       .process(content);
-    const contentHtml = processedContent.toString();
+    const contentHtml = prefixHtmlAssets(processedContent.toString());
 
     return {
       slug,

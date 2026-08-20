@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from '@/components/PrefixedImage';
 import HeroSection from '@/components/HeroSection';
 import HeroVideoBackground from '@/components/HeroVideoBackground';
 import HeroBlurOverlay from '@/components/HeroBlurOverlay';

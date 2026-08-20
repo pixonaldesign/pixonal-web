@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import Image from '@/components/PrefixedImage';
 import PixonalIcon from '@/components/PixonalIcon';
 import {
   licenseRows,

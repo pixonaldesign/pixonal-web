@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from '@/components/PrefixedImage';
 import type { KeyHighlight } from '@/lib/key-highlights';
 import { KEY_HIGHLIGHT_GRADIENT } from '@/lib/key-highlights';
 

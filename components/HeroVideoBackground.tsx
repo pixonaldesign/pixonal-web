@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { withBasePath } from '@/lib/base-path';
 
 interface HeroVideoBackgroundProps {
   src: string;
@@ -52,9 +53,9 @@ export default function HeroVideoBackground({
       muted
       loop
       playsInline
-      poster={poster}
+      poster={poster ? withBasePath(poster) : undefined}
     >
-      <source src={src} type={type} />
+      <source src={withBasePath(src)} type={type} />
     </video>
   );
 }

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from '@/components/PrefixedImage';
 import SecondaryButton from './SecondaryButton';
 
 export default function BlogHero() {

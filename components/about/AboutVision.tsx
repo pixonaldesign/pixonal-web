@@ -1,4 +1,5 @@
 import { aboutVision } from '@/lib/about';
+import { withBasePath } from '@/lib/base-path';
 import AboutSectionHeader from './AboutSectionHeader';
 
 /**
@@ -27,7 +28,7 @@ export default function AboutVision() {
             loop
             playsInline
           >
-            <source src={aboutVision.video} type="video/mp4" />
+            <source src={withBasePath(aboutVision.video)} type="video/mp4" />
           </video>
         </div>
       </div>

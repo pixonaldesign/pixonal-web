@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from '@/components/PrefixedImage';
 import type { CaseStudyPointsSection } from '@/lib/industry-case-studies';
 import CaseStudyPointsBlock from './CaseStudyPointsBlock';
 

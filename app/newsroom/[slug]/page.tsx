@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import GetInTouch from '@/components/GetInTouch';
 import { getNewsArticle, getAllNewsArticles } from '@/lib/markdown';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from '@/components/PrefixedImage';
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;

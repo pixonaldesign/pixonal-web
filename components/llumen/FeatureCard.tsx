@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react';
-import Image from 'next/image';
+import Image from '@/components/PrefixedImage';
+import { withBasePath } from '@/lib/base-path';
 import type { FeatureCard as FeatureCardType } from '@/lib/llumen-content';
 import { resolveFeatureCardWidth } from '@/lib/feature-card-layout';
 
@@ -34,6 +35,7 @@ export default function FeatureCard({ card, width }: FeatureCardProps) {
   const isVideo = isVideoSource(card);
   const isBleed = card.bleed === true;
   const hasMedia = !!card.image;
+  const mediaSrc = card.image ? withBasePath(card.image) : '';
 
   const backgroundStyle: CSSProperties = card.cardBackground
     ? { background: card.cardBackground }
@@ -58,7 +60,7 @@ export default function FeatureCard({ card, width }: FeatureCardProps) {
           isBleed ? (
             isVideo ? (
               <video
-                src={card.image}
+                src={mediaSrc}
                 autoPlay
                 loop
                 muted
@@ -84,7 +86,7 @@ export default function FeatureCard({ card, width }: FeatureCardProps) {
             <div className="relative w-full h-full">
               {isVideo ? (
                 <video
-                  src={card.image}
+                  src={mediaSrc}
                   autoPlay
                   loop
                   muted

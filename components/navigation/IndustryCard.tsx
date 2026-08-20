@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from '@/components/PrefixedImage';
 import PixonalIcon from '@/components/PixonalIcon';
 import type { IndustryMenuItem } from './nav-config';
 

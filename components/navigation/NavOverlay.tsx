@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from '@/components/PrefixedImage';
 import type { NewsArticle } from '@/lib/news';
 import PixonalIcon from '@/components/PixonalIcon';
 import NewsArticleLink from '@/components/newsroom/NewsArticleLink';
