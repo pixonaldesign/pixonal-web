@@ -115,7 +115,7 @@ export default function PartnerCardsGrid({
             ref={(node) => {
               cardsRef.current[index] = node;
             }}
-            className={`relative flex h-full min-h-0 flex-col overflow-hidden aspect-square p-4 ${impactCardShellClass}`}
+            className={`relative flex h-full min-h-0 flex-col overflow-hidden aspect-square p-5 ${impactCardShellClass}`}
             style={
               {
                 '--glow-x': '-200px',
@@ -163,18 +163,22 @@ export default function PartnerCardsGrid({
                 }}
               />
             ) : null}
-            <div className="relative z-10 flex h-full min-h-0 flex-col justify-between">
-              <div className="flex h-12 max-w-[160px] items-center justify-start">
+            <div className="relative z-10 flex h-full min-h-0 flex-col">
+              <div className="flex h-14 items-center justify-start">
                 <Image
                   src={partner.logo}
                   alt={partner.name}
-                  width={160}
-                  height={48}
-                  className="h-full w-auto max-w-full object-contain object-left filter brightness-0 invert"
+                  width={280}
+                  height={56}
+                  className="h-14 w-auto max-w-full object-contain object-left filter brightness-0 invert"
                 />
               </div>
-              <p className="text-lead text-white">{partner.description}</p>
-              <h3 className="text-label text-white/40">{partner.industry}</h3>
+              <div className="mt-auto flex flex-col gap-stack">
+                <p className="text-lead text-white">{partner.description}</p>
+                <h3 className="text-partner-industry text-white/40">
+                  {partner.industry}
+                </h3>
+              </div>
             </div>
           </article>
         </li>
