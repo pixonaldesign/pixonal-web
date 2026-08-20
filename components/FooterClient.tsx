@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from '@/components/PrefixedImage';
+import Image from 'next/image';
 import {
   companyMenuLinks,
   industriesMenuItems,
@@ -59,7 +59,7 @@ function FooterLinkList({
   items: readonly { href: string; label: string }[];
 }) {
   return (
-    <nav aria-label={heading} className="flex flex-col gap-stack">
+    <nav aria-label={heading} className="flex min-w-0 flex-col gap-stack">
       <p className="text-label text-white/40 uppercase">{heading}</p>
       <ul role="list" className="flex flex-col gap-tight">
         {items.map((item) => (
@@ -75,8 +75,8 @@ function FooterLinkList({
 export default function FooterClient() {
   return (
     <div className="flex flex-col gap-footer">
-      <div className="grid grid-cols-1 gap-section sm:grid-cols-2 lg:grid-cols-6 lg:gap-block">
-        <div className="sm:col-span-2 lg:col-span-2">
+      <div className="grid grid-cols-1 gap-section sm:grid-cols-2 lg:grid-cols-5 lg:gap-block">
+        <div className="min-w-0">
           <Link href="/" aria-label="Pixonal home" className="inline-flex">
             <Image
               src="/images/logo.svg"

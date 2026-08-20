@@ -3,24 +3,25 @@ import { notFound } from 'next/navigation';
 import GetInTouch from '@/components/GetInTouch';
 import { getNewsArticle, getAllNewsArticles } from '@/lib/markdown';
 import Link from 'next/link';
-import Image from '@/components/PrefixedImage';
+import Image from 'next/image';
 
 interface ArticlePageProps {
-  params: Promise<{ slug: string }>;
+  params: {
+    slug: string;
+  };
 }
 
 export async function generateStaticParams() {
   const articles = await getAllNewsArticles();
   return articles
-    .filter((article) => article.slug)
+    .filter((article) => article.slug && !article.externalUrl)
     .map((article) => ({
       slug: article.slug,
     }));
 }
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const article = await getNewsArticle(slug);
+  const article = await getNewsArticle(params.slug);
   
   if (!article) {
     return {
@@ -40,8 +41,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-  const { slug } = await params;
-  const article = await getNewsArticle(slug);
+  const article = await getNewsArticle(params.slug);
 
   if (!article) {
     notFound();

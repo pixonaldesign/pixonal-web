@@ -1,4 +1,4 @@
-import Image from '@/components/PrefixedImage';
+import Image from 'next/image';
 import type { AboutLogo } from '@/lib/about';
 
 interface AboutLogosSectionProps {

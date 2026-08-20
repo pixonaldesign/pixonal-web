@@ -1,4 +1,4 @@
-import Image from '@/components/PrefixedImage';
+import Image from 'next/image';
 import {
   CASE_STUDY_ANCHOR_ID,
   type CaseStudyPointsSection,

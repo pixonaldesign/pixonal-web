@@ -48,7 +48,7 @@
   --spacing-gap-stack: var(--spacing-3);
   --spacing-gap-inline: var(--spacing-2);
   --spacing-gap-block: var(--spacing-6);
-  --spacing-gap-footer: var(--spacing-25);
+  --spacing-gap-footer: var(--spacing-30);
   --spacing-card-sm: var(--spacing-3);
   --spacing-button-x: var(--spacing-4);
   --spacing-button-y: var(--spacing-3);
@@ -96,6 +96,23 @@
   --layout-gap-feature: 48px;
   --layout-card-padding: 24px;
   --layout-radius-card: 16px;
+
+  /* End-of-page card: Get in Touch stacked over a content-hugging footer.
+   * The CTA uses an alpha mask (not an overlay) so it becomes transparent
+   * into the footer. `--end-cta-fade` is both the mask falloff and the
+   * amount the footer tucks under the CTA. */
+  --layout-end-cta-height: 600px;
+  --end-cta-fade: 240px;
+  --end-cta-mask: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 35%,
+    rgb(0 0 0 / 0.92) 50%,
+    rgb(0 0 0 / 0.7) 65%,
+    rgb(0 0 0 / 0.38) 80%,
+    rgb(0 0 0 / 0.12) 92%,
+    rgb(0 0 0 / 0) 100%
+  );
 
   /* Typography — default (< md) */
   --text-display-size: 48px;
@@ -213,7 +230,7 @@
     font-size: var(--text-footer-tagline-size);
     line-height: var(--text-footer-tagline-line-height);
     letter-spacing: var(--tracking-sans);
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .text-figure {
@@ -288,7 +305,7 @@
     font-size: var(--text-body-size);
     line-height: var(--text-button-line-height);
     letter-spacing: var(--tracking-sans);
-    font-weight: 400;
+    font-weight: 500;
     text-transform: capitalize;
   }
 
@@ -363,6 +380,22 @@
 
   .gap-footer {
     gap: var(--spacing-gap-footer);
+  }
+
+  .h-end-cta {
+    height: var(--layout-end-cta-height);
+  }
+
+  .end-cta-mask {
+    -webkit-mask-image: var(--end-cta-mask);
+    mask-image: var(--end-cta-mask);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-mode: alpha;
+    mask-mode: alpha;
+    transform: translateZ(0);
   }
 
   .gap-section {
@@ -494,4 +527,55 @@
     clip-path: none;
     transform: none;
   }
+
+  .button-mask-out,
+  .button-mask-in,
+  .group\/btn:hover .button-mask-out,
+  .group\/btn:hover .button-mask-in {
+    transition: none;
+    clip-path: none;
+    transform: none;
+  }
+}
+
+.button-mask-slot {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.button-mask-out,
+.button-mask-in {
+  display: block;
+  font-weight: 500;
+  transition-property: transform, clip-path;
+  transition-duration: 620ms;
+  transition-delay: 0ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.button-mask-out {
+  clip-path: inset(0 0 0 0);
+  transform: translateY(0);
+}
+
+.button-mask-in {
+  position: absolute;
+  left: 0;
+  top: 0;
+  clip-path: inset(100% 0 0 0);
+  transform: translateY(100%);
+  pointer-events: none;
+}
+
+.group\/btn:hover .button-mask-out {
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(-100%);
+}
+
+.group\/btn:hover .button-mask-in {
+  clip-path: inset(0 0 0 0);
+  transform: translateY(0);
+  transition-delay: 90ms;
 }

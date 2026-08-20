@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from '@/components/PrefixedImage';
+import Image from 'next/image';
 import type { IndustryCaseStudyCard } from '@/lib/industry-case-studies';
 import { impactCardHoverVars } from '@/components/home/impact-card';
 

@@ -9,9 +9,9 @@ interface PrimaryButtonProps {
 }
 
 const buttonClassName =
-  'opacity-95 bg-white rounded-[10px] p-3 inline-flex items-center justify-center capitalize hover:opacity-90 transition-opacity';
+  'group/btn opacity-95 bg-white rounded-[10px] p-3 inline-flex items-center justify-center hover:opacity-100 transition-opacity';
 
-const labelClassName = 'text-black text-button';
+const labelClassName = 'button-mask-slot text-black text-button normal-case';
 
 export default function PrimaryButton({
   children,
@@ -21,7 +21,14 @@ export default function PrimaryButton({
   className = '',
 }: PrimaryButtonProps) {
   const classes = `${buttonClassName} ${className}`.trim();
-  const label = <span className={labelClassName}>{children}</span>;
+  const label = (
+    <span className={labelClassName}>
+      <span className="button-mask-out">{children}</span>
+      <span className="button-mask-in" aria-hidden>
+        {children}
+      </span>
+    </span>
+  );
 
   if (href) {
     return (

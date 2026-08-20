@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Partners from '@/components/Partners';
-import GetInTouchHero from '@/components/GetInTouchHero';
 import AboutHero from '@/components/about/AboutHero';
 import AboutStorySection from '@/components/about/AboutStorySection';
 import AboutVision from '@/components/about/AboutVision';
@@ -69,8 +68,6 @@ export default function AboutPage() {
         columnsClassName="lg:grid-cols-5"
         cardPaddingClassName="p-5 lg:p-6"
       />
-
-      <GetInTouchHero />
     </>
   );
 }

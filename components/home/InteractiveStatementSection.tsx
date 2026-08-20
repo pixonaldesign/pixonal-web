@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useRef, useState } from 'react';
-import Image from '@/components/PrefixedImage';
+import Image from 'next/image';
 import {
   interactiveStatementCopy,
   interactiveStatementIdleEyebrow,

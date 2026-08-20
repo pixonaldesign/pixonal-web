@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, type CSSProperties } from 'react';
-import Image from '@/components/PrefixedImage';
+import Image from 'next/image';
 import { impactCardShellClass } from '@/components/home/impact-card';
 import NoiseTexture from '@/components/NoiseTexture';
 

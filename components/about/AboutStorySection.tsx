@@ -1,6 +1,6 @@
 'use client';
 
-import Image from '@/components/PrefixedImage';
+import Image from 'next/image';
 import { Carousel } from '@/components/carousel';
 import type {
   CarouselControlVariant,

@@ -1,4 +1,4 @@
-import Image from '@/components/PrefixedImage';
+import Image from 'next/image';
 import HeroSection from './HeroSection';
 import HeroVideoBackground from './HeroVideoBackground';
 import PrimaryButton from './PrimaryButton';

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import GetInTouchHero from '@/components/GetInTouchHero';
 import IndustryHero from '@/components/industries/IndustryHero';
 import IndustryKeyAdvantages from '@/components/industries/IndustryKeyAdvantages';
 import IndustryCaseStudy from '@/components/industries/IndustryCaseStudy';
@@ -63,8 +62,6 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
       />
 
       {caseStudy ? <IndustryCaseStudy data={caseStudy} /> : null}
-
-      <GetInTouchHero />
     </>
   );
 }

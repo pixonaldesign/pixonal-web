@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import GetInTouchHero from '@/components/GetInTouchHero';
 import KeyHighlightsCarousel from '@/components/llumen/KeyHighlightsCarousel';
 import LlumenHero from '@/components/llumen/LlumenHero';
 import LlumenFeatureSection from '@/components/llumen/LlumenFeatureSection';
@@ -40,8 +39,6 @@ export default function LlumenPage() {
       <LlumenRolesSection />
       <LlumenImpactSection />
       <LlumenLicensesTable />
-
-      <GetInTouchHero />
     </>
   );
 }

@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import { withBasePath } from '@/lib/base-path';
 
 interface ImageIdlePreloaderProps {
   srcs: string[];
@@ -24,7 +23,7 @@ export default function ImageIdlePreloader({ srcs }: ImageIdlePreloaderProps) {
         if (cancelled) return;
         const img = new window.Image();
         img.decoding = 'async';
-        img.src = withBasePath(src);
+        img.src = src;
         void img.decode?.().catch(() => undefined);
       });
     };

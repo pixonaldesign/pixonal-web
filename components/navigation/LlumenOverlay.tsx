@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from '@/components/PrefixedImage';
+import Image from 'next/image';
 import {
   llumenMenu,
   llumenMenuItems,

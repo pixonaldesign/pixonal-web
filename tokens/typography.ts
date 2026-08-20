@@ -129,7 +129,7 @@ export const typeMeta = {
   body: { family: 'sans', weight: 400, transform: 'none' as const },
   'body-tight': { family: 'sans', weight: 400, transform: 'none' as const },
   'body-relaxed': { family: 'sans', weight: 400, transform: 'none' as const },
-  button: { family: 'sans', weight: 400, transform: 'capitalize' as const },
+  button: { family: 'sans', weight: 500, transform: 'capitalize' as const },
   nav: { family: 'sans', weight: 400, transform: 'capitalize' as const },
   label: { family: 'mono', weight: 600, transform: 'uppercase' as const },
   stat: { family: 'mono', weight: 600, transform: 'capitalize' as const },

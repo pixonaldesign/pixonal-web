@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import Image from '@/components/PrefixedImage';
+import Image from 'next/image';
 import CarouselAutoControls from '@/components/carousel/CarouselAutoControls';
 import { CAROUSEL_SLIDE_DURATION_MS } from '@/components/carousel/constants';
 import PixonalIcon from '@/components/PixonalIcon';

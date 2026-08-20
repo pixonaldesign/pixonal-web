@@ -1,4 +1,4 @@
-import Image from '@/components/PrefixedImage';
+import Image from 'next/image';
 import SecondaryButton from '@/components/SecondaryButton';
 import type { IndustryImpactCase as ImpactCase } from '@/lib/industries';
 

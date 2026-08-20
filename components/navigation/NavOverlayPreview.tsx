@@ -1,4 +1,4 @@
-import Image from '@/components/PrefixedImage';
+import Image from 'next/image';
 
 interface NavOverlayPreviewProps {
   src: string;

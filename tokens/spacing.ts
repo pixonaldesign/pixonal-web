@@ -38,7 +38,7 @@ export const spacingSemantic = {
   'gap-stack': space[3],
   'gap-inline': space[2],
   'gap-block': space[6],
-  'gap-footer': space[25],
+  'gap-footer': space[30],
   'padding-card-sm': space[3],
   'padding-button-x': space[4],
   'padding-button-y': space[3],
@@ -58,4 +58,6 @@ export const layout = {
   gapSection: { default: 40, md: 56, xl: 80 },
   gapFeature: { default: 48, md: 72, xl: 120 },
   cardPadding: { default: 24, md: 28, xl: 40 },
+  /** Get in Touch band. Mask falloff lives in `styles/tokens.css`. */
+  endCta: { height: 600, fade: 240 },
 } as const;

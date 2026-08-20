@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import GetInTouchHero from '@/components/GetInTouchHero';
 import NewsroomHero from '@/components/newsroom/NewsroomHero';
 import NewsroomTabs from '@/components/newsroom/NewsroomTabs';
 import { getAllNewsArticles } from '@/lib/markdown';
@@ -25,8 +24,6 @@ export default async function NewsroomPage() {
       <NewsroomHero />
 
       <NewsroomTabs articles={articles} />
-
-      <GetInTouchHero />
     </>
   );
 }

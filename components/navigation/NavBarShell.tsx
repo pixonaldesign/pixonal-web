@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from '@/components/PrefixedImage';
+import Image from 'next/image';
 import NavLink from '@/components/NavLink';
 import PixonalIcon from '@/components/PixonalIcon';
 import PrimaryButton from '@/components/PrimaryButton';
@@ -16,9 +16,8 @@ import {
 } from './nav-config';
 import NavTabUnderline from './NavTabUnderline';
 
-const tabCellClass =
-  'h-full w-[150px] border-l border-white/10 flex items-center justify-center shrink-0';
-const tabLinkClass = `${tabCellClass} group/tab`;
+const tabLinkClass =
+  'h-full px-5 flex items-center justify-center group/tab';
 
 function NavTabLabel({
   label,
@@ -84,7 +83,7 @@ export default function NavBarShell({
 }: NavBarShellProps) {
   return (
     <div
-      className={`w-full h-[66px] pl-5 pr-3.5 lg:pr-0 flex justify-between items-center border border-white/10 transition-[border-radius,background,backdrop-filter] relative z-[60] ${
+      className={`relative z-[60] grid h-[66px] w-full grid-cols-[1fr_auto_1fr] items-center border border-white/10 pl-5 pr-2.5 transition-[border-radius,background,backdrop-filter] ${
         isMenuOpen
           ? `${navMenuSurfaceClass} rounded-t-card rounded-b-none border-b border-white/10`
           : `rounded-card ${navMenuSurfaceClass}`
@@ -92,7 +91,7 @@ export default function NavBarShell({
     >
       <Link
         href="/"
-        className="shrink-0 pl-1"
+        className="justify-self-start shrink-0 pl-1"
         aria-label="Pixonal home"
         onMouseEnter={onHoverDismiss}
       >
@@ -106,8 +105,7 @@ export default function NavBarShell({
         />
       </Link>
 
-      <div className="flex h-full items-center self-stretch min-w-0">
-        <ul className="hidden lg:flex h-full items-stretch" role="list">
+      <ul className="hidden h-full items-stretch lg:flex" role="list">
           {primaryNavLinks.map((item) => {
             const isLlumen = item.href === LLUMEN_HREF;
             const isIndustries = item.href === INDUSTRIES_HREF;
@@ -191,42 +189,39 @@ export default function NavBarShell({
               <NavTabLabel label="Company" isOpen={isCompanyOpen} showToggle />
             </Link>
           </li>
-        </ul>
+      </ul>
 
-        <div className="flex h-full items-center shrink-0">
-          <div className={tabCellClass} onMouseEnter={onHoverDismiss}>
-            <PrimaryButton href={contactCta.href} className="normal-case">
-              {contactCta.label}
-            </PrimaryButton>
-          </div>
+      <div className="flex h-full items-center justify-self-end" onMouseEnter={onHoverDismiss}>
+        <PrimaryButton href={contactCta.href} className="normal-case">
+          {contactCta.label}
+        </PrimaryButton>
 
-          <button
-            type="button"
-            className="lg:hidden opacity-95 p-2.5 rounded-[10px] flex items-center justify-center hover:bg-white/5 transition-colors"
-            onClick={onMenuToggle}
-            aria-expanded={isMenuOpen}
-            aria-controls={menuPanelId}
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-          >
-            {isMenuOpen ? (
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M19.2806 17.9693L11.9999 12.8102L5.78055 19.0306C5.63982 19.1713 5.44895 19.2503 5.24993 19.2503C5.05091 19.2503 4.86003 19.1713 4.7193 19.0306C4.57857 18.8898 4.49951 18.699 4.49951 18.4999C4.49951 18.3009 4.57857 18.11 4.7193 17.9693L10.9396 11.7499L4.7193 5.53055C4.57857 5.38982 4.49951 5.19895 4.49951 4.99993C4.49951 4.80091 4.57857 4.61003 4.7193 4.4693C4.86003 4.32857 5.05091 4.24951 5.24993 4.24951C5.44895 4.24951 5.63982 4.32857 5.78055 4.4693L11.9999 10.6896L18.2193 4.4693C18.36 4.32857 18.5509 4.24951 18.7499 4.24951C18.949 4.24951 19.1398 4.32857 19.2806 4.4693C19.4213 4.61003 19.5003 4.80091 19.5003 4.99993C19.5003 5.19895 19.4213 5.38982 19.2806 5.53055L13.0602 11.7499L19.2806 17.9693Z"
-                  fill="white"
-                />
-              </svg>
-            ) : (
-              <PixonalIcon name="list" size={24} className="text-[#F6F6F6]" weight="regular" />
-            )}
-          </button>
-        </div>
+        <button
+          type="button"
+          className="lg:hidden opacity-95 p-2.5 rounded-[10px] flex items-center justify-center hover:bg-white/5 transition-colors"
+          onClick={onMenuToggle}
+          aria-expanded={isMenuOpen}
+          aria-controls={menuPanelId}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+        >
+          {isMenuOpen ? (
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M19.2806 17.9693L11.9999 12.8102L5.78055 19.0306C5.63982 19.1713 5.44895 19.2503 5.24993 19.2503C5.05091 19.2503 4.86003 19.1713 4.7193 19.0306C4.57857 18.8898 4.49951 18.699 4.49951 18.4999C4.49951 18.3009 4.57857 18.11 4.7193 17.9693L10.9396 11.7499L4.7193 5.53055C4.57857 5.38982 4.49951 5.19895 4.49951 4.99993C4.49951 4.80091 4.57857 4.61003 4.7193 4.4693C4.86003 4.32857 5.05091 4.24951 5.24993 4.24951C5.44895 4.24951 5.63982 4.32857 5.78055 4.4693L11.9999 10.6896L18.2193 4.4693C18.36 4.32857 18.5509 4.24951 18.7499 4.24951C18.949 4.24951 19.1398 4.32857 19.2806 4.4693C19.4213 4.61003 19.5003 4.80091 19.5003 4.99993C19.5003 5.19895 19.4213 5.38982 19.2806 5.53055L13.0602 11.7499L19.2806 17.9693Z"
+                fill="white"
+              />
+            </svg>
+          ) : (
+            <PixonalIcon name="list" size={24} className="text-[#F6F6F6]" weight="regular" />
+          )}
+        </button>
       </div>
     </div>
   );

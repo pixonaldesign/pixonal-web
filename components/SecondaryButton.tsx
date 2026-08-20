@@ -18,19 +18,19 @@ const variantStyles: Record<
   { button: string; label: string; icon: string }
 > = {
   'on-dark': {
-    button: 'border-white bg-black/20 hover:bg-white/10',
+    button: 'border-white bg-black/20',
     label: 'text-white',
     icon: 'text-white',
   },
   'on-light': {
-    button: 'border-black bg-transparent hover:bg-black/5',
+    button: 'border-black bg-transparent',
     label: 'text-black',
     icon: 'text-black',
   },
 };
 
 const baseButtonClassName =
-  'inline-flex items-center justify-center gap-tight h-12 px-button rounded-xl border backdrop-blur-2xl transition-colors';
+  'group/btn inline-flex items-center justify-center gap-tight h-12 px-button rounded-xl border backdrop-blur-2xl';
 
 export default function SecondaryButton({
   children,
@@ -43,12 +43,22 @@ export default function SecondaryButton({
 }: SecondaryButtonProps) {
   const styles = variantStyles[variant];
   const classes = `${baseButtonClassName} ${styles.button} ${className}`.trim();
-  const label = (
-    <span className={`text-button inline-flex items-center gap-tight ${styles.label}`}>
+  const content = (
+    <span className="inline-flex items-center gap-tight">
       <span>{children}</span>
-      {showArrow && (
+      {showArrow ? (
         <PixonalIcon name="arrow-right" size={24} className={styles.icon} />
-      )}
+      ) : null}
+    </span>
+  );
+  const label = (
+    <span
+      className={`button-mask-slot text-button ${styles.label}`}
+    >
+      <span className="button-mask-out">{content}</span>
+      <span className="button-mask-in" aria-hidden>
+        {content}
+      </span>
     </span>
   );
 
