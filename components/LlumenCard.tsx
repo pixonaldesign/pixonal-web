@@ -9,10 +9,7 @@ export default function LlumenCard() {
     <HeroSection
       ariaLabelledBy="home-llumen-heading"
       background={
-        <HeroVideoBackground
-          src="/videos/llumen/llumen-hero-video.mp4"
-          poster="/images/llumen-preview.png"
-        />
+        <HeroVideoBackground src="/videos/llumen/llumen-hero-video.mp4" />
       }
       overlay={
         <div aria-hidden className="absolute inset-0 z-[1] bg-black/50" />
