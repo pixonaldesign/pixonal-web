@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/PrefixedImage';
 import { Carousel } from '@/components/carousel';
 import type { FeatureSectionContent } from '@/lib/llumen-content';
 import { resolveFeatureCardWidth } from '@/lib/feature-card-layout';

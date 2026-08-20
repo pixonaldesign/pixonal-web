@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from '@/components/PrefixedImage';
 import { getAllCaseStudies, getCaseStudy } from '@/lib/markdown';
 import PixonalIcon from '@/components/PixonalIcon';
 import GetInTouch from '@/components/GetInTouch';

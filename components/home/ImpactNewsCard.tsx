@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from '@/components/PrefixedImage';
 import type { NewsArticle } from '@/lib/news';
 import NewsArticleLink from '@/components/newsroom/NewsArticleLink';
 import {

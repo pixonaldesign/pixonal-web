@@ -5,6 +5,28 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "next/image",
+              message:
+                "Import Image from @/components/PrefixedImage. Static export on GitHub Pages does not prefix basePath onto next/image srcs.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ["components/PrefixedImage.tsx"],
+    rules: {
+      "no-restricted-imports": "off",
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import Image from '@/components/PrefixedImage';
 import CarouselAutoControls from '@/components/carousel/CarouselAutoControls';
 import { breakpoints } from '@/tokens/breakpoints';
 import { useWindowWidth } from '@/hooks/useWindowWidth';

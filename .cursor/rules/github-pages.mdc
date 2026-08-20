@@ -1,0 +1,18 @@
+---
+description: GitHub Pages static export — keep public assets prefixed so deploys do not 404
+alwaysApply: true
+---
+
+# GitHub Pages (mandatory)
+
+The site is a static export (`output: 'export'`) deployed to GitHub Pages
+under `/pixonal-web`. Local `next dev` has no base path. Both must keep working.
+
+- Import images from `@/components/PrefixedImage`, never `next/image`.
+  Unoptimized `next/image` does not add `basePath`, so images 404 on Pages.
+- Prefix raw `<img>`, `<video>`, CSS `url()`, and `new Image().src` with
+  `withBasePath()` from `@/lib/base-path`. Fonts in `app/globals.css` must use
+  `url('../public/fonts/...')` so the bundler emits hashed files under the prefix.
+- Every `app/**/[slug]` route needs `generateStaticParams()` that returns a
+  non-empty list (include external news slugs). An empty list fails the Pages build.
+- Do not revert these prefixes when editing UI.

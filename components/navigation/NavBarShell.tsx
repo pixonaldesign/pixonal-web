@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from '@/components/PrefixedImage';
 import NavLink from '@/components/NavLink';
 import PixonalIcon from '@/components/PixonalIcon';
 import PrimaryButton from '@/components/PrimaryButton';

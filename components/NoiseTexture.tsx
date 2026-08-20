@@ -1,3 +1,4 @@
+import { withBasePath } from '@/lib/base-path';
 import { noiseTextureConfig } from '@/lib/noise-texture-config';
 
 interface NoiseTextureProps {
@@ -18,7 +19,7 @@ export default function NoiseTexture({ opacity }: NoiseTextureProps) {
         opacity: opacity ?? noiseTextureConfig.opacity,
         mixBlendMode: 'screen',
         filter: `contrast(${noiseTextureConfig.contrast})`,
-        backgroundImage: 'url(/images/textures/noise.png)',
+        backgroundImage: `url(${withBasePath('/images/textures/noise.png')})`,
         backgroundRepeat: 'repeat',
         backgroundSize: `${noiseTextureConfig.tileSizePx}px`,
       }}
